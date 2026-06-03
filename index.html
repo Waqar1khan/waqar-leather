@@ -1,6 +1,7 @@
+```html
 <!DOCTYPE html>
-
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -19,6 +20,7 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
+scroll-behavior:smooth;
 }
 
 body{
@@ -27,7 +29,7 @@ background:#f5f5f5;
 color:#222;
 }
 
-/* TOP BAR */
+/* TOPBAR */
 
 .topbar{
 background:#111;
@@ -47,11 +49,11 @@ font-weight:700;
 }
 
 .menu-btn{
-font-size:32px;
+font-size:34px;
 cursor:pointer;
 }
 
-/* SIDE MENU */
+/* SIDEBAR */
 
 .sidebar{
 height:100%;
@@ -67,7 +69,7 @@ z-index:2000;
 }
 
 .sidebar a{
-padding:15px 30px;
+padding:16px 30px;
 text-decoration:none;
 font-size:20px;
 color:white;
@@ -96,10 +98,13 @@ url('BAG 1.jpeg');
 
 background-size:cover;
 background-position:center;
-height:85vh;
+
+height:90vh;
+
 display:flex;
 justify-content:center;
 align-items:center;
+
 text-align:center;
 padding:20px;
 color:white;
@@ -112,7 +117,7 @@ margin-bottom:20px;
 
 .hero p{
 font-size:22px;
-margin-bottom:25px;
+margin-bottom:30px;
 }
 
 .btn{
@@ -134,13 +139,13 @@ transform:translateY(-3px);
 /* SECTION */
 
 section{
-padding:70px 20px;
+padding:80px 20px;
 }
 
 h2{
 text-align:center;
-margin-bottom:40px;
-font-size:40px;
+margin-bottom:50px;
+font-size:42px;
 }
 
 /* GALLERY */
@@ -163,21 +168,20 @@ transition:0.4s;
 
 .card:hover{
 transform:translateY(-8px);
+box-shadow:0 15px 30px rgba(0,0,0,.25);
 }
 
 .card img{
 width:100%;
 height:350px;
 object-fit:cover;
+display:block;
+transition:0.4s;
+cursor:pointer;
 }
 
-.card-content{
-padding:20px;
-text-align:center;
-}
-
-.card-content h3{
-margin-bottom:10px;
+.card:hover img{
+transform:scale(1.05);
 }
 
 /* CONTACT */
@@ -186,7 +190,7 @@ margin-bottom:10px;
 background:#111;
 color:white;
 text-align:center;
-padding:70px 20px;
+padding:80px 20px;
 }
 
 .contact a{
@@ -209,7 +213,7 @@ padding:20px;
 @media(max-width:768px){
 
 .hero h1{
-font-size:40px;
+font-size:38px;
 }
 
 .hero p{
@@ -217,7 +221,7 @@ font-size:18px;
 }
 
 h2{
-font-size:30px;
+font-size:32px;
 }
 
 }
@@ -242,7 +246,7 @@ WAQAR LEATHER
 
 </div>
 
-<!-- SIDE MENU -->
+<!-- SIDEBAR -->
 
 <div id="sidebar" class="sidebar">
 
@@ -252,13 +256,13 @@ WAQAR LEATHER
 
 <a href="#home">Home</a>
 
-<a href="#ladies">Ladies Collection</a>
+<a href="#handbags">Handbags</a>
 
 <a href="#mens">Men's Jackets</a>
 
-<a href="#laptop">Laptop Bags</a>
+<a href="#ladies">Women's Collection</a>
 
-<a href="#handbags">Handbags</a>
+<a href="#laptop">Laptop Bags</a>
 
 <a href="#contact">Contact</a>
 
@@ -284,36 +288,42 @@ Order On WhatsApp
 
 </section>
 
-<!-- LADIES -->
+<!-- HANDBAGS -->
 
-<section id="ladies">
+<section id="handbags">
 
-<h2>Ladies Collection</h2>
+<h2>Leather Handbags</h2>
 
 <div class="gallery">
 
 <div class="card">
-<img src="Women 1.jpeg">
-<div class="card-content">
-<h3>Women's Leather Jacket</h3>
-<p>Premium leather fashion collection.</p>
-</div>
+<a href="BAG 1.jpeg" target="_blank">
+<img src="BAG 1.jpeg">
+</a>
 </div>
 
 <div class="card">
-<img src="Women 2.jpeg">
-<div class="card-content">
-<h3>Luxury Ladies Bag</h3>
-<p>Elegant genuine leather handbag.</p>
-</div>
+<a href="Bag 2.jpeg" target="_blank">
+<img src="Bag 2.jpeg">
+</a>
 </div>
 
 <div class="card">
-<img src="Women 3.jpeg">
-<div class="card-content">
-<h3>Fashion Collection</h3>
-<p>Stylish handmade leather design.</p>
+<a href="Bag 3.jpeg" target="_blank">
+<img src="Bag 3.jpeg">
+</a>
 </div>
+
+<div class="card">
+<a href="Bag 4.jpeg" target="_blank">
+<img src="Bag 4.jpeg">
+</a>
+</div>
+
+<div class="card">
+<a href="Bag 5.jpeg" target="_blank">
+<img src="Bag 5.jpeg">
+</a>
 </div>
 
 </div>
@@ -329,27 +339,87 @@ Order On WhatsApp
 <div class="gallery">
 
 <div class="card">
+<a href="Men 1.jpeg" target="_blank">
 <img src="Men 1.jpeg">
-<div class="card-content">
-<h3>Men's Leather Jacket</h3>
-<p>Premium original leather jacket.</p>
-</div>
+</a>
 </div>
 
 <div class="card">
+<a href="Men 2.jpeg" target="_blank">
 <img src="Men 2.jpeg">
-<div class="card-content">
-<h3>Classic Leather Wear</h3>
-<p>Luxury men's fashion collection.</p>
-</div>
+</a>
 </div>
 
 <div class="card">
+<a href="Men 3.jpeg" target="_blank">
 <img src="Men 3.jpeg">
-<div class="card-content">
-<h3>Winter Collection</h3>
-<p>Elegant genuine leather style.</p>
+</a>
 </div>
+
+<div class="card">
+<a href="Men 4.jpeg" target="_blank">
+<img src="Men 4.jpeg">
+</a>
+</div>
+
+<div class="card">
+<a href="Men 5.jpeg" target="_blank">
+<img src="Men 5.jpeg">
+</a>
+</div>
+
+<div class="card">
+<a href="Men 6.jpeg" target="_blank">
+<img src="Men 6.jpeg">
+</a>
+</div>
+
+</div>
+
+</section>
+
+<!-- WOMEN -->
+
+<section id="ladies">
+
+<h2>Women's Collection</h2>
+
+<div class="gallery">
+
+<div class="card">
+<a href="Women 1.jpeg" target="_blank">
+<img src="Women 1.jpeg">
+</a>
+</div>
+
+<div class="card">
+<a href="Women 2.jpeg" target="_blank">
+<img src="Women 2.jpeg">
+</a>
+</div>
+
+<div class="card">
+<a href="Women 3.jpeg" target="_blank">
+<img src="Women 3.jpeg">
+</a>
+</div>
+
+<div class="card">
+<a href="Women 4.jpeg" target="_blank">
+<img src="Women 4.jpeg">
+</a>
+</div>
+
+<div class="card">
+<a href="Women 5.jpeg" target="_blank">
+<img src="Women 5.jpeg">
+</a>
+</div>
+
+<div class="card">
+<a href="Women 6.jpeg" target="_blank">
+<img src="Women 6.jpeg">
+</a>
 </div>
 
 </div>
@@ -365,63 +435,33 @@ Order On WhatsApp
 <div class="gallery">
 
 <div class="card">
-<img src="Bag 4.jpeg">
-<div class="card-content">
-<h3>Laptop Bag</h3>
-<p>Professional business leather bag.</p>
-</div>
-</div>
-
-<div class="card">
-<img src="Bag 5.jpeg">
-<div class="card-content">
-<h3>Office Collection</h3>
-<p>Premium leather laptop bag.</p>
-</div>
-</div>
-
-<div class="card">
+<a href="Bag 6.jpeg" target="_blank">
 <img src="Bag 6.jpeg">
-<div class="card-content">
-<h3>Executive Design</h3>
-<p>Luxury office leather collection.</p>
-</div>
-</div>
-
-</div>
-
-</section>
-
-<!-- HANDBAGS -->
-
-<section id="handbags">
-
-<h2>Handbags Collection</h2>
-
-<div class="gallery">
-
-<div class="card">
-<img src="BAG 1.jpeg">
-<div class="card-content">
-<h3>Luxury Handbag</h3>
-<p>Premium handmade leather handbag.</p>
-</div>
+</a>
 </div>
 
 <div class="card">
-<img src="Bag 2.jpeg">
-<div class="card-content">
-<h3>Cowhide Collection</h3>
-<p>Original genuine leather bag.</p>
-</div>
+<a href="Bag 7.jpeg" target="_blank">
+<img src="Bag 7.jpeg">
+</a>
 </div>
 
 <div class="card">
-<img src="Bag 3.jpeg">
-<div class="card-content">
-<h3>Travel Bag</h3>
-<p>Stylish leather travel collection.</p>
+<a href="Bag 8.jpeg" target="_blank">
+<img src="Bag 8.jpeg">
+</a>
 </div>
+
+<div class="card">
+<a href="Bag 9.jpeg" target="_blank">
+<img src="Bag 9.jpeg">
+</a>
+</div>
+
+<div class="card">
+<a href="Bag 10.jpeg" target="_blank">
+<img src="Bag 10.jpeg">
+</a>
 </div>
 
 </div>
@@ -481,3 +521,4 @@ document.getElementById("sidebar").style.width="0";
 
 </body>
 </html>
+```
