@@ -1,67 +1,109 @@
+```html id="n5swsj"
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Waqar Leather KSA</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
-body{
-font-family:Arial,sans-serif;
+*{
 margin:0;
 padding:0;
-background:#f5f5f5;
+box-sizing:border-box;
 }
 
+body{
+font-family:'Poppins',sans-serif;
+background:#f5f5f5;
+color:#222;
+line-height:1.6;
+}
+
+/* HEADER */
+
 header{
-background:#2b1d14;
+background:
+linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
+url('BAG 1.jpeg');
+
+background-size:cover;
+background-position:center;
 color:white;
 text-align:center;
-padding:60px 20px;
+padding:140px 20px;
 }
 
 header h1{
-font-size:50px;
-margin:0;
+font-size:60px;
+margin-bottom:15px;
 }
 
 header p{
-font-size:20px;
+font-size:22px;
+margin-bottom:10px;
 }
 
 .whatsapp{
 display:inline-block;
-margin-top:20px;
-padding:12px 25px;
+margin-top:25px;
+padding:15px 35px;
 background:#25D366;
 color:white;
 text-decoration:none;
-border-radius:8px;
-font-weight:bold;
+border-radius:10px;
+font-weight:600;
+font-size:18px;
+transition:0.3s;
 }
 
+.whatsapp:hover{
+background:#1ebe5d;
+transform:translateY(-3px);
+}
+
+/* SECTIONS */
+
 section{
-padding:50px 20px;
+padding:70px 20px;
+}
+
+section:nth-child(even){
+background:white;
 }
 
 h2{
 text-align:center;
-margin-bottom:30px;
+margin-bottom:40px;
+font-size:40px;
+color:#111;
 }
 
+/* ABOUT */
+
 .about{
-max-width:900px;
+max-width:1000px;
 margin:auto;
 text-align:center;
 font-size:18px;
 }
 
+/* GALLERY */
+
 .gallery{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+max-width:1300px;
+margin:auto;
 }
 
 .gallery a{
@@ -69,41 +111,91 @@ text-decoration:none;
 }
 
 .gallery img{
-width:280px;
+width:100%;
 height:350px;
 object-fit:cover;
-border-radius:10px;
-box-shadow:0 0 10px rgba(0,0,0,0.2);
-transition:0.3s;
+border-radius:15px;
+box-shadow:0 8px 20px rgba(0,0,0,.15);
+transition:0.4s;
 }
 
 .gallery img:hover{
-transform:scale(1.03);
+transform:translateY(-8px);
+box-shadow:0 12px 25px rgba(0,0,0,.25);
 }
 
+/* FEATURES */
+
+.features{
+max-width:900px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.feature-box{
+background:white;
+padding:30px;
+border-radius:12px;
+text-align:center;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.feature-box h3{
+margin-bottom:15px;
+}
+
+/* CONTACT */
+
 .contact{
-background:#2b1d14;
+background:#111;
 color:white;
 text-align:center;
-padding:50px 20px;
+padding:70px 20px;
 }
 
 .contact a{
 color:#ffd700;
 text-decoration:none;
+font-size:22px;
 }
 
+/* FOOTER */
+
 footer{
-background:#111;
-color:white;
+background:#000;
+color:#aaa;
 text-align:center;
-padding:15px;
+padding:20px;
+font-size:15px;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+header h1{
+font-size:40px;
+}
+
+header p{
+font-size:18px;
+}
+
+h2{
+font-size:32px;
+}
+
 }
 
 </style>
+
 </head>
 
 <body>
+
+<!-- HEADER -->
 
 <header>
 
@@ -119,6 +211,8 @@ WhatsApp Us
 
 </header>
 
+<!-- ABOUT -->
+
 <section>
 
 <h2>About Us</h2>
@@ -126,21 +220,27 @@ WhatsApp Us
 <div class="about">
 
 <p>
-We manufacture genuine leather bags, cowhide bags, laptop bags,
-men's jackets, women's jackets and custom leather products.
+We manufacture premium genuine leather bags, cowhide bags, laptop bags, men's jackets, women's jackets and custom-made leather products.
 </p>
 
 <br>
 
 <p>
-Choose your preferred leather, color and design.
-We can create custom products according to your requirements.
-All products include genuine leather guarantee.
+Send your own design, image or sample and we can manufacture according to your requirements.
+Choose your leather type, colors and finishing style.
+</p>
+
+<br>
+
+<p>
+All products come with genuine leather assurance and premium quality finishing.
 </p>
 
 </div>
 
 </section>
+
+<!-- GALLERY -->
 
 <section>
 
@@ -149,71 +249,90 @@ All products include genuine leather guarantee.
 <div class="gallery">
 
 <a href="BAG 1.jpeg" target="_blank"><img src="BAG 1.jpeg"></a>
+
 <a href="Bag 2.jpeg" target="_blank"><img src="Bag 2.jpeg"></a>
+
 <a href="Bag 3.jpeg" target="_blank"><img src="Bag 3.jpeg"></a>
+
 <a href="Bag 4.jpeg" target="_blank"><img src="Bag 4.jpeg"></a>
+
 <a href="Bag 5.jpeg" target="_blank"><img src="Bag 5.jpeg"></a>
+
 <a href="Bag 6.jpeg" target="_blank"><img src="Bag 6.jpeg"></a>
+
 <a href="Bag 7.jpeg" target="_blank"><img src="Bag 7.jpeg"></a>
+
 <a href="Bag 8.jpeg" target="_blank"><img src="Bag 8.jpeg"></a>
+
 <a href="Bag 9.jpeg" target="_blank"><img src="Bag 9.jpeg"></a>
+
 <a href="Bag 10.jpeg" target="_blank"><img src="Bag 10.jpeg"></a>
 
 <a href="Men 1.jpeg" target="_blank"><img src="Men 1.jpeg"></a>
+
 <a href="Men 2.jpeg" target="_blank"><img src="Men 2.jpeg"></a>
+
 <a href="Men 3.jpeg" target="_blank"><img src="Men 3.jpeg"></a>
+
 <a href="Men 4.jpeg" target="_blank"><img src="Men 4.jpeg"></a>
-<a href="Men 5.jpeg" target="_blank"><img src="Men 5.jpeg"></a>
-<a href="Men 6.jpeg" target="_blank"><img src="Men 6.jpeg"></a>
-<a href="Men 7.jpeg" target="_blank"><img src="Men 7.jpeg"></a>
-<a href="Men 8.jpeg" target="_blank"><img src="Men 8.jpeg"></a>
-<a href="Men 9.jpeg" target="_blank"><img src="Men 9.jpeg"></a>
-<a href="Men 10.jpeg" target="_blank"><img src="Men 10.jpeg"></a>
-<a href="Men 11.jpeg" target="_blank"><img src="Men 11.jpeg"></a>
-<a href="Men 12.jpeg" target="_blank"><img src="Men 12.jpeg"></a>
 
 <a href="Women 1.jpeg" target="_blank"><img src="Women 1.jpeg"></a>
+
 <a href="Women 2.jpeg" target="_blank"><img src="Women 2.jpeg"></a>
+
 <a href="Women 3.jpeg" target="_blank"><img src="Women 3.jpeg"></a>
+
 <a href="Women 4.jpeg" target="_blank"><img src="Women 4.jpeg"></a>
-<a href="Women 5.jpeg" target="_blank"><img src="Women 5.jpeg"></a>
-<a href="Women 6.jpeg" target="_blank"><img src="Women 6.jpeg"></a>
-<a href="Women 7.jpeg" target="_blank"><img src="Women 7.jpeg"></a>
-<a href="Women 8.jpeg" target="_blank"><img src="Women 8.jpeg"></a>
-<a href="Women 9.jpeg" target="_blank"><img src="Women 9.jpeg"></a>
-<a href="Women 10.jpeg" target="_blank"><img src="Women 10.jpeg"></a>
-<a href="Women 11.jpeg" target="_blank"><img src="Women 11.jpeg"></a>
-<a href="Women 12.jpeg" target="_blank"><img src="Women 12.jpeg"></a>
-<a href="Women 13.jpeg" target="_blank"><img src="Women 13.jpeg"></a>
-<a href="Women 14.jpeg" target="_blank"><img src="Women 14.jpeg"></a>
 
 </div>
 
 </section>
+
+<!-- FEATURES -->
 
 <section>
 
 <h2>Why Choose Us?</h2>
 
-<div class="about">
+<div class="features">
 
-<p>✔ 100% Genuine Leather</p>
-<p>✔ Leather Guarantee Card</p>
-<p>✔ Custom Design Manufacturing</p>
-<p>✔ Wholesale & Retail Orders</p>
-<p>✔ International Supply</p>
+<div class="feature-box">
+<h3>100% Genuine Leather</h3>
+<p>Premium original leather quality guaranteed.</p>
+</div>
+
+<div class="feature-box">
+<h3>Custom Manufacturing</h3>
+<p>We manufacture according to your design.</p>
+</div>
+
+<div class="feature-box">
+<h3>Wholesale & Retail</h3>
+<p>Bulk and retail orders accepted.</p>
+</div>
+
+<div class="feature-box">
+<h3>International Supply</h3>
+<p>Worldwide delivery available.</p>
+</div>
 
 </div>
 
 </section>
 
+<!-- CONTACT -->
+
 <div class="contact">
 
 <h2>Contact Us</h2>
 
+<br>
+
 <p><strong>WAQAR LEATHER KSA</strong></p>
 
 <p>Saudi Arabia (KSA)</p>
+
+<br>
 
 <p>
 WhatsApp:
@@ -222,11 +341,22 @@ WhatsApp:
 </a>
 </p>
 
+<br>
+
+<a class="whatsapp" href="https://wa.me/966564896743">
+Send WhatsApp Message
+</a>
+
 </div>
 
+<!-- FOOTER -->
+
 <footer>
-© 2025 Waqar Leather KSA
+
+© 2025 Waqar Leather KSA | All Rights Reserved
+
 </footer>
 
 </body>
 </html>
+```
