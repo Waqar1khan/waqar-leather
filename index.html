@@ -25,75 +25,122 @@ body{
 font-family:'Poppins',sans-serif;
 background:#f5f5f5;
 color:#222;
-line-height:1.6;
 }
 
-/* HEADER */
+/* TOP BAR */
 
-header{
+.topbar{
+background:#111;
+color:white;
+padding:18px 20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.logo{
+font-size:24px;
+font-weight:700;
+}
+
+.menu-btn{
+font-size:32px;
+cursor:pointer;
+}
+
+/* SIDE MENU */
+
+.sidebar{
+height:100%;
+width:0;
+position:fixed;
+top:0;
+left:0;
+background:#111;
+overflow-x:hidden;
+transition:0.4s;
+padding-top:60px;
+z-index:2000;
+}
+
+.sidebar a{
+padding:15px 30px;
+text-decoration:none;
+font-size:20px;
+color:white;
+display:block;
+transition:0.3s;
+}
+
+.sidebar a:hover{
+background:#c79b63;
+color:#111;
+}
+
+.closebtn{
+position:absolute;
+top:10px;
+right:25px;
+font-size:40px;
+}
+
+/* HERO */
+
+.hero{
 background:
 linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
 url('BAG 1.jpeg');
 
 background-size:cover;
 background-position:center;
-color:white;
+height:85vh;
+display:flex;
+justify-content:center;
+align-items:center;
 text-align:center;
-padding:140px 20px;
+padding:20px;
+color:white;
 }
 
-header h1{
+.hero h1{
 font-size:60px;
-margin-bottom:15px;
+margin-bottom:20px;
 }
 
-header p{
+.hero p{
 font-size:22px;
-margin-bottom:10px;
+margin-bottom:25px;
 }
 
-.whatsapp{
+.btn{
 display:inline-block;
-margin-top:25px;
 padding:15px 35px;
 background:#25D366;
 color:white;
 text-decoration:none;
 border-radius:10px;
 font-weight:600;
-font-size:18px;
 transition:0.3s;
 }
 
-.whatsapp:hover{
+.btn:hover{
 background:#1ebe5d;
 transform:translateY(-3px);
 }
 
-/* SECTIONS */
+/* SECTION */
 
 section{
 padding:70px 20px;
-}
-
-section:nth-child(even){
-background:white;
 }
 
 h2{
 text-align:center;
 margin-bottom:40px;
 font-size:40px;
-color:#111;
-}
-
-/* ABOUT */
-
-.about{
-max-width:1000px;
-margin:auto;
-text-align:center;
-font-size:18px;
 }
 
 /* GALLERY */
@@ -106,44 +153,31 @@ max-width:1300px;
 margin:auto;
 }
 
-.gallery a{
-text-decoration:none;
-}
-
-.gallery img{
-width:100%;
-height:350px;
-object-fit:cover;
+.card{
+background:white;
 border-radius:15px;
+overflow:hidden;
 box-shadow:0 8px 20px rgba(0,0,0,.15);
 transition:0.4s;
 }
 
-.gallery img:hover{
+.card:hover{
 transform:translateY(-8px);
-box-shadow:0 12px 25px rgba(0,0,0,.25);
 }
 
-/* FEATURES */
-
-.features{
-max-width:900px;
-margin:auto;
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
+.card img{
+width:100%;
+height:350px;
+object-fit:cover;
 }
 
-.feature-box{
-background:white;
-padding:30px;
-border-radius:12px;
+.card-content{
+padding:20px;
 text-align:center;
-box-shadow:0 5px 15px rgba(0,0,0,.1);
 }
 
-.feature-box h3{
-margin-bottom:15px;
+.card-content h3{
+margin-bottom:10px;
 }
 
 /* CONTACT */
@@ -168,23 +202,22 @@ background:#000;
 color:#aaa;
 text-align:center;
 padding:20px;
-font-size:15px;
 }
 
 /* MOBILE */
 
 @media(max-width:768px){
 
-header h1{
+.hero h1{
 font-size:40px;
 }
 
-header p{
+.hero p{
 font-size:18px;
 }
 
 h2{
-font-size:32px;
+font-size:30px;
 }
 
 }
@@ -195,124 +228,209 @@ font-size:32px;
 
 <body>
 
-<header>
+<!-- TOP BAR -->
 
-<h1>WAQAR LEATHER KSA</h1>
+<div class="topbar">
 
-<p>100% Genuine Leather Products</p>
+<div class="logo">
+WAQAR LEATHER
+</div>
 
-<p>Bags • Jackets • Laptop Bags • Custom Manufacturing</p>
+<div class="menu-btn" onclick="openMenu()">
+☰
+</div>
 
-<a class="whatsapp" href="https://wa.me/966564896743">
-WhatsApp Us
+</div>
+
+<!-- SIDE MENU -->
+
+<div id="sidebar" class="sidebar">
+
+<a href="javascript:void(0)" class="closebtn" onclick="closeMenu()">
+×
 </a>
 
-</header>
+<a href="#home">Home</a>
 
-<section>
+<a href="#ladies">Ladies Collection</a>
 
-<h2>About Us</h2>
+<a href="#mens">Men's Jackets</a>
 
-<div class="about">
+<a href="#laptop">Laptop Bags</a>
+
+<a href="#handbags">Handbags</a>
+
+<a href="#contact">Contact</a>
+
+</div>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+<div>
+
+<h1>Premium Genuine Leather Products</h1>
 
 <p>
-We manufacture premium genuine leather bags, cowhide bags, laptop bags, men's jackets, women's jackets and custom-made leather products.
+Luxury Leather Bags, Jackets & Custom Manufacturing
 </p>
 
-<br>
-
-<p>
-Send your own design, image or sample and we can manufacture according to your requirements.
-Choose your leather type, colors and finishing style.
-</p>
-
-<br>
-
-<p>
-All products come with genuine leather assurance and premium quality finishing.
-</p>
+<a class="btn" href="https://wa.me/966564896743">
+Order On WhatsApp
+</a>
 
 </div>
 
 </section>
 
-<section>
+<!-- LADIES -->
 
-<h2>Our Leather Collection</h2>
+<section id="ladies">
+
+<h2>Ladies Collection</h2>
 
 <div class="gallery">
 
-<a href="BAG 1.jpeg" target="_blank"><img src="BAG 1.jpeg"></a>
-
-<a href="Bag 2.jpeg" target="_blank"><img src="Bag 2.jpeg"></a>
-
-<a href="Bag 3.jpeg" target="_blank"><img src="Bag 3.jpeg"></a>
-
-<a href="Bag 4.jpeg" target="_blank"><img src="Bag 4.jpeg"></a>
-
-<a href="Bag 5.jpeg" target="_blank"><img src="Bag 5.jpeg"></a>
-
-<a href="Bag 6.jpeg" target="_blank"><img src="Bag 6.jpeg"></a>
-
-<a href="Bag 7.jpeg" target="_blank"><img src="Bag 7.jpeg"></a>
-
-<a href="Bag 8.jpeg" target="_blank"><img src="Bag 8.jpeg"></a>
-
-<a href="Bag 9.jpeg" target="_blank"><img src="Bag 9.jpeg"></a>
-
-<a href="Bag 10.jpeg" target="_blank"><img src="Bag 10.jpeg"></a>
-
-<a href="Men 1.jpeg" target="_blank"><img src="Men 1.jpeg"></a>
-
-<a href="Men 2.jpeg" target="_blank"><img src="Men 2.jpeg"></a>
-
-<a href="Men 3.jpeg" target="_blank"><img src="Men 3.jpeg"></a>
-
-<a href="Men 4.jpeg" target="_blank"><img src="Men 4.jpeg"></a>
-
-<a href="Women 1.jpeg" target="_blank"><img src="Women 1.jpeg"></a>
-
-<a href="Women 2.jpeg" target="_blank"><img src="Women 2.jpeg"></a>
-
-<a href="Women 3.jpeg" target="_blank"><img src="Women 3.jpeg"></a>
-
-<a href="Women 4.jpeg" target="_blank"><img src="Women 4.jpeg"></a>
-
+<div class="card">
+<img src="Women 1.jpeg">
+<div class="card-content">
+<h3>Women's Leather Jacket</h3>
+<p>Premium leather fashion collection.</p>
+</div>
 </div>
 
-</section>
-
-<section>
-
-<h2>Why Choose Us?</h2>
-
-<div class="features">
-
-<div class="feature-box">
-<h3>100% Genuine Leather</h3>
-<p>Premium original leather quality guaranteed.</p>
+<div class="card">
+<img src="Women 2.jpeg">
+<div class="card-content">
+<h3>Luxury Ladies Bag</h3>
+<p>Elegant genuine leather handbag.</p>
+</div>
 </div>
 
-<div class="feature-box">
-<h3>Custom Manufacturing</h3>
-<p>We manufacture according to your design.</p>
+<div class="card">
+<img src="Women 3.jpeg">
+<div class="card-content">
+<h3>Fashion Collection</h3>
+<p>Stylish handmade leather design.</p>
 </div>
-
-<div class="feature-box">
-<h3>Wholesale & Retail</h3>
-<p>Bulk and retail orders accepted.</p>
-</div>
-
-<div class="feature-box">
-<h3>International Supply</h3>
-<p>Worldwide delivery available.</p>
 </div>
 
 </div>
 
 </section>
 
-<div class="contact">
+<!-- MEN -->
+
+<section id="mens">
+
+<h2>Men's Jackets</h2>
+
+<div class="gallery">
+
+<div class="card">
+<img src="Men 1.jpeg">
+<div class="card-content">
+<h3>Men's Leather Jacket</h3>
+<p>Premium original leather jacket.</p>
+</div>
+</div>
+
+<div class="card">
+<img src="Men 2.jpeg">
+<div class="card-content">
+<h3>Classic Leather Wear</h3>
+<p>Luxury men's fashion collection.</p>
+</div>
+</div>
+
+<div class="card">
+<img src="Men 3.jpeg">
+<div class="card-content">
+<h3>Winter Collection</h3>
+<p>Elegant genuine leather style.</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- LAPTOP -->
+
+<section id="laptop">
+
+<h2>Laptop Bags</h2>
+
+<div class="gallery">
+
+<div class="card">
+<img src="Bag 4.jpeg">
+<div class="card-content">
+<h3>Laptop Bag</h3>
+<p>Professional business leather bag.</p>
+</div>
+</div>
+
+<div class="card">
+<img src="Bag 5.jpeg">
+<div class="card-content">
+<h3>Office Collection</h3>
+<p>Premium leather laptop bag.</p>
+</div>
+</div>
+
+<div class="card">
+<img src="Bag 6.jpeg">
+<div class="card-content">
+<h3>Executive Design</h3>
+<p>Luxury office leather collection.</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- HANDBAGS -->
+
+<section id="handbags">
+
+<h2>Handbags Collection</h2>
+
+<div class="gallery">
+
+<div class="card">
+<img src="BAG 1.jpeg">
+<div class="card-content">
+<h3>Luxury Handbag</h3>
+<p>Premium handmade leather handbag.</p>
+</div>
+</div>
+
+<div class="card">
+<img src="Bag 2.jpeg">
+<div class="card-content">
+<h3>Cowhide Collection</h3>
+<p>Original genuine leather bag.</p>
+</div>
+</div>
+
+<div class="card">
+<img src="Bag 3.jpeg">
+<div class="card-content">
+<h3>Travel Bag</h3>
+<p>Stylish leather travel collection.</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<div class="contact" id="contact">
 
 <h2>Contact Us</h2>
 
@@ -333,17 +451,33 @@ WhatsApp:
 
 <br>
 
-<a class="whatsapp" href="https://wa.me/966564896743">
+<a class="btn" href="https://wa.me/966564896743">
 Send WhatsApp Message
 </a>
 
 </div>
+
+<!-- FOOTER -->
 
 <footer>
 
 © 2025 Waqar Leather KSA | All Rights Reserved
 
 </footer>
+
+<!-- SCRIPT -->
+
+<script>
+
+function openMenu(){
+document.getElementById("sidebar").style.width="260px";
+}
+
+function closeMenu(){
+document.getElementById("sidebar").style.width="0";
+}
+
+</script>
 
 </body>
 </html>
