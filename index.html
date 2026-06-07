@@ -1,627 +1,859 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>WL Leather</title>
-
+<title>WL Leather — Premium Genuine Leather</title>
 <link rel="icon" type="image/png" href="logo.png">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-scroll-behavior:smooth;
+:root {
+  --gold: #b8914a;
+  --gold-light: #d4a85c;
+  --dark: #0e0c0a;
+  --dark2: #1a1612;
+  --dark3: #242018;
+  --cream: #f2ede6;
+  --cream2: #e8e0d4;
+  --text-muted: #8a7f72;
+  --white: #faf8f5;
 }
 
-body{
-font-family:'Poppins',sans-serif;
-background:#f5f5f5;
-color:#222;
+* { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Jost', sans-serif;
+  background: var(--cream);
+  color: var(--dark);
+  overflow-x: hidden;
 }
 
-/* TOPBAR */
-
-.topbar{
-background:#111;
-padding:15px 20px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-position:sticky;
-top:0;
-z-index:1000;
+/* ─── NOISE OVERLAY ─── */
+body::before {
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none;
+  z-index:9999;
+  opacity:.4;
 }
 
-.logo img{
-height:90px;
-width:auto;
-display:block;
+/* ─── TOPBAR ─── */
+.topbar {
+  background: var(--dark);
+  padding: 0 40px;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(184,145,74,.2);
 }
 
-.menu-btn{
-font-size:34px;
-cursor:pointer;
-color:white;
+.logo img {
+  height: 64px;
+  width: auto;
+  display: block;
 }
 
-/* SIDEBAR */
-
-.sidebar{
-height:100%;
-width:0;
-position:fixed;
-top:0;
-left:0;
-background:#111;
-overflow-x:hidden;
-transition:0.4s;
-padding-top:60px;
-z-index:2000;
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 28px;
 }
 
-.sidebar a{
-padding:16px 30px;
-text-decoration:none;
-font-size:20px;
-color:white;
-display:block;
-transition:0.3s;
+.topbar-nav {
+  display: flex;
+  gap: 24px;
+  list-style: none;
 }
 
-.sidebar a:hover{
-background:#c79b63;
-color:#111;
+.topbar-nav a {
+  color: var(--cream2);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  opacity: .75;
+  transition: opacity .25s, color .25s;
 }
 
-.closebtn{
-position:absolute;
-top:10px;
-right:25px;
-font-size:40px;
+.topbar-nav a:hover {
+  opacity: 1;
+  color: var(--gold-light);
 }
 
-/* HERO */
-
-.hero{
-background:
-linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
-url('BAG 1.jpeg');
-
-background-size:cover;
-background-position:center;
-
-height:65vh;
-
-display:flex;
-justify-content:center;
-align-items:center;
-
-text-align:center;
-padding:20px;
-color:white;
+.menu-btn {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: white;
+  line-height: 1;
 }
 
-.hero h1{
-font-size:48px;
-margin-bottom:20px;
+/* ─── SIDEBAR ─── */
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: var(--dark2);
+  overflow-x: hidden;
+  transition: .4s cubic-bezier(.77,0,.18,1);
+  padding-top: 70px;
+  z-index: 2000;
+  border-right: 1px solid rgba(184,145,74,.15);
 }
 
-.hero p{
-font-size:12px;
-margin-bottom:30px;
+.sidebar a {
+  padding: 16px 36px;
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--cream2);
+  display: block;
+  transition: .25s;
+  opacity: .75;
 }
 
-.btn{
-display:inline-block;
-padding:15px 35px;
-background:#25D366;
-color:white;
-text-decoration:none;
-border-radius:10px;
-font-weight:600;
-transition:0.3s;
+.sidebar a:hover {
+  background: rgba(184,145,74,.1);
+  color: var(--gold-light);
+  opacity: 1;
+  padding-left: 48px;
 }
 
-.btn:hover{
-background:#1ebe5d;
-transform:translateY(-3px);
+.closebtn {
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  font-size: 32px;
+  opacity: .6 !important;
+  padding: 0 !important;
+  letter-spacing: 0 !important;
 }
 
-/* SECTION */
+.closebtn:hover { opacity: 1 !important; }
 
-section{
-padding:80px 20px;
+/* ─── HERO ─── */
+.hero {
+  position: relative;
+  height: 92vh;
+  min-height: 600px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
 }
 
-h2{
-text-align:center;
-margin-bottom:50px;
-font-size:42px;
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: url('BAG 1.jpeg') center/cover no-repeat;
+  transform: scale(1.05);
+  animation: heroScale 12s ease-in-out infinite alternate;
 }
 
-/* GALLERY */
-
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:25px;
-max-width:1300px;
-margin:auto;
+@keyframes heroScale {
+  from { transform: scale(1.05); }
+  to   { transform: scale(1.12); }
 }
 
-.card{
-background:white;
-border-radius:15px;
-overflow:hidden;
-box-shadow:0 8px 20px rgba(0,0,0,.15);
-transition:0.4s;
-text-align:center;
-padding-bottom:20px;
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    rgba(14,12,10,.3) 0%,
+    rgba(14,12,10,.85) 70%,
+    rgba(14,12,10,.95) 100%
+  );
 }
 
-.card:hover{
-transform:translateY(-8px);
-box-shadow:0 15px 30px rgba(0,0,0,.25);
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 80px 90px;
+  max-width: 760px;
+  animation: heroFadeUp .9s ease both;
 }
 
-.card img{
-width:100%;
-height:350px;
-object-fit:cover;
-display:block;
-transition:0.4s;
-cursor:pointer;
+@keyframes heroFadeUp {
+  from { opacity:0; transform:translateY(40px); }
+  to   { opacity:1; transform:translateY(0); }
 }
 
-.card:hover img{
-transform:scale(1.05);
+.hero-tag {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid rgba(184,145,74,.4);
+  padding: 6px 16px;
+  margin-bottom: 28px;
+  border-radius: 2px;
 }
 
-.card h3{
-margin-top:18px;
-font-size:22px;
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(48px, 7vw, 88px);
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1.05;
+  margin-bottom: 24px;
+  letter-spacing: -.01em;
 }
 
-.card p{
-margin-top:8px;
-font-size:16px;
-color:#666;
+.hero h1 em {
+  font-style: italic;
+  color: var(--gold-light);
 }
 
-/* WHOLESALE */
-
-.wholesale{
-background:white;
-text-align:center;
-max-width:1000px;
-margin:auto;
-font-size:20px;
-line-height:2;
+.hero p {
+  font-size: 15px;
+  color: rgba(242,237,230,.65);
+  margin-bottom: 44px;
+  font-weight: 300;
+  letter-spacing: .04em;
+  max-width: 480px;
 }
 
-/* CONTACT */
-
-.contact{
-background:#111;
-color:white;
-text-align:center;
-padding:80px 20px;
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 38px;
+  background: var(--gold);
+  color: var(--dark);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  border-radius: 3px;
+  transition: background .3s, transform .3s;
 }
 
-.contact a{
-color:#ffd700;
-text-decoration:none;
-font-size:22px;
+.btn-primary:hover {
+  background: var(--gold-light);
+  transform: translateY(-3px);
 }
 
-/* FOOTER */
+.btn-primary svg { flex-shrink:0; }
 
-footer{
-background:#000;
-color:#aaa;
-text-align:center;
-padding:20px;
+/* ─── DIVIDER ─── */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  max-width: 200px;
+  margin: 0 auto 20px;
 }
 
-/* MOBILE */
-
-@media(max-width:768px){
-
-.hero h1{
-font-size:38px;
+.divider::before, .divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--gold);
+  opacity: .4;
 }
 
-.hero p{
-font-size:18px;
+.divider-diamond {
+  width: 8px;
+  height: 8px;
+  border: 1px solid var(--gold);
+  transform: rotate(45deg);
+  opacity: .7;
 }
 
-h2{
-font-size:32px;
+/* ─── SECTIONS ─── */
+section { padding: 100px 40px; }
+
+.section-label {
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
 }
 
-.logo img{
-height:60px;
+h2 {
+  font-family: 'Cormorant Garamond', serif;
+  text-align: center;
+  font-size: clamp(36px, 5vw, 58px);
+  font-weight: 300;
+  margin-bottom: 60px;
+  letter-spacing: -.01em;
+  color: var(--dark);
 }
 
+/* ─── GALLERY ─── */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  max-width: 1280px;
+  margin: auto;
 }
 
+.card {
+  background: white;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(14,12,10,.08);
+  transition: transform .4s cubic-bezier(.25,.8,.25,1), box-shadow .4s;
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 50px rgba(14,12,10,.18);
+}
+
+.card-img-wrap {
+  overflow: hidden;
+  position: relative;
+}
+
+.card img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  display: block;
+  transition: transform .55s cubic-bezier(.25,.8,.25,1);
+}
+
+.card:hover img { transform: scale(1.07); }
+
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(14,12,10,.5) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity .4s;
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+}
+
+.card:hover .card-overlay { opacity: 1; }
+
+.card-overlay a {
+  color: white;
+  font-size: 12px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,.5);
+  padding-bottom: 2px;
+}
+
+.card-body {
+  padding: 20px 22px 24px;
+}
+
+.card-body h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 400;
+  margin-bottom: 6px;
+  color: var(--dark);
+}
+
+.card-body p {
+  font-size: 13px;
+  color: var(--text-muted);
+  letter-spacing: .04em;
+}
+
+/* ─── FEATURES STRIP ─── */
+.features {
+  background: var(--dark);
+  padding: 64px 40px;
+}
+
+.features-grid {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+  text-align: center;
+}
+
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.feature-icon {
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(184,145,74,.4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+}
+
+.feature-item h4 {
+  font-size: 13px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--cream);
+  font-weight: 500;
+}
+
+.feature-item p {
+  font-size: 12px;
+  color: rgba(232,224,212,.45);
+  font-weight: 300;
+}
+
+/* ─── WHOLESALE ─── */
+.wholesale-section {
+  background: var(--dark2);
+  padding: 100px 40px;
+}
+
+.wholesale-section h2 { color: var(--white); }
+.wholesale-section .section-label { color: var(--gold-light); }
+
+.wholesale-inner {
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+}
+
+.wholesale-inner > p {
+  font-size: 16px;
+  line-height: 1.9;
+  color: rgba(232,224,212,.65);
+  font-weight: 300;
+  margin-bottom: 50px;
+}
+
+.wholesale-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.wholesale-item {
+  border: 1px solid rgba(184,145,74,.2);
+  padding: 24px 20px;
+  border-radius: 6px;
+  text-align: center;
+  transition: background .3s, border-color .3s;
+}
+
+.wholesale-item:hover {
+  background: rgba(184,145,74,.07);
+  border-color: rgba(184,145,74,.5);
+}
+
+.wholesale-item .icon {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.wholesale-item p {
+  font-size: 13px;
+  color: var(--cream2);
+  letter-spacing: .08em;
+  font-weight: 300;
+}
+
+/* ─── CONTACT ─── */
+.contact-section {
+  background: var(--dark3);
+  padding: 100px 40px;
+  text-align: center;
+}
+
+.contact-section h2 { color: var(--white); }
+
+.contact-inner {
+  max-width: 560px;
+  margin: auto;
+}
+
+.contact-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  color: var(--gold);
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.contact-sub {
+  font-size: 13px;
+  color: rgba(232,224,212,.5);
+  letter-spacing: .1em;
+  margin-bottom: 40px;
+}
+
+.contact-wa {
+  font-size: 22px;
+  color: var(--gold-light);
+  text-decoration: none;
+  letter-spacing: .05em;
+  transition: color .25s;
+}
+
+.contact-wa:hover { color: white; }
+
+.contact-actions {
+  margin-top: 44px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 34px;
+  border: 1px solid rgba(184,145,74,.5);
+  color: var(--cream);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  border-radius: 3px;
+  transition: background .3s, border-color .3s;
+}
+
+.btn-outline:hover {
+  background: rgba(184,145,74,.12);
+  border-color: var(--gold);
+}
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--dark);
+  color: rgba(232,224,212,.3);
+  text-align: center;
+  padding: 28px 20px;
+  font-size: 12px;
+  letter-spacing: .1em;
+  border-top: 1px solid rgba(184,145,74,.12);
+}
+
+footer span { color: var(--gold); opacity: .6; }
+
+/* ─── RESPONSIVE ─── */
+@media(max-width: 900px) {
+  .topbar-nav { display: none; }
+  .menu-btn { display: block; }
+  .hero-content { padding: 0 32px 60px; }
+  section { padding: 70px 24px; }
+  .contact-actions { flex-direction: column; align-items: center; }
+}
+
+@media(max-width: 500px) {
+  .topbar { padding: 0 20px; }
+  .hero h1 { font-size: 40px; }
+}
+
+/* ─── SCROLL ANIMATIONS ─── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: none;
+}
 </style>
-
 </head>
-
 <body>
 
-<!-- TOP BAR -->
-
+<!-- TOPBAR -->
 <div class="topbar">
-
-<div class="logo">
-<img src="logo.png" alt="WL Logo">
-</div>
-
-<div class="menu-btn" onclick="openMenu()">
-☰
-</div>
-
+  <div class="logo">
+    <img src="logo.png" alt="WL Leather">
+  </div>
+  <ul class="topbar-nav">
+    <li><a href="#laptop">Laptop Bags</a></li>
+    <li><a href="#handbags">Handbags</a></li>
+    <li><a href="#mens">Men's Jackets</a></li>
+    <li><a href="#ladies">Women's</a></li>
+    <li><a href="#wholesale">Wholesale</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="topbar-right">
+    <div class="menu-btn" onclick="openMenu()">☰</div>
+  </div>
 </div>
 
 <!-- SIDEBAR -->
-
 <div id="sidebar" class="sidebar">
-
-<a href="javascript:void(0)" class="closebtn" onclick="closeMenu()">
-×
-</a>
-
-<a href="#home">Home</a>
-
-<a href="#laptop">Laptop Bags</a>
-
-<a href="#handbags">Handbags</a>
-
-<a href="#mens">Men's Jackets</a>
-
-<a href="#ladies">Women's Collection</a>
-
-<a href="#wholesale">Wholesale</a>
-
-<a href="#contact">Contact</a>
-
+  <a href="javascript:void(0)" class="closebtn" onclick="closeMenu()">×</a>
+  <a href="#home" onclick="closeMenu()">Home</a>
+  <a href="#laptop" onclick="closeMenu()">Laptop Bags</a>
+  <a href="#handbags" onclick="closeMenu()">Handbags</a>
+  <a href="#mens" onclick="closeMenu()">Men's Jackets</a>
+  <a href="#ladies" onclick="closeMenu()">Women's Collection</a>
+  <a href="#wholesale" onclick="closeMenu()">Wholesale</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
 </div>
 
 <!-- HERO -->
-
 <section class="hero" id="home">
-
-<div>
-
-<h1>Premium Genuine Leather Products</h1>
-
-<p>
-Luxury Leather Bags, Jackets & Custom Manufacturing
-</p>
-
-<a class="btn" href="https://wa.me/966572236814?text=Hello%20I%20want%20to%20order">
-Order On WhatsApp
-</a>
-
-</div>
-
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Est. Premium Collection</div>
+    <h1>Crafted in<br><em>Genuine Leather</em></h1>
+    <p>Luxury bags, jackets & custom manufacturing — built for those who demand the finest.</p>
+    <a class="btn-primary" href="https://wa.me/966572236814?text=Hello%20I%20want%20to%20order">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.553 4.105 1.522 5.83L.057 23.888a.5.5 0 00.605.63l6.202-1.625A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-4.997-1.369l-.358-.213-3.712.972.99-3.614-.234-.371A9.774 9.774 0 012.182 12C2.182 6.569 6.569 2.182 12 2.182S21.818 6.569 21.818 12 17.431 21.818 12 21.818z"/></svg>
+      Order on WhatsApp
+    </a>
+  </div>
 </section>
 
+<!-- FEATURES STRIP -->
+<div class="features">
+  <div class="features-grid">
+    <div class="feature-item fade-up">
+      <div class="feature-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+      </div>
+      <h4>Genuine Leather</h4>
+      <p>Certified 100% authentic hide</p>
+    </div>
+    <div class="feature-item fade-up">
+      <div class="feature-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+      </div>
+      <h4>International Shipping</h4>
+      <p>Delivered worldwide</p>
+    </div>
+    <div class="feature-item fade-up">
+      <div class="feature-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A2 2 0 013 12V7a4 4 0 014-4z"/></svg>
+      </div>
+      <h4>Custom Logo</h4>
+      <p>OEM & private label orders</p>
+    </div>
+    <div class="feature-item fade-up">
+      <div class="feature-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+      </div>
+      <h4>Bulk Pricing</h4>
+      <p>Wholesale rates available</p>
+    </div>
+  </div>
+</div>
+
 <!-- LAPTOP BAGS -->
-
 <section id="laptop">
+  <p class="section-label fade-up">Our Collection</p>
+  <h2 class="fade-up">Laptop Bags</h2>
+  <div class="gallery">
 
-<h2>Laptop Bags</h2>
+    <div class="card fade-up">
+      <div class="card-img-wrap">
+        <a href="BAG 1.jpeg" target="_blank"><img src="BAG 1.jpeg" alt="Executive Laptop Bag"></a>
+        <div class="card-overlay"><a href="BAG 1.jpeg" target="_blank">View Full →</a></div>
+      </div>
+      <div class="card-body">
+        <h3>Executive Laptop Bag</h3>
+        <p>Premium Genuine Leather</p>
+      </div>
+    </div>
 
-<div class="gallery">
+    <div class="card fade-up">
+      <div class="card-img-wrap">
+        <a href="Bag 2.jpeg" target="_blank"><img src="Bag 2.jpeg" alt="Business Leather Bag"></a>
+        <div class="card-overlay"><a href="Bag 2.jpeg" target="_blank">View Full →</a></div>
+      </div>
+      <div class="card-body">
+        <h3>Business Leather Bag</h3>
+        <p>Luxury Office Collection</p>
+      </div>
+    </div>
 
-<div class="card">
-<a href="BAG 1.jpeg" target="_blank">
-<img src="BAG 1.jpeg">
-</a>
-<h3>Executive Laptop Bag</h3>
-<p>Premium Genuine Leather</p>
-</div>
+    <div class="card fade-up">
+      <div class="card-img-wrap">
+        <a href="Bag 3.jpeg" target="_blank"><img src="Bag 3.jpeg" alt="Classic Laptop Bag"></a>
+        <div class="card-overlay"><a href="Bag 3.jpeg" target="_blank">View Full →</a></div>
+      </div>
+      <div class="card-body">
+        <h3>Classic Laptop Bag</h3>
+        <p>Professional Leather Finish</p>
+      </div>
+    </div>
 
-<div class="card">
-<a href="Bag 2.jpeg" target="_blank">
-<img src="Bag 2.jpeg">
-</a>
-<h3>Business Leather Bag</h3>
-<p>Luxury Office Collection</p>
-</div>
-
-<div class="card">
-<a href="Bag 3.jpeg" target="_blank">
-<img src="Bag 3.jpeg">
-</a>
-<h3>Classic Laptop Bag</h3>
-<p>Professional Leather Finish</p>
-</div>
-
-</div>
-
+  </div>
 </section>
 
 <!-- HANDBAGS -->
+<section id="handbags" style="background:#fff;">
+  <p class="section-label fade-up">Leather Goods</p>
+  <h2 class="fade-up">Leather Handbags</h2>
+  <div class="gallery">
 
-<section id="handbags">
+    <div class="card fade-up"><div class="card-img-wrap"><a href="Bag 4.jpeg" target="_blank"><img src="Bag 4.jpeg" alt="Luxury Leather Handbag"></a><div class="card-overlay"><a href="Bag 4.jpeg" target="_blank">View Full →</a></div></div><div class="card-body"><h3>Luxury Leather Handbag</h3><p>Elegant Premium Design</p></div></div>
 
-<h2>Leather Handbags</h2>
+    <div class="card fade-up"><div class="card-img-wrap"><a href="Bag 5.jpeg" target="_blank"><img src="Bag 5.jpeg" alt="Vintage Leather Bag"></a><div class="card-overlay"><a href="Bag 5.jpeg" target="_blank">View Full →</a></div></div><div class="card-body"><h3>Vintage Leather Bag</h3><p>Classic Handmade Collection</p></div></div>
 
-<div class="gallery">
+    <div class="card fade-up"><div class="card-img-wrap"><a href="Bag 6.jpeg" target="_blank"><img src="Bag 6.jpeg" alt="Modern Leather Tote"></a><div class="card-overlay"><a href="Bag 6.jpeg" target="_blank">View Full →</a></div></div><div class="card-body"><h3>Modern Leather Tote</h3><p>Premium Cowhide Leather</p></div></div>
 
-<div class="card">
-<a href="Bag 4.jpeg" target="_blank">
-<img src="Bag 4.jpeg">
-</a>
-<h3>Luxury Leather Handbag</h3>
-<p>Elegant Premium Design</p>
-</div>
+    <div class="card fade-up"><div class="card-img-wrap"><a href="Bag 7.jpeg" target="_blank"><img src="Bag 7.jpeg" alt="Designer Leather Bag"></a><div class="card-overlay"><a href="Bag 7.jpeg" target="_blank">View Full →</a></div></div><div class="card-body"><h3>Designer Leather Bag</h3><p>Luxury Fashion Collection</p></div></div>
 
-<div class="card">
-<a href="Bag 5.jpeg" target="_blank">
-<img src="Bag 5.jpeg">
-</a>
-<h3>Vintage Leather Bag</h3>
-<p>Classic Handmade Collection</p>
-</div>
+    <div class="card fade-up"><div class="card-img-wrap"><a href="Bag 8.jpeg" target="_blank"><img src="Bag 8.jpeg" alt="Classic Women's Bag"></a><div class="card-overlay"><a href="Bag 8.jpeg" target="_blank">View Full →</a></div></div><div class="card-body"><h3>Classic Women's Bag</h3><p>Elegant Leather Finish</p></div></div>
 
-<div class="card">
-<a href="Bag 6.jpeg" target="_blank">
-<img src="Bag 6.jpeg">
-</a>
-<h3>Modern Leather Tote</h3>
-<p>Premium Cowhide Leather</p>
-</div>
+    <div class="card fade-up"><div class="card-img-wrap"><a href="Bag 9.jpeg" target="_blank"><img src="Bag 9.jpeg" alt="Premium Fashion Bag"></a><div class="card-overlay"><a href="Bag 9.jpeg" target="_blank">View Full →</a></div></div><div class="card-body"><h3>Premium Fashion Bag</h3><p>Original Genuine Leather</p></div></div>
 
-<div class="card">
-<a href="Bag 7.jpeg" target="_blank">
-<img src="Bag 7.jpeg">
-</a>
-<h3>Designer Leather Bag</h3>
-<p>Luxury Fashion Collection</p>
-</div>
+    <div class="card fade-up"><div class="card-img-wrap"><a href="Bag 10.jpeg" target="_blank"><img src="Bag 10.jpeg" alt="Luxury Tote Collection"></a><div class="card-overlay"><a href="Bag 10.jpeg" target="_blank">View Full →</a></div></div><div class="card-body"><h3>Luxury Tote Collection</h3><p>Handcrafted Leather Product</p></div></div>
 
-<div class="card">
-<a href="Bag 8.jpeg" target="_blank">
-<img src="Bag 8.jpeg">
-</a>
-<h3>Classic Women's Bag</h3>
-<p>Elegant Leather Finish</p>
-</div>
-
-<div class="card">
-<a href="Bag 9.jpeg" target="_blank">
-<img src="Bag 9.jpeg">
-</a>
-<h3>Premium Fashion Bag</h3>
-<p>Original Genuine Leather</p>
-</div>
-
-<div class="card">
-<a href="Bag 10.jpeg" target="_blank">
-<img src="Bag 10.jpeg">
-</a>
-<h3>Luxury Tote Collection</h3>
-<p>Handcrafted Leather Product</p>
-</div>
-
-</div>
-
+  </div>
 </section>
 
-<!-- MEN -->
-
+<!-- MEN'S JACKETS -->
 <section id="mens">
+  <p class="section-label fade-up">Outerwear</p>
+  <h2 class="fade-up">Men's Jackets</h2>
+  <div class="gallery">
 
-<h2>Men's Jackets</h2>
+    <div class="card fade-up"><div class="card-img-wrap"><a href="Men 1.jpeg" target="_blank"><img src="Men 1.jpeg" alt="Classic Men's Jacket"></a><div class="card-overlay"><a href="Men 1.jpeg" target="_blank">View Full →</a></div></div><div class="card-body"><h3>Classic Men's Jacket</h3><p>Premium Leather Collection</p></div></div>
 
-<div class="gallery">
+    <div class="card fade-up"><div class="card-img-wrap"><a href="Men 2.jpeg" target="_blank"><img src="Men 2.jpeg" alt="Luxury Biker Jacket"></a><div class="card-overlay"><a href="Men 2.jpeg" target="_blank">View Full →</a></div></div><div class="card-body"><h3>Luxury Biker Jacket</h3><p>Original Genuine Leather</p></div></div>
 
-<div class="card">
-<a href="Men 1.jpeg" target="_blank">
-<img src="Men 1.jpeg">
-</a>
-<h3>Classic Men's Jacket</h3>
-<p>Premium Leather Collection</p>
-</div>
+    <div class="card fade-up"><div class="card-img-wrap"><a href="Men 3.jpeg" target="_blank"><img src="Men 3.jpeg" alt="Modern Leather Jacket"></a><div class="card-overlay"><a href="Men 3.jpeg" target="_blank">View Full →</a></div></div><div class="card-body"><h3>Modern Leather Jacket</h3><p>Professional Stylish Design</p></div></div>
 
-<div class="card">
-<a href="Men 2.jpeg" target="_blank">
-<img src="Men 2.jpeg">
-</a>
-<h3>Luxury Biker Jacket</h3>
-<p>Original Genuine Leather</p>
-</div>
+    <div class="card fade-up"><div class="card-img-wrap"><a href="Men 4.jpeg" target="_blank"><img src="Men 4.jpeg" alt="Executive Leather Jacket"></a><div class="card-overlay"><a href="Men 4.jpeg" target="_blank">View Full →</a></div></div><div class="card-body"><h3>Executive Leather Jacket</h3><p>Premium Quality Finish</p></div></div>
 
-<div class="card">
-<a href="Men 3.jpeg" target="_blank">
-<img src="Men 3.jpeg">
-</a>
-<h3>Modern Leather Jacket</h3>
-<p>Professional Stylish Design</p>
-</div>
+    <div class="card fade-up"><div class="card-img-wrap"><a href="Men 5.jpeg" target="_blank"><img src="Men 5.jpeg" alt="Luxury Winter Jacket"></a><div class="card-overlay"><a href="Men 5.jpeg" target="_blank">View Full →</a></div></div><div class="card-body"><h3>Luxury Winter Jacket</h3><p>Elegant Leather Collection</p></div></div>
 
-<div class="card">
-<a href="Men 4.jpeg" target="_blank">
-<img src="Men 4.jpeg">
-</a>
-<h3>Executive Leather Jacket</h3>
-<p>Premium Quality Finish</p>
-</div>
+    <div class="card fade-up"><div class="card-img-wrap"><a href="Men 6.jpeg" target="_blank"><img src="Men 6.jpeg" alt="Premium Rider Jacket"></a><div class="card-overlay"><a href="Men 6.jpeg" target="_blank">View Full →</a></div></div><div class="card-body"><h3>Premium Rider Jacket</h3><p>Handcrafted Genuine Leather</p></div></div>
 
-<div class="card">
-<a href="Men 5.jpeg" target="_blank">
-<img src="Men 5.jpeg">
-</a>
-<h3>Luxury Winter Jacket</h3>
-<p>Elegant Leather Collection</p>
-</div>
-
-<div class="card">
-<a href="Men 6.jpeg" target="_blank">
-<img src="Men 6.jpeg">
-</a>
-<h3>Premium Rider Jacket</h3>
-<p>Handcrafted Genuine Leather</p>
-</div>
-
-</div>
-
+  </div>
 </section>
 
-<!-- WOMEN -->
+<!-- WOMEN'S COLLECTION -->
+<section id="ladies" style="background:#fff;">
+  <p class="section-label fade-up">Fashion</p>
+  <h2 class="fade-up">Women's Collection</h2>
+  <div class="gallery">
 
-<section id="ladies">
+    <div class="card fade-up"><div class="card-img-wrap"><a href="Women 1.jpeg" target="_blank"><img src="Women 1.jpeg" alt="Elegant Women's Jacket"></a><div class="card-overlay"><a href="Women 1.jpeg" target="_blank">View Full →</a></div></div><div class="card-body"><h3>Elegant Women's Jacket</h3><p>Luxury Leather Design</p></div></div>
 
-<h2>Women's Collection</h2>
+    <div class="card fade-up"><div class="card-img-wrap"><a href="Women 2.jpeg" target="_blank"><img src="Women 2.jpeg" alt="Premium Fashion Jacket"></a><div class="card-overlay"><a href="Women 2.jpeg" target="_blank">View Full →</a></div></div><div class="card-body"><h3>Premium Fashion Jacket</h3><p>Modern Stylish Collection</p></div></div>
 
-<div class="gallery">
+    <div class="card fade-up"><div class="card-img-wrap"><a href="Women 3.jpeg" target="_blank"><img src="Women 3.jpeg" alt="Classic Leather Coat"></a><div class="card-overlay"><a href="Women 3.jpeg" target="_blank">View Full →</a></div></div><div class="card-body"><h3>Classic Leather Coat</h3><p>Elegant Winter Fashion</p></div></div>
 
-<div class="card">
-<a href="Women 1.jpeg" target="_blank">
-<img src="Women 1.jpeg">
-</a>
-<h3>Elegant Women's Jacket</h3>
-<p>Luxury Leather Design</p>
-</div>
+    <div class="card fade-up"><div class="card-img-wrap"><a href="Women 4.jpeg" target="_blank"><img src="Women 4.jpeg" alt="Luxury Women's Wear"></a><div class="card-overlay"><a href="Women 4.jpeg" target="_blank">View Full →</a></div></div><div class="card-body"><h3>Luxury Women's Wear</h3><p>Premium Leather Finish</p></div></div>
 
-<div class="card">
-<a href="Women 2.jpeg" target="_blank">
-<img src="Women 2.jpeg">
-</a>
-<h3>Premium Fashion Jacket</h3>
-<p>Modern Stylish Collection</p>
-</div>
+    <div class="card fade-up"><div class="card-img-wrap"><a href="Women 5.jpeg" target="_blank"><img src="Women 5.jpeg" alt="Modern Women's Jacket"></a><div class="card-overlay"><a href="Women 5.jpeg" target="_blank">View Full →</a></div></div><div class="card-body"><h3>Modern Women's Jacket</h3><p>Designer Leather Collection</p></div></div>
 
-<div class="card">
-<a href="Women 3.jpeg" target="_blank">
-<img src="Women 3.jpeg">
-</a>
-<h3>Classic Leather Coat</h3>
-<p>Elegant Winter Fashion</p>
-</div>
+    <div class="card fade-up"><div class="card-img-wrap"><a href="Women 6.jpeg" target="_blank"><img src="Women 6.jpeg" alt="Premium Ladies Collection"></a><div class="card-overlay"><a href="Women 6.jpeg" target="_blank">View Full →</a></div></div><div class="card-body"><h3>Premium Ladies Collection</h3><p>Original Genuine Leather</p></div></div>
 
-<div class="card">
-<a href="Women 4.jpeg" target="_blank">
-<img src="Women 4.jpeg">
-</a>
-<h3>Luxury Women's Wear</h3>
-<p>Premium Leather Finish</p>
-</div>
-
-<div class="card">
-<a href="Women 5.jpeg" target="_blank">
-<img src="Women 5.jpeg">
-</a>
-<h3>Modern Women's Jacket</h3>
-<p>Designer Leather Collection</p>
-</div>
-
-<div class="card">
-<a href="Women 6.jpeg" target="_blank">
-<img src="Women 6.jpeg">
-</a>
-<h3>Premium Ladies Collection</h3>
-<p>Original Genuine Leather</p>
-</div>
-
-</div>
-
+  </div>
 </section>
 
 <!-- WHOLESALE -->
-
-<section id="wholesale">
-
-<h2>Wholesale Orders</h2>
-
-<div class="wholesale">
-
-<p>
-We manufacture and supply premium genuine leather products for wholesalers, retailers, resellers and businesses worldwide.
-</p>
-
-<br>
-
-<p>
-✔ Wholesale Orders Accepted<br>
-✔ Custom Logo Manufacturing<br>
-✔ OEM Manufacturing<br>
-✔ International Shipping<br>
-✔ Bulk Pricing Available<br>
-✔ Genuine Leather Guarantee
-</p>
-
+<div class="wholesale-section" id="wholesale">
+  <p class="section-label fade-up">For Businesses</p>
+  <h2 class="fade-up">Wholesale Orders</h2>
+  <div class="wholesale-inner">
+    <p class="fade-up">We manufacture and supply premium genuine leather products for wholesalers, retailers, resellers and businesses worldwide. Custom branding, bulk pricing and full OEM support available.</p>
+    <div class="wholesale-grid">
+      <div class="wholesale-item fade-up">
+        <div class="icon">📦</div>
+        <p>Wholesale Orders Accepted</p>
+      </div>
+      <div class="wholesale-item fade-up">
+        <div class="icon">🏷️</div>
+        <p>Custom Logo Manufacturing</p>
+      </div>
+      <div class="wholesale-item fade-up">
+        <div class="icon">🏭</div>
+        <p>OEM Manufacturing</p>
+      </div>
+      <div class="wholesale-item fade-up">
+        <div class="icon">✈️</div>
+        <p>International Shipping</p>
+      </div>
+      <div class="wholesale-item fade-up">
+        <div class="icon">💰</div>
+        <p>Bulk Pricing Available</p>
+      </div>
+      <div class="wholesale-item fade-up">
+        <div class="icon">✅</div>
+        <p>Genuine Leather Guarantee</p>
+      </div>
+    </div>
+  </div>
 </div>
 
-</section>
-
 <!-- CONTACT -->
-
-<div class="contact" id="contact">
-
-<h2>Contact Us</h2>
-
-<br>
-
-<p><strong>WL LEATHER </strong></p>
-
-<p>Premium Genuine Leather Products</p>
-
-<br>
-
-<p>
-WhatsApp:
-<a href="https://wa.me/966572236814">
-+966 57 223 6814
-</a>
-</p>
-
-<br>
-
-<a class="btn" href="https://wa.me/966572236814?text=Hello%20I%20want%20to%20order">
-Send WhatsApp Message
-</a>
-
+<div class="contact-section" id="contact">
+  <p class="section-label fade-up">Get In Touch</p>
+  <h2 class="fade-up">Contact Us</h2>
+  <div class="contact-inner fade-up">
+    <p class="contact-brand">WL LEATHER</p>
+    <p class="contact-sub">Premium Genuine Leather Products</p>
+    <a class="contact-wa" href="https://wa.me/966572236814">+966 57 223 6814</a>
+    <div class="contact-actions">
+      <a class="btn-primary" href="https://wa.me/966572236814?text=Hello%20I%20want%20to%20order">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.553 4.105 1.522 5.83L.057 23.888a.5.5 0 00.605.63l6.202-1.625A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-4.997-1.369l-.358-.213-3.712.972.99-3.614-.234-.371A9.774 9.774 0 012.182 12C2.182 6.569 6.569 2.182 12 2.182S21.818 6.569 21.818 12 17.431 21.818 12 21.818z"/></svg>
+        Send WhatsApp Message
+      </a>
+      <a class="btn-outline" href="https://wa.me/966572236814?text=Hello%20I%20want%20wholesale%20info">
+        Wholesale Inquiry
+      </a>
+    </div>
+  </div>
 </div>
 
 <!-- FOOTER -->
-
 <footer>
-
-© 2025 WL Leather | All Rights Reserved
-
+  © 2025 <span>WL Leather</span> — All Rights Reserved
 </footer>
 
-<!-- SCRIPT -->
-
 <script>
-
 function openMenu(){
-document.getElementById("sidebar").style.width="260px";
+  document.getElementById("sidebar").style.width="270px";
 }
-
 function closeMenu(){
-document.getElementById("sidebar").style.width="0";
+  document.getElementById("sidebar").style.width="0";
 }
 
-</script>
+// Scroll fade-up animation
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if(entry.isIntersecting){
+      setTimeout(() => entry.target.classList.add('visible'), i * 60);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
 
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
-```
