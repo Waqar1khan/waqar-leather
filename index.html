@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,7 @@
 <link rel="icon" type="image/png" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 :root {
@@ -23,6 +23,7 @@
 }
 
 * { margin:0; padding:0; box-sizing:border-box; }
+
 html { scroll-behavior: smooth; }
 
 body {
@@ -32,78 +33,15 @@ body {
   overflow-x: hidden;
 }
 
-body.ar {
-  font-family: 'Tajawal', sans-serif;
-  direction: rtl;
-}
-
-/* NOISE */
+/* ─── NOISE OVERLAY ─── */
 body::before {
   content:'';
   position:fixed;
   inset:0;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
   pointer-events:none;
-  z-index:9998;
+  z-index:9999;
   opacity:.4;
-}
-
-/* ─── LOADER ─── */
-#loader {
-  position: fixed;
-  inset: 0;
-  background: var(--dark);
-  z-index: 99999;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 24px;
-  transition: opacity .6s ease, visibility .6s ease;
-}
-#loader.hidden { opacity: 0; visibility: hidden; }
-
-.loader-logo {
-  width: 110px;
-  height: 110px;
-  background: url('logo.png') center/contain no-repeat;
-  animation: loaderPulse 1.4s ease-in-out infinite;
-}
-@keyframes loaderPulse {
-  0%,100% { opacity: .5; transform: scale(.96); }
-  50%      { opacity: 1;  transform: scale(1.02); }
-}
-.loader-bar {
-  width: 160px;
-  height: 1px;
-  background: rgba(184,145,74,.2);
-  border-radius: 2px;
-  overflow: hidden;
-}
-.loader-bar-fill {
-  height: 100%;
-  width: 0%;
-  background: var(--gold);
-  animation: loaderFill 1.1s ease forwards;
-}
-@keyframes loaderFill { to { width: 100%; } }
-.loader-text {
-  font-size: 10px;
-  letter-spacing: .3em;
-  text-transform: uppercase;
-  color: rgba(184,145,74,.6);
-}
-
-/* ─── SCROLL PROGRESS ─── */
-#progress-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 2px;
-  width: 0%;
-  background: linear-gradient(90deg, var(--gold), var(--gold-light));
-  z-index: 10000;
-  transition: width .1s linear;
 }
 
 /* ─── TOPBAR ─── */
@@ -119,11 +57,25 @@ body::before {
   z-index: 1000;
   border-bottom: 1px solid rgba(184,145,74,.2);
 }
-.logo img { height: 90px; width: auto; display: block; }
 
-.topbar-right { display: flex; align-items: center; gap: 20px; }
+.logo img {
+  height: 90px;
+  width: auto;
+  display: block;
+}
 
-.topbar-nav { display: flex; gap: 24px; list-style: none; }
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.topbar-nav {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+}
+
 .topbar-nav a {
   color: var(--cream2);
   text-decoration: none;
@@ -134,40 +86,27 @@ body::before {
   opacity: .75;
   transition: opacity .25s, color .25s;
 }
-.topbar-nav a:hover { opacity: 1; color: var(--gold-light); }
 
-/* Language Toggle */
-.lang-toggle {
-  display: flex;
-  align-items: center;
-  gap: 0;
-  border: 1px solid rgba(184,145,74,.35);
-  border-radius: 4px;
-  overflow: hidden;
+.topbar-nav a:hover {
+  opacity: 1;
+  color: var(--gold-light);
 }
-.lang-btn {
-  padding: 6px 12px;
-  font-size: 11px;
-  letter-spacing: .1em;
-  font-weight: 500;
+
+.menu-btn {
+  display: none;
+  font-size: 28px;
   cursor: pointer;
-  background: transparent;
-  color: rgba(232,224,212,.5);
-  border: none;
-  font-family: inherit;
-  transition: background .2s, color .2s;
+  color: white;
+  line-height: 1;
 }
-.lang-btn.active {
-  background: var(--gold);
-  color: var(--dark);
-}
-
-.menu-btn { display: none; font-size: 28px; cursor: pointer; color: white; line-height: 1; }
 
 /* ─── SIDEBAR ─── */
 .sidebar {
-  height: 100%; width: 0;
-  position: fixed; top: 0; left: 0;
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
   background: var(--dark2);
   overflow-x: hidden;
   transition: .4s cubic-bezier(.77,0,.18,1);
@@ -175,6 +114,7 @@ body::before {
   z-index: 2000;
   border-right: 1px solid rgba(184,145,74,.15);
 }
+
 .sidebar a {
   padding: 16px 36px;
   text-decoration: none;
@@ -186,12 +126,25 @@ body::before {
   transition: .25s;
   opacity: .75;
 }
-.sidebar a:hover { background: rgba(184,145,74,.1); color: var(--gold-light); opacity: 1; padding-left: 48px; }
-.closebtn { position: absolute; top: 16px; right: 24px; font-size: 32px; opacity: .6 !important; padding: 0 !important; letter-spacing: 0 !important; }
+
+.sidebar a:hover {
+  background: rgba(184,145,74,.1);
+  color: var(--gold-light);
+  opacity: 1;
+  padding-left: 48px;
+}
+
+.closebtn {
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  font-size: 32px;
+  opacity: .6 !important;
+  padding: 0 !important;
+  letter-spacing: 0 !important;
+}
+
 .closebtn:hover { opacity: 1 !important; }
-body.ar .sidebar { left: auto; right: 0; border-right: none; border-left: 1px solid rgba(184,145,74,.15); }
-body.ar .sidebar a:hover { padding-left: 36px; padding-right: 48px; }
-body.ar .closebtn { right: auto; left: 24px; }
 
 /* ─── HERO ─── */
 .hero {
@@ -202,331 +155,462 @@ body.ar .closebtn { right: auto; left: 24px; }
   align-items: flex-end;
   overflow: hidden;
 }
+
 .hero-bg {
-  position: absolute; inset: 0;
+  position: absolute;
+  inset: 0;
   background: url('BAG 1.jpeg') center/cover no-repeat;
   transform: scale(1.05);
   animation: heroScale 12s ease-in-out infinite alternate;
 }
-@keyframes heroScale { from { transform: scale(1.05); } to { transform: scale(1.12); } }
-.hero-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(160deg, rgba(14,12,10,.3) 0%, rgba(14,12,10,.85) 70%, rgba(14,12,10,.95) 100%);
+
+@keyframes heroScale {
+  from { transform: scale(1.05); }
+  to   { transform: scale(1.12); }
 }
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    rgba(14,12,10,.3) 0%,
+    rgba(14,12,10,.85) 70%,
+    rgba(14,12,10,.95) 100%
+  );
+}
+
 .hero-content {
-  position: relative; z-index: 2;
-  padding: 0 80px 80px;
+  position: relative;
+  z-index: 2;
+  padding: 0 80px 90px;
   max-width: 760px;
   animation: heroFadeUp .9s ease both;
 }
-@keyframes heroFadeUp { from { opacity:0; transform:translateY(40px); } to { opacity:1; transform:translateY(0); } }
+
+@keyframes heroFadeUp {
+  from { opacity:0; transform:translateY(40px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
 .hero-tag {
   display: inline-block;
-  font-size: 11px; letter-spacing: .25em; text-transform: uppercase;
-  color: var(--gold); border: 1px solid rgba(184,145,74,.4);
-  padding: 6px 16px; margin-bottom: 24px; border-radius: 2px;
+  font-size: 11px;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid rgba(184,145,74,.4);
+  padding: 6px 16px;
+  margin-bottom: 28px;
+  border-radius: 2px;
 }
+
 .hero h1 {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(42px, 6vw, 80px);
-  font-weight: 300; color: var(--white);
-  line-height: 1.05; margin-bottom: 20px; letter-spacing: -.01em;
+  font-size: clamp(48px, 7vw, 88px);
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1.05;
+  margin-bottom: 24px;
+  letter-spacing: -.01em;
 }
-.hero h1 em { font-style: italic; color: var(--gold-light); }
-.hero p { font-size: 15px; color: rgba(242,237,230,.65); margin-bottom: 36px; font-weight: 300; letter-spacing: .04em; max-width: 480px; }
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--gold-light);
+}
+
+.hero p {
+  font-size: 15px;
+  color: rgba(242,237,230,.65);
+  margin-bottom: 44px;
+  font-weight: 300;
+  letter-spacing: .04em;
+  max-width: 480px;
+}
 
 .btn-primary {
-  display: inline-flex; align-items: center; gap: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   padding: 16px 38px;
-  background: var(--gold); color: var(--dark);
-  text-decoration: none; font-size: 13px; font-weight: 600;
-  letter-spacing: .14em; text-transform: uppercase;
-  border-radius: 3px; transition: background .3s, transform .3s;
+  background: var(--gold);
+  color: var(--dark);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  border-radius: 3px;
+  transition: background .3s, transform .3s;
 }
-.btn-primary:hover { background: var(--gold-light); transform: translateY(-3px); }
 
-/* ─── FEATURES STRIP ─── */
-.features { background: var(--dark); padding: 60px 40px; }
-.features-grid {
-  max-width: 1100px; margin: auto;
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 40px; text-align: center;
+.btn-primary:hover {
+  background: var(--gold-light);
+  transform: translateY(-3px);
 }
-.feature-item { display: flex; flex-direction: column; align-items: center; gap: 14px; }
-.feature-icon {
-  width: 48px; height: 48px;
-  border: 1px solid rgba(184,145,74,.4);
-  border-radius: 50%; display: flex; align-items: center; justify-content: center;
-  color: var(--gold);
-}
-.feature-item h4 { font-size: 13px; letter-spacing: .15em; text-transform: uppercase; color: var(--cream); font-weight: 500; }
-.feature-item p { font-size: 12px; color: rgba(232,224,212,.45); font-weight: 300; }
+
+.btn-primary svg { flex-shrink:0; }
 
 /* ─── DIVIDER ─── */
-.section-label { text-align: center; font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
-h2 { font-family: 'Cormorant Garamond', serif; text-align: center; font-size: clamp(34px, 5vw, 56px); font-weight: 300; margin-bottom: 60px; letter-spacing: -.01em; color: var(--dark); }
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  max-width: 200px;
+  margin: 0 auto 20px;
+}
+
+.divider::before, .divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--gold);
+  opacity: .4;
+}
+
+.divider-diamond {
+  width: 8px;
+  height: 8px;
+  border: 1px solid var(--gold);
+  transform: rotate(45deg);
+  opacity: .7;
+}
 
 /* ─── SECTIONS ─── */
-section { padding: 90px 40px; }
+section { padding: 100px 40px; }
+
+.section-label {
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+h2 {
+  font-family: 'Cormorant Garamond', serif;
+  text-align: center;
+  font-size: clamp(36px, 5vw, 58px);
+  font-weight: 300;
+  margin-bottom: 60px;
+  letter-spacing: -.01em;
+  color: var(--dark);
+}
 
 /* ─── GALLERY ─── */
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 24px; max-width: 1280px; margin: auto;
+  gap: 24px;
+  max-width: 1280px;
+  margin: auto;
 }
+
 .card {
-  background: white; border-radius: 6px; overflow: hidden;
+  background: white;
+  border-radius: 6px;
+  overflow: hidden;
   box-shadow: 0 4px 24px rgba(14,12,10,.08);
   transition: transform .4s cubic-bezier(.25,.8,.25,1), box-shadow .4s;
+  position: relative;
 }
-.card:hover { transform: translateY(-10px); box-shadow: 0 20px 50px rgba(14,12,10,.18); }
-.card-img-wrap { overflow: hidden; position: relative; }
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 50px rgba(14,12,10,.18);
+}
+
+.card-img-wrap {
+  overflow: hidden;
+  position: relative;
+}
+
 .card img {
-  width: 100%; height: 320px; object-fit: cover; display: block;
-  transition: transform .55s cubic-bezier(.25,.8,.25,1);
-  cursor: pointer;
-}
-.card:hover img { transform: scale(1.07); }
-.card-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(14,12,10,.55) 0%, transparent 55%);
-  opacity: 0; transition: opacity .4s;
-  display: flex; align-items: flex-end; padding: 18px;
-}
-.card:hover .card-overlay { opacity: 1; }
-.card-overlay a { color: white; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.5); padding-bottom: 2px; }
-.card-body { padding: 18px 20px 14px; }
-.card-body h3 { font-family: 'Cormorant Garamond', serif; font-size: 21px; font-weight: 400; margin-bottom: 4px; }
-.card-body p { font-size: 13px; color: var(--text-muted); letter-spacing: .04em; margin-bottom: 14px; }
-
-/* Order button on card */
-.card-order-btn {
-  display: flex;
-  align-items: center;
-  gap: 7px;
   width: 100%;
-  padding: 10px 16px;
-  background: #25D366;
+  height: 340px;
+  object-fit: cover;
+  display: block;
+  transition: transform .55s cubic-bezier(.25,.8,.25,1);
+}
+
+.card:hover img { transform: scale(1.07); }
+
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(14,12,10,.5) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity .4s;
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+}
+
+.card:hover .card-overlay { opacity: 1; }
+
+.card-overlay a {
   color: white;
-  border: none;
-  border-radius: 4px;
   font-size: 12px;
-  font-weight: 600;
-  letter-spacing: .1em;
+  letter-spacing: .14em;
   text-transform: uppercase;
-  cursor: pointer;
   text-decoration: none;
-  justify-content: center;
-  transition: background .25s, transform .25s;
-  font-family: inherit;
-}
-.card-order-btn:hover { background: #1ebe5d; transform: translateY(-2px); }
-.card-order-btn svg { flex-shrink: 0; }
-
-/* ─── LIGHTBOX ─── */
-#lightbox {
-  position: fixed; inset: 0;
-  background: rgba(10,8,6,.93);
-  z-index: 9000;
-  display: flex; align-items: center; justify-content: center;
-  opacity: 0; visibility: hidden;
-  transition: opacity .35s, visibility .35s;
-}
-#lightbox.open { opacity: 1; visibility: visible; }
-#lightbox img {
-  max-width: 90vw; max-height: 88vh;
-  object-fit: contain;
-  border-radius: 4px;
-  box-shadow: 0 30px 80px rgba(0,0,0,.6);
-  transform: scale(.93);
-  transition: transform .35s cubic-bezier(.25,.8,.25,1);
-}
-#lightbox.open img { transform: scale(1); }
-#lightbox-close {
-  position: absolute; top: 24px; right: 32px;
-  font-size: 38px; color: rgba(255,255,255,.7);
-  cursor: pointer; line-height: 1;
-  transition: color .2s;
-}
-#lightbox-close:hover { color: white; }
-#lightbox-caption {
-  position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
-  font-size: 12px; letter-spacing: .18em; text-transform: uppercase;
-  color: rgba(255,255,255,.45);
-  white-space: nowrap;
+  border-bottom: 1px solid rgba(255,255,255,.5);
+  padding-bottom: 2px;
 }
 
-/* ─── TRUST SECTION ─── */
-.trust-section { background: var(--cream); padding: 90px 40px; }
-.trust-section h2 { color: var(--dark); }
-.trust-grid {
-  max-width: 1000px; margin: auto;
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 28px;
+.card-body {
+  padding: 20px 22px 24px;
 }
-.trust-card {
-  background: white; border-radius: 8px;
-  padding: 32px 24px; text-align: center;
-  box-shadow: 0 4px 20px rgba(14,12,10,.07);
-  transition: transform .3s;
-}
-.trust-card:hover { transform: translateY(-5px); }
-.trust-num {
+
+.card-body h3 {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 52px; font-weight: 300;
-  color: var(--gold); line-height: 1;
-  margin-bottom: 8px;
-}
-.trust-card h4 { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8px; }
-.trust-card p { font-size: 13px; color: var(--text-muted); font-weight: 300; }
-
-/* ─── REVIEWS ─── */
-.reviews-section { background: white; padding: 90px 40px; }
-.reviews-grid {
-  max-width: 1100px; margin: auto;
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px;
-}
-.review-card {
-  border: 1px solid rgba(184,145,74,.18);
-  border-radius: 8px; padding: 30px 28px;
-  background: var(--cream); position: relative;
-  transition: box-shadow .3s;
-}
-.review-card:hover { box-shadow: 0 8px 30px rgba(14,12,10,.1); }
-.review-stars { color: var(--gold); font-size: 16px; letter-spacing: 2px; margin-bottom: 14px; }
-.review-text {
-  font-size: 15px; line-height: 1.8; color: #444;
-  font-weight: 300; margin-bottom: 20px;
-  font-style: italic;
-}
-.review-author { font-size: 13px; font-weight: 600; letter-spacing: .08em; color: var(--dark); }
-.review-location { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
-.review-quote {
-  position: absolute; top: 22px; right: 24px;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 60px; color: rgba(184,145,74,.15);
-  line-height: 1;
+  font-size: 22px;
+  font-weight: 400;
+  margin-bottom: 6px;
+  color: var(--dark);
 }
 
-/* ─── WHOLESALE ─── */
-.wholesale-section { background: var(--dark2); padding: 90px 40px; }
-.wholesale-section h2 { color: var(--white); }
-.wholesale-section .section-label { color: var(--gold-light); }
-.wholesale-inner { max-width: 900px; margin: auto; text-align: center; }
-.wholesale-inner > p { font-size: 16px; line-height: 1.9; color: rgba(232,224,212,.65); font-weight: 300; margin-bottom: 44px; }
-.wholesale-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
-.wholesale-item {
-  border: 1px solid rgba(184,145,74,.2);
-  padding: 28px 20px 22px; border-radius: 6px; text-align: center;
-  transition: background .3s, border-color .3s, transform .3s;
-  text-decoration: none; display: flex; flex-direction: column;
-  align-items: center; gap: 0; cursor: pointer;
+.card-body p {
+  font-size: 13px;
+  color: var(--text-muted);
+  letter-spacing: .04em;
 }
-.wholesale-item:hover { background: rgba(184,145,74,.1); border-color: rgba(184,145,74,.6); transform: translateY(-4px); }
-.wholesale-item .icon { font-size: 30px; margin-bottom: 14px; }
-.wholesale-item p { font-size: 13px; color: var(--cream2); letter-spacing: .08em; font-weight: 300; margin-bottom: 14px; }
-.tile-cta { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); opacity: 0; transform: translateY(4px); transition: opacity .25s, transform .25s; }
-.wholesale-item:hover .tile-cta { opacity: 1; transform: translateY(0); }
 
-/* ─── CONTACT ─── */
-.contact-section { background: var(--dark3); padding: 90px 40px; text-align: center; }
-.contact-section h2 { color: var(--white); }
-.contact-inner { max-width: 560px; margin: auto; }
-.contact-brand { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--gold); letter-spacing: .2em; text-transform: uppercase; margin-bottom: 10px; }
-.contact-sub { font-size: 13px; color: rgba(232,224,212,.5); letter-spacing: .1em; margin-bottom: 36px; }
-.contact-wa { font-size: 22px; color: var(--gold-light); text-decoration: none; letter-spacing: .05em; transition: color .25s; display: block; margin-bottom: 6px; }
-.contact-wa:hover { color: white; }
-.contact-actions { margin-top: 40px; display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
-.btn-outline {
-  display: inline-flex; align-items: center; gap: 10px;
-  padding: 14px 32px;
-  border: 1px solid rgba(184,145,74,.5); color: var(--cream);
-  text-decoration: none; font-size: 13px; font-weight: 500;
-  letter-spacing: .12em; text-transform: uppercase;
-  border-radius: 3px; transition: background .3s, border-color .3s;
+/* ─── FEATURES STRIP ─── */
+.features {
+  background: var(--dark);
+  padding: 64px 40px;
 }
-.btn-outline:hover { background: rgba(184,145,74,.12); border-color: var(--gold); }
 
-/* ─── FLOATING WHATSAPP ─── */
-.wa-float {
-  position: fixed;
-  bottom: 32px;
-  right: 32px;
-  width: 60px;
-  height: 60px;
-  background: #25D366;
+.features-grid {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+  text-align: center;
+}
+
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.feature-icon {
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(184,145,74,.4);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 8000;
-  box-shadow: 0 6px 24px rgba(37,211,102,.4);
-  text-decoration: none;
-  transition: transform .3s, box-shadow .3s;
-  animation: waPulse 2.5s ease-in-out infinite;
+  color: var(--gold);
 }
-.wa-float:hover { transform: scale(1.1); box-shadow: 0 10px 32px rgba(37,211,102,.55); animation: none; }
-@keyframes waPulse {
-  0%,100% { box-shadow: 0 6px 24px rgba(37,211,102,.4); }
-  50%      { box-shadow: 0 6px 36px rgba(37,211,102,.7); }
+
+.feature-item h4 {
+  font-size: 13px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--cream);
+  font-weight: 500;
 }
-.wa-float svg { width: 30px; height: 30px; fill: white; }
-.wa-tooltip {
-  position: absolute;
-  right: 72px;
-  background: var(--dark);
-  color: white;
+
+.feature-item p {
   font-size: 12px;
-  letter-spacing: .08em;
-  white-space: nowrap;
-  padding: 7px 14px;
-  border-radius: 4px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity .25s;
+  color: rgba(232,224,212,.45);
+  font-weight: 300;
 }
-.wa-float:hover .wa-tooltip { opacity: 1; }
-body.ar .wa-float { right: auto; left: 32px; }
-body.ar .wa-tooltip { right: auto; left: 72px; }
+
+/* ─── WHOLESALE ─── */
+.wholesale-section {
+  background: var(--dark2);
+  padding: 100px 40px;
+}
+
+.wholesale-section h2 { color: var(--white); }
+.wholesale-section .section-label { color: var(--gold-light); }
+
+.wholesale-inner {
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+}
+
+.wholesale-inner > p {
+  font-size: 16px;
+  line-height: 1.9;
+  color: rgba(232,224,212,.65);
+  font-weight: 300;
+  margin-bottom: 50px;
+}
+
+.wholesale-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.wholesale-item {
+  border: 1px solid rgba(184,145,74,.2);
+  padding: 28px 20px 22px;
+  border-radius: 6px;
+  text-align: center;
+  transition: background .3s, border-color .3s, transform .3s;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  cursor: pointer;
+}
+
+.wholesale-item:hover {
+  background: rgba(184,145,74,.1);
+  border-color: rgba(184,145,74,.6);
+  transform: translateY(-4px);
+}
+
+.wholesale-item .icon {
+  font-size: 30px;
+  margin-bottom: 14px;
+}
+
+.wholesale-item p {
+  font-size: 13px;
+  color: var(--cream2);
+  letter-spacing: .08em;
+  font-weight: 300;
+  margin-bottom: 14px;
+}
+
+.tile-cta {
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity .25s, transform .25s;
+}
+
+.wholesale-item:hover .tile-cta {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── CONTACT ─── */
+.contact-section {
+  background: var(--dark3);
+  padding: 100px 40px;
+  text-align: center;
+}
+
+.contact-section h2 { color: var(--white); }
+
+.contact-inner {
+  max-width: 560px;
+  margin: auto;
+}
+
+.contact-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  color: var(--gold);
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.contact-sub {
+  font-size: 13px;
+  color: rgba(232,224,212,.5);
+  letter-spacing: .1em;
+  margin-bottom: 40px;
+}
+
+.contact-wa {
+  font-size: 22px;
+  color: var(--gold-light);
+  text-decoration: none;
+  letter-spacing: .05em;
+  transition: color .25s;
+}
+
+.contact-wa:hover { color: white; }
+
+.contact-actions {
+  margin-top: 44px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 34px;
+  border: 1px solid rgba(184,145,74,.5);
+  color: var(--cream);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  border-radius: 3px;
+  transition: background .3s, border-color .3s;
+}
+
+.btn-outline:hover {
+  background: rgba(184,145,74,.12);
+  border-color: var(--gold);
+}
 
 /* ─── FOOTER ─── */
-footer { background: var(--dark); color: rgba(232,224,212,.3); text-align: center; padding: 28px 20px; font-size: 12px; letter-spacing: .1em; border-top: 1px solid rgba(184,145,74,.12); }
-footer span { color: var(--gold); opacity: .6; }
+footer {
+  background: var(--dark);
+  color: rgba(232,224,212,.3);
+  text-align: center;
+  padding: 28px 20px;
+  font-size: 12px;
+  letter-spacing: .1em;
+  border-top: 1px solid rgba(184,145,74,.12);
+}
 
-/* ─── SCROLL ANIMATIONS ─── */
-.fade-up { opacity: 0; transform: translateY(30px); transition: opacity .7s ease, transform .7s ease; }
-.fade-up.visible { opacity: 1; transform: none; }
+footer span { color: var(--gold); opacity: .6; }
 
 /* ─── RESPONSIVE ─── */
 @media(max-width: 900px) {
   .topbar-nav { display: none; }
   .menu-btn { display: block; }
-  .hero-content { padding: 0 28px 56px; }
-  section { padding: 70px 20px; }
-  .trust-section, .reviews-section, .wholesale-section, .contact-section { padding: 70px 20px; }
+  .hero-content { padding: 0 32px 60px; }
+  section { padding: 70px 24px; }
   .contact-actions { flex-direction: column; align-items: center; }
 }
+
 @media(max-width: 500px) {
-  .topbar { padding: 0 16px; }
-  .hero h1 { font-size: 36px; }
-  .wa-float { bottom: 20px; right: 20px; }
-  body.ar .wa-float { left: 20px; }
+  .topbar { padding: 0 20px; }
+  .hero h1 { font-size: 40px; }
+}
+
+/* ─── SCROLL ANIMATIONS ─── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: none;
 }
 </style>
 </head>
 <body>
-
-<!-- SCROLL PROGRESS BAR -->
-<div id="progress-bar"></div>
-
-<!-- LOADER -->
-<div id="loader">
-  <div class="loader-logo"></div>
-  <div class="loader-bar"><div class="loader-bar-fill"></div></div>
-  <p class="loader-text" id="loader-text">WL Leather</p>
-</div>
 
 <!-- TOPBAR -->
 <div class="topbar">
@@ -534,18 +618,14 @@ footer span { color: var(--gold); opacity: .6; }
     <img src="logo.png" alt="WL Leather">
   </div>
   <ul class="topbar-nav">
-    <li><a href="#laptop" data-en="Laptop Bags" data-ar="حقائب اللابتوب">Laptop Bags</a></li>
-    <li><a href="#handbags" data-en="Handbags" data-ar="الحقائب">Handbags</a></li>
-    <li><a href="#mens" data-en="Men's Jackets" data-ar="جاكيتات رجالية">Men's Jackets</a></li>
-    <li><a href="#ladies" data-en="Women's" data-ar="نسائي">Women's</a></li>
-    <li><a href="#wholesale" data-en="Wholesale" data-ar="الجملة">Wholesale</a></li>
-    <li><a href="#contact" data-en="Contact" data-ar="تواصل معنا">Contact</a></li>
+    <li><a href="#laptop">Laptop Bags</a></li>
+    <li><a href="#handbags">Handbags</a></li>
+    <li><a href="#mens">Men's Jackets</a></li>
+    <li><a href="#ladies">Women's</a></li>
+    <li><a href="#wholesale">Wholesale</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
   <div class="topbar-right">
-    <div class="lang-toggle">
-      <button class="lang-btn active" onclick="setLang('en')">EN</button>
-      <button class="lang-btn" onclick="setLang('ar')">عربي</button>
-    </div>
     <div class="menu-btn" onclick="openMenu()">☰</div>
   </div>
 </div>
@@ -553,13 +633,13 @@ footer span { color: var(--gold); opacity: .6; }
 <!-- SIDEBAR -->
 <div id="sidebar" class="sidebar">
   <a href="javascript:void(0)" class="closebtn" onclick="closeMenu()">×</a>
-  <a href="#home" onclick="closeMenu()" data-en="Home" data-ar="الرئيسية">Home</a>
-  <a href="#laptop" onclick="closeMenu()" data-en="Laptop Bags" data-ar="حقائب اللابتوب">Laptop Bags</a>
-  <a href="#handbags" onclick="closeMenu()" data-en="Handbags" data-ar="الحقائب">Handbags</a>
-  <a href="#mens" onclick="closeMenu()" data-en="Men's Jackets" data-ar="جاكيتات رجالية">Men's Jackets</a>
-  <a href="#ladies" onclick="closeMenu()" data-en="Women's Collection" data-ar="تشكيلة نسائية">Women's Collection</a>
-  <a href="#wholesale" onclick="closeMenu()" data-en="Wholesale" data-ar="الجملة">Wholesale</a>
-  <a href="#contact" onclick="closeMenu()" data-en="Contact" data-ar="تواصل معنا">Contact</a>
+  <a href="#home" onclick="closeMenu()">Home</a>
+  <a href="#laptop" onclick="closeMenu()">Laptop Bags</a>
+  <a href="#handbags" onclick="closeMenu()">Handbags</a>
+  <a href="#mens" onclick="closeMenu()">Men's Jackets</a>
+  <a href="#ladies" onclick="closeMenu()">Women's Collection</a>
+  <a href="#wholesale" onclick="closeMenu()">Wholesale</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
 </div>
 
 <!-- HERO -->
@@ -567,12 +647,12 @@ footer span { color: var(--gold); opacity: .6; }
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="hero-tag" data-en="Est. Premium Collection" data-ar="مجموعة فاخرة مميزة">Est. Premium Collection</div>
-    <h1 data-en="Crafted in<br><em>Genuine Leather</em>" data-ar="مصنوع من<br><em>جلد طبيعي أصيل</em>">Crafted in<br><em>Genuine Leather</em></h1>
-    <p data-en="Luxury bags, jackets & custom manufacturing — built for those who demand the finest." data-ar="حقائب فاخرة وجاكيتات وتصنيع مخصص — لمن يبحث عن الأرقى.">Luxury bags, jackets & custom manufacturing — built for those who demand the finest.</p>
+    <div class="hero-tag">Est. Premium Collection</div>
+    <h1>Crafted in<br><em>Genuine Leather</em></h1>
+    <p>Luxury bags, jackets & custom manufacturing — built for those who demand the finest.</p>
     <a class="btn-primary" href="https://wa.me/966572236814?text=Hello%20I%20want%20to%20order">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.553 4.105 1.522 5.83L.057 23.888a.5.5 0 00.605.63l6.202-1.625A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-4.997-1.369l-.358-.213-3.712.972.99-3.614-.234-.371A9.774 9.774 0 012.182 12C2.182 6.569 6.569 2.182 12 2.182S21.818 6.569 21.818 12 17.431 21.818 12 21.818z"/></svg>
-      <span data-en="Order on WhatsApp" data-ar="اطلب عبر واتساب">Order on WhatsApp</span>
+      Order on WhatsApp
     </a>
   </div>
 </section>
@@ -581,104 +661,72 @@ footer span { color: var(--gold); opacity: .6; }
 <div class="features">
   <div class="features-grid">
     <div class="feature-item fade-up">
-      <div class="feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg></div>
-      <h4 data-en="Genuine Leather" data-ar="جلد طبيعي">Genuine Leather</h4>
-      <p data-en="Certified 100% authentic hide" data-ar="معتمد 100% جلد أصيل">Certified 100% authentic hide</p>
+      <div class="feature-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+      </div>
+      <h4>Genuine Leather</h4>
+      <p>Certified 100% authentic hide</p>
     </div>
     <div class="feature-item fade-up">
-      <div class="feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg></div>
-      <h4 data-en="International Shipping" data-ar="شحن دولي">International Shipping</h4>
-      <p data-en="Delivered worldwide" data-ar="توصيل لجميع أنحاء العالم">Delivered worldwide</p>
+      <div class="feature-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+      </div>
+      <h4>International Shipping</h4>
+      <p>Delivered worldwide</p>
     </div>
     <div class="feature-item fade-up">
-      <div class="feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A2 2 0 013 12V7a4 4 0 014-4z"/></svg></div>
-      <h4 data-en="Custom Logo" data-ar="شعار مخصص">Custom Logo</h4>
-      <p data-en="OEM & private label orders" data-ar="طلبات OEM والعلامة الخاصة">OEM & private label orders</p>
+      <div class="feature-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A2 2 0 013 12V7a4 4 0 014-4z"/></svg>
+      </div>
+      <h4>Custom Logo</h4>
+      <p>OEM & private label orders</p>
     </div>
     <div class="feature-item fade-up">
-      <div class="feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg></div>
-      <h4 data-en="Bulk Pricing" data-ar="أسعار الجملة">Bulk Pricing</h4>
-      <p data-en="Wholesale rates available" data-ar="أسعار جملة متاحة">Wholesale rates available</p>
-    </div>
-  </div>
-</div>
-
-<!-- WHY CHOOSE US -->
-<div class="trust-section" id="trust">
-  <p class="section-label fade-up" data-en="Our Track Record" data-ar="سجلنا">Our Track Record</p>
-  <h2 class="fade-up" data-en="Why Choose WL Leather" data-ar="لماذا تختار WL Leather">Why Choose WL Leather</h2>
-  <div class="trust-grid">
-    <div class="trust-card fade-up">
-      <div class="trust-num">10+</div>
-      <h4 data-en="Years of Experience" data-ar="سنوات خبرة">Years of Experience</h4>
-      <p data-en="Decade of crafting premium leather goods" data-ar="عقد من صناعة منتجات الجلد الفاخرة">Decade of crafting premium leather goods</p>
-    </div>
-    <div class="trust-card fade-up">
-      <div class="trust-num">50+</div>
-      <h4 data-en="Countries Shipped" data-ar="دولة نشحن إليها">Countries Shipped</h4>
-      <p data-en="Trusted by clients across the globe" data-ar="ثقة عملاء من حول العالم">Trusted by clients across the globe</p>
-    </div>
-    <div class="trust-card fade-up">
-      <div class="trust-num">5K+</div>
-      <h4 data-en="Orders Completed" data-ar="طلب مكتمل">Orders Completed</h4>
-      <p data-en="Wholesale & retail orders fulfilled" data-ar="طلبات جملة وتجزئة منجزة">Wholesale & retail orders fulfilled</p>
-    </div>
-    <div class="trust-card fade-up">
-      <div class="trust-num">100%</div>
-      <h4 data-en="Genuine Leather" data-ar="جلد طبيعي">Genuine Leather</h4>
-      <p data-en="No synthetic. No compromise." data-ar="لا اصطناعي. لا تنازل.">No synthetic. No compromise.</p>
+      <div class="feature-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+      </div>
+      <h4>Bulk Pricing</h4>
+      <p>Wholesale rates available</p>
     </div>
   </div>
 </div>
 
 <!-- LAPTOP BAGS -->
 <section id="laptop">
-  <p class="section-label fade-up" data-en="Our Collection" data-ar="مجموعتنا">Our Collection</p>
-  <h2 class="fade-up" data-en="Laptop Bags" data-ar="حقائب اللابتوب">Laptop Bags</h2>
+  <p class="section-label fade-up">Our Collection</p>
+  <h2 class="fade-up">Laptop Bags</h2>
   <div class="gallery">
 
     <div class="card fade-up">
       <div class="card-img-wrap">
-        <img src="BAG 1.jpeg" alt="Executive Laptop Bag" onclick="openLightbox(this.src, this.alt)">
-        <div class="card-overlay"><a onclick="openLightbox('BAG 1.jpeg','Executive Laptop Bag')" href="javascript:void(0)" data-en="View Full →" data-ar="← عرض كامل">View Full →</a></div>
+        <a href="BAG 1.jpeg" target="_blank"><img src="BAG 1.jpeg" alt="Executive Laptop Bag"></a>
+        <div class="card-overlay"><a href="BAG 1.jpeg" target="_blank">View Full →</a></div>
       </div>
       <div class="card-body">
-        <h3 data-en="Executive Laptop Bag" data-ar="حقيبة لابتوب تنفيذية">Executive Laptop Bag</h3>
-        <p data-en="Premium Genuine Leather" data-ar="جلد طبيعي فاخر">Premium Genuine Leather</p>
-        <a class="card-order-btn" href="https://wa.me/966572236814?text=Hello%2C%20I%20want%20to%20order%20the%20Executive%20Laptop%20Bag" target="_blank">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.553 4.105 1.522 5.83L.057 23.888a.5.5 0 00.605.63l6.202-1.625A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-4.997-1.369l-.358-.213-3.712.972.99-3.614-.234-.371A9.774 9.774 0 012.182 12C2.182 6.569 6.569 2.182 12 2.182S21.818 6.569 21.818 12 17.431 21.818 12 21.818z"/></svg>
-          <span data-en="Order This Item" data-ar="اطلب هذا المنتج">Order This Item</span>
-        </a>
+        <h3>Executive Laptop Bag</h3>
+        <p>Premium Genuine Leather</p>
       </div>
     </div>
 
     <div class="card fade-up">
       <div class="card-img-wrap">
-        <img src="Bag 2.jpeg" alt="Business Leather Bag" onclick="openLightbox(this.src, this.alt)">
-        <div class="card-overlay"><a onclick="openLightbox('Bag 2.jpeg','Business Leather Bag')" href="javascript:void(0)" data-en="View Full →" data-ar="← عرض كامل">View Full →</a></div>
+        <a href="Bag 2.jpeg" target="_blank"><img src="Bag 2.jpeg" alt="Business Leather Bag"></a>
+        <div class="card-overlay"><a href="Bag 2.jpeg" target="_blank">View Full →</a></div>
       </div>
       <div class="card-body">
-        <h3 data-en="Business Leather Bag" data-ar="حقيبة جلد للأعمال">Business Leather Bag</h3>
-        <p data-en="Luxury Office Collection" data-ar="مجموعة مكتبية فاخرة">Luxury Office Collection</p>
-        <a class="card-order-btn" href="https://wa.me/966572236814?text=Hello%2C%20I%20want%20to%20order%20the%20Business%20Leather%20Bag" target="_blank">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.553 4.105 1.522 5.83L.057 23.888a.5.5 0 00.605.63l6.202-1.625A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-4.997-1.369l-.358-.213-3.712.972.99-3.614-.234-.371A9.774 9.774 0 012.182 12C2.182 6.569 6.569 2.182 12 2.182S21.818 6.569 21.818 12 17.431 21.818 12 21.818z"/></svg>
-          <span data-en="Order This Item" data-ar="اطلب هذا المنتج">Order This Item</span>
-        </a>
+        <h3>Business Leather Bag</h3>
+        <p>Luxury Office Collection</p>
       </div>
     </div>
 
     <div class="card fade-up">
       <div class="card-img-wrap">
-        <img src="Bag 3.jpeg" alt="Classic Laptop Bag" onclick="openLightbox(this.src, this.alt)">
-        <div class="card-overlay"><a onclick="openLightbox('Bag 3.jpeg','Classic Laptop Bag')" href="javascript:void(0)" data-en="View Full →" data-ar="← عرض كامل">View Full →</a></div>
+        <a href="Bag 3.jpeg" target="_blank"><img src="Bag 3.jpeg" alt="Classic Laptop Bag"></a>
+        <div class="card-overlay"><a href="Bag 3.jpeg" target="_blank">View Full →</a></div>
       </div>
       <div class="card-body">
-        <h3 data-en="Classic Laptop Bag" data-ar="حقيبة لابتوب كلاسيكية">Classic Laptop Bag</h3>
-        <p data-en="Professional Leather Finish" data-ar="تشطيب جلد احترافي">Professional Leather Finish</p>
-        <a class="card-order-btn" href="https://wa.me/966572236814?text=Hello%2C%20I%20want%20to%20order%20the%20Classic%20Laptop%20Bag" target="_blank">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.553 4.105 1.522 5.83L.057 23.888a.5.5 0 00.605.63l6.202-1.625A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-4.997-1.369l-.358-.213-3.712.972.99-3.614-.234-.371A9.774 9.774 0 012.182 12C2.182 6.569 6.569 2.182 12 2.182S21.818 6.569 21.818 12 17.431 21.818 12 21.818z"/></svg>
-          <span data-en="Order This Item" data-ar="اطلب هذا المنتج">Order This Item</span>
-        </a>
+        <h3>Classic Laptop Bag</h3>
+        <p>Professional Leather Finish</p>
       </div>
     </div>
 
@@ -687,90 +735,105 @@ footer span { color: var(--gold); opacity: .6; }
 
 <!-- HANDBAGS -->
 <section id="handbags" style="background:#fff;">
-  <p class="section-label fade-up" data-en="Leather Goods" data-ar="منتجات جلدية">Leather Goods</p>
-  <h2 class="fade-up" data-en="Leather Handbags" data-ar="حقائب جلدية">Leather Handbags</h2>
-  <div class="gallery" id="handbags-gallery"></div>
+  <p class="section-label fade-up">Leather Goods</p>
+  <h2 class="fade-up">Leather Handbags</h2>
+  <div class="gallery">
+
+    <div class="card fade-up"><div class="card-img-wrap"><a href="Bag 4.jpeg" target="_blank"><img src="Bag 4.jpeg" alt="Luxury Leather Handbag"></a><div class="card-overlay"><a href="Bag 4.jpeg" target="_blank">View Full →</a></div></div><div class="card-body"><h3>Luxury Leather Handbag</h3><p>Elegant Premium Design</p></div></div>
+
+    <div class="card fade-up"><div class="card-img-wrap"><a href="Bag 5.jpeg" target="_blank"><img src="Bag 5.jpeg" alt="Vintage Leather Bag"></a><div class="card-overlay"><a href="Bag 5.jpeg" target="_blank">View Full →</a></div></div><div class="card-body"><h3>Vintage Leather Bag</h3><p>Classic Handmade Collection</p></div></div>
+
+    <div class="card fade-up"><div class="card-img-wrap"><a href="Bag 6.jpeg" target="_blank"><img src="Bag 6.jpeg" alt="Modern Leather Tote"></a><div class="card-overlay"><a href="Bag 6.jpeg" target="_blank">View Full →</a></div></div><div class="card-body"><h3>Modern Leather Tote</h3><p>Premium Cowhide Leather</p></div></div>
+
+    <div class="card fade-up"><div class="card-img-wrap"><a href="Bag 7.jpeg" target="_blank"><img src="Bag 7.jpeg" alt="Designer Leather Bag"></a><div class="card-overlay"><a href="Bag 7.jpeg" target="_blank">View Full →</a></div></div><div class="card-body"><h3>Designer Leather Bag</h3><p>Luxury Fashion Collection</p></div></div>
+
+    <div class="card fade-up"><div class="card-img-wrap"><a href="Bag 8.jpeg" target="_blank"><img src="Bag 8.jpeg" alt="Classic Women's Bag"></a><div class="card-overlay"><a href="Bag 8.jpeg" target="_blank">View Full →</a></div></div><div class="card-body"><h3>Classic Women's Bag</h3><p>Elegant Leather Finish</p></div></div>
+
+    <div class="card fade-up"><div class="card-img-wrap"><a href="Bag 9.jpeg" target="_blank"><img src="Bag 9.jpeg" alt="Premium Fashion Bag"></a><div class="card-overlay"><a href="Bag 9.jpeg" target="_blank">View Full →</a></div></div><div class="card-body"><h3>Premium Fashion Bag</h3><p>Original Genuine Leather</p></div></div>
+
+    <div class="card fade-up"><div class="card-img-wrap"><a href="Bag 10.jpeg" target="_blank"><img src="Bag 10.jpeg" alt="Luxury Tote Collection"></a><div class="card-overlay"><a href="Bag 10.jpeg" target="_blank">View Full →</a></div></div><div class="card-body"><h3>Luxury Tote Collection</h3><p>Handcrafted Leather Product</p></div></div>
+
+  </div>
 </section>
 
 <!-- MEN'S JACKETS -->
 <section id="mens">
-  <p class="section-label fade-up" data-en="Outerwear" data-ar="ملابس خارجية">Outerwear</p>
-  <h2 class="fade-up" data-en="Men's Jackets" data-ar="جاكيتات رجالية">Men's Jackets</h2>
-  <div class="gallery" id="mens-gallery"></div>
+  <p class="section-label fade-up">Outerwear</p>
+  <h2 class="fade-up">Men's Jackets</h2>
+  <div class="gallery">
+
+    <div class="card fade-up"><div class="card-img-wrap"><a href="Men 1.jpeg" target="_blank"><img src="Men 1.jpeg" alt="Classic Men's Jacket"></a><div class="card-overlay"><a href="Men 1.jpeg" target="_blank">View Full →</a></div></div><div class="card-body"><h3>Classic Men's Jacket</h3><p>Premium Leather Collection</p></div></div>
+
+    <div class="card fade-up"><div class="card-img-wrap"><a href="Men 2.jpeg" target="_blank"><img src="Men 2.jpeg" alt="Luxury Biker Jacket"></a><div class="card-overlay"><a href="Men 2.jpeg" target="_blank">View Full →</a></div></div><div class="card-body"><h3>Luxury Biker Jacket</h3><p>Original Genuine Leather</p></div></div>
+
+    <div class="card fade-up"><div class="card-img-wrap"><a href="Men 3.jpeg" target="_blank"><img src="Men 3.jpeg" alt="Modern Leather Jacket"></a><div class="card-overlay"><a href="Men 3.jpeg" target="_blank">View Full →</a></div></div><div class="card-body"><h3>Modern Leather Jacket</h3><p>Professional Stylish Design</p></div></div>
+
+    <div class="card fade-up"><div class="card-img-wrap"><a href="Men 4.jpeg" target="_blank"><img src="Men 4.jpeg" alt="Executive Leather Jacket"></a><div class="card-overlay"><a href="Men 4.jpeg" target="_blank">View Full →</a></div></div><div class="card-body"><h3>Executive Leather Jacket</h3><p>Premium Quality Finish</p></div></div>
+
+    <div class="card fade-up"><div class="card-img-wrap"><a href="Men 5.jpeg" target="_blank"><img src="Men 5.jpeg" alt="Luxury Winter Jacket"></a><div class="card-overlay"><a href="Men 5.jpeg" target="_blank">View Full →</a></div></div><div class="card-body"><h3>Luxury Winter Jacket</h3><p>Elegant Leather Collection</p></div></div>
+
+    <div class="card fade-up"><div class="card-img-wrap"><a href="Men 6.jpeg" target="_blank"><img src="Men 6.jpeg" alt="Premium Rider Jacket"></a><div class="card-overlay"><a href="Men 6.jpeg" target="_blank">View Full →</a></div></div><div class="card-body"><h3>Premium Rider Jacket</h3><p>Handcrafted Genuine Leather</p></div></div>
+
+  </div>
 </section>
 
 <!-- WOMEN'S COLLECTION -->
 <section id="ladies" style="background:#fff;">
-  <p class="section-label fade-up" data-en="Fashion" data-ar="أزياء">Fashion</p>
-  <h2 class="fade-up" data-en="Women's Collection" data-ar="تشكيلة نسائية">Women's Collection</h2>
-  <div class="gallery" id="ladies-gallery"></div>
-</section>
+  <p class="section-label fade-up">Fashion</p>
+  <h2 class="fade-up">Women's Collection</h2>
+  <div class="gallery">
 
-<!-- REVIEWS -->
-<div class="reviews-section" id="reviews">
-  <p class="section-label fade-up" data-en="What Clients Say" data-ar="ماذا يقول عملاؤنا">What Clients Say</p>
-  <h2 class="fade-up" data-en="Customer Reviews" data-ar="آراء العملاء">Customer Reviews</h2>
-  <div class="reviews-grid">
-    <div class="review-card fade-up">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text" data-en="Absolutely stunning quality. The leather is rich, thick, and beautifully finished. My bag arrived perfectly packaged. Will definitely order again." data-ar="جودة مذهلة حقاً. الجلد ثمين وسميك ومشطّب بشكل جميل. وصلت حقيبتي معبأة بشكل مثالي. سأطلب مجدداً بالتأكيد.">"Absolutely stunning quality. The leather is rich, thick, and beautifully finished. My bag arrived perfectly packaged. Will definitely order again."</p>
-      <div class="review-author">Ahmed Al-Rashid</div>
-      <div class="review-location">Riyadh, Saudi Arabia</div>
-      <div class="review-quote">"</div>
-    </div>
-    <div class="review-card fade-up">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text" data-en="We placed a wholesale order of 200 bags with custom logo. The turnaround was fast, quality was exceptional, and communication was excellent." data-ar="قدمنا طلب جملة بـ 200 حقيبة مع شعار مخصص. كان التسليم سريعاً، الجودة استثنائية، والتواصل ممتاز.">"We placed a wholesale order of 200 bags with custom logo. The turnaround was fast, quality was exceptional, and communication was excellent."</p>
-      <div class="review-author">Omar Farouq</div>
-      <div class="review-location">Dubai, UAE</div>
-      <div class="review-quote">"</div>
-    </div>
-    <div class="review-card fade-up">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text" data-en="The jacket I ordered is beyond expectations. Genuine leather, perfect stitching, great fit. International shipping was fast too. Highly recommend." data-ar="الجاكيت الذي طلبته فاق التوقعات. جلد طبيعي، خياطة مثالية، مقاس ممتاز. الشحن الدولي كان سريعاً أيضاً. أنصح به بشدة.">"The jacket I ordered is beyond expectations. Genuine leather, perfect stitching, great fit. International shipping was fast too. Highly recommend."</p>
-      <div class="review-author">Khalid Mansouri</div>
-      <div class="review-location">Kuwait City, Kuwait</div>
-      <div class="review-quote">"</div>
-    </div>
+    <div class="card fade-up"><div class="card-img-wrap"><a href="Women 1.jpeg" target="_blank"><img src="Women 1.jpeg" alt="Elegant Women's Jacket"></a><div class="card-overlay"><a href="Women 1.jpeg" target="_blank">View Full →</a></div></div><div class="card-body"><h3>Elegant Women's Jacket</h3><p>Luxury Leather Design</p></div></div>
+
+    <div class="card fade-up"><div class="card-img-wrap"><a href="Women 2.jpeg" target="_blank"><img src="Women 2.jpeg" alt="Premium Fashion Jacket"></a><div class="card-overlay"><a href="Women 2.jpeg" target="_blank">View Full →</a></div></div><div class="card-body"><h3>Premium Fashion Jacket</h3><p>Modern Stylish Collection</p></div></div>
+
+    <div class="card fade-up"><div class="card-img-wrap"><a href="Women 3.jpeg" target="_blank"><img src="Women 3.jpeg" alt="Classic Leather Coat"></a><div class="card-overlay"><a href="Women 3.jpeg" target="_blank">View Full →</a></div></div><div class="card-body"><h3>Classic Leather Coat</h3><p>Elegant Winter Fashion</p></div></div>
+
+    <div class="card fade-up"><div class="card-img-wrap"><a href="Women 4.jpeg" target="_blank"><img src="Women 4.jpeg" alt="Luxury Women's Wear"></a><div class="card-overlay"><a href="Women 4.jpeg" target="_blank">View Full →</a></div></div><div class="card-body"><h3>Luxury Women's Wear</h3><p>Premium Leather Finish</p></div></div>
+
+    <div class="card fade-up"><div class="card-img-wrap"><a href="Women 5.jpeg" target="_blank"><img src="Women 5.jpeg" alt="Modern Women's Jacket"></a><div class="card-overlay"><a href="Women 5.jpeg" target="_blank">View Full →</a></div></div><div class="card-body"><h3>Modern Women's Jacket</h3><p>Designer Leather Collection</p></div></div>
+
+    <div class="card fade-up"><div class="card-img-wrap"><a href="Women 6.jpeg" target="_blank"><img src="Women 6.jpeg" alt="Premium Ladies Collection"></a><div class="card-overlay"><a href="Women 6.jpeg" target="_blank">View Full →</a></div></div><div class="card-body"><h3>Premium Ladies Collection</h3><p>Original Genuine Leather</p></div></div>
+
   </div>
-</div>
+</section>
 
 <!-- WHOLESALE -->
 <div class="wholesale-section" id="wholesale">
-  <p class="section-label fade-up" data-en="For Businesses" data-ar="للشركات">For Businesses</p>
-  <h2 class="fade-up" data-en="Wholesale Orders" data-ar="طلبات الجملة">Wholesale Orders</h2>
+  <p class="section-label fade-up">For Businesses</p>
+  <h2 class="fade-up">Wholesale Orders</h2>
   <div class="wholesale-inner">
-    <p class="fade-up" data-en="We manufacture and supply premium genuine leather products for wholesalers, retailers, resellers and businesses worldwide. Custom branding, bulk pricing and full OEM support available." data-ar="نصنع ونورد منتجات جلدية طبيعية فاخرة لتجار الجملة والتجزئة والموزعين والشركات حول العالم. متاح العلامة المخصصة وأسعار الجملة ودعم OEM الكامل.">We manufacture and supply premium genuine leather products for wholesalers, retailers, resellers and businesses worldwide. Custom branding, bulk pricing and full OEM support available.</p>
+    <p class="fade-up">We manufacture and supply premium genuine leather products for wholesalers, retailers, resellers and businesses worldwide. Custom branding, bulk pricing and full OEM support available.</p>
     <div class="wholesale-grid">
       <a class="wholesale-item fade-up" href="https://wa.me/966572236814?text=Hello%2C%20I%20am%20interested%20in%20Wholesale%20Orders" target="_blank">
         <div class="icon">📦</div>
-        <p data-en="Wholesale Orders Accepted" data-ar="نقبل طلبات الجملة">Wholesale Orders Accepted</p>
-        <span class="tile-cta" data-en="Inquire Now →" data-ar="← استفسر الآن">Inquire Now →</span>
+        <p>Wholesale Orders Accepted</p>
+        <span class="tile-cta">Inquire Now →</span>
       </a>
       <a class="wholesale-item fade-up" href="https://wa.me/966572236814?text=Hello%2C%20I%20am%20interested%20in%20Custom%20Logo%20Manufacturing" target="_blank">
         <div class="icon">🏷️</div>
-        <p data-en="Custom Logo Manufacturing" data-ar="تصنيع بشعار مخصص">Custom Logo Manufacturing</p>
-        <span class="tile-cta" data-en="Inquire Now →" data-ar="← استفسر الآن">Inquire Now →</span>
+        <p>Custom Logo Manufacturing</p>
+        <span class="tile-cta">Inquire Now →</span>
       </a>
       <a class="wholesale-item fade-up" href="https://wa.me/966572236814?text=Hello%2C%20I%20am%20interested%20in%20OEM%20Manufacturing" target="_blank">
         <div class="icon">🏭</div>
-        <p data-en="OEM Manufacturing" data-ar="تصنيع OEM">OEM Manufacturing</p>
-        <span class="tile-cta" data-en="Inquire Now →" data-ar="← استفسر الآن">Inquire Now →</span>
+        <p>OEM Manufacturing</p>
+        <span class="tile-cta">Inquire Now →</span>
       </a>
       <a class="wholesale-item fade-up" href="https://wa.me/966572236814?text=Hello%2C%20I%20need%20information%20about%20International%20Shipping" target="_blank">
         <div class="icon">✈️</div>
-        <p data-en="International Shipping" data-ar="شحن دولي">International Shipping</p>
-        <span class="tile-cta" data-en="Inquire Now →" data-ar="← استفسر الآن">Inquire Now →</span>
+        <p>International Shipping</p>
+        <span class="tile-cta">Inquire Now →</span>
       </a>
       <a class="wholesale-item fade-up" href="https://wa.me/966572236814?text=Hello%2C%20I%20am%20interested%20in%20Bulk%20Pricing" target="_blank">
         <div class="icon">💰</div>
-        <p data-en="Bulk Pricing Available" data-ar="أسعار جملة متاحة">Bulk Pricing Available</p>
-        <span class="tile-cta" data-en="Inquire Now →" data-ar="← استفسر الآن">Inquire Now →</span>
+        <p>Bulk Pricing Available</p>
+        <span class="tile-cta">Inquire Now →</span>
       </a>
       <a class="wholesale-item fade-up" href="https://wa.me/966572236814?text=Hello%2C%20I%20want%20to%20know%20about%20your%20Genuine%20Leather%20Guarantee" target="_blank">
         <div class="icon">✅</div>
-        <p data-en="Genuine Leather Guarantee" data-ar="ضمان الجلد الطبيعي">Genuine Leather Guarantee</p>
-        <span class="tile-cta" data-en="Inquire Now →" data-ar="← استفسر الآن">Inquire Now →</span>
+        <p>Genuine Leather Guarantee</p>
+        <span class="tile-cta">Inquire Now →</span>
       </a>
     </div>
   </div>
@@ -778,19 +841,19 @@ footer span { color: var(--gold); opacity: .6; }
 
 <!-- CONTACT -->
 <div class="contact-section" id="contact">
-  <p class="section-label fade-up" data-en="Get In Touch" data-ar="تواصل معنا">Get In Touch</p>
-  <h2 class="fade-up" data-en="Contact Us" data-ar="اتصل بنا">Contact Us</h2>
+  <p class="section-label fade-up">Get In Touch</p>
+  <h2 class="fade-up">Contact Us</h2>
   <div class="contact-inner fade-up">
     <p class="contact-brand">WL LEATHER</p>
-    <p class="contact-sub" data-en="Premium Genuine Leather Products" data-ar="منتجات جلدية طبيعية فاخرة">Premium Genuine Leather Products</p>
+    <p class="contact-sub">Premium Genuine Leather Products</p>
     <a class="contact-wa" href="https://wa.me/966572236814">+966 57 223 6814</a>
     <div class="contact-actions">
       <a class="btn-primary" href="https://wa.me/966572236814?text=Hello%20I%20want%20to%20order">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.553 4.105 1.522 5.83L.057 23.888a.5.5 0 00.605.63l6.202-1.625A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-4.997-1.369l-.358-.213-3.712.972.99-3.614-.234-.371A9.774 9.774 0 012.182 12C2.182 6.569 6.569 2.182 12 2.182S21.818 6.569 21.818 12 17.431 21.818 12 21.818z"/></svg>
-        <span data-en="Send WhatsApp Message" data-ar="أرسل رسالة واتساب">Send WhatsApp Message</span>
+        Send WhatsApp Message
       </a>
       <a class="btn-outline" href="https://wa.me/966572236814?text=Hello%20I%20want%20wholesale%20info">
-        <span data-en="Wholesale Inquiry" data-ar="استفسار جملة">Wholesale Inquiry</span>
+        Wholesale Inquiry
       </a>
     </div>
   </div>
@@ -798,145 +861,28 @@ footer span { color: var(--gold); opacity: .6; }
 
 <!-- FOOTER -->
 <footer>
-  <span data-en="© 2025 WL Leather — All Rights Reserved" data-ar="© 2025 WL Leather — جميع الحقوق محفوظة">© 2025 <span>WL Leather</span> — All Rights Reserved</span>
+  © 2025 <span>WL Leather</span> — All Rights Reserved
 </footer>
 
-<!-- LIGHTBOX -->
-<div id="lightbox" onclick="closeLightbox()">
-  <span id="lightbox-close" onclick="closeLightbox()">×</span>
-  <img id="lightbox-img" src="" alt="">
-  <div id="lightbox-caption"></div>
-</div>
-
-<!-- FLOATING WHATSAPP -->
-<a class="wa-float" href="https://wa.me/966572236814?text=Hello%20I%20want%20to%20order" target="_blank">
-  <span class="wa-tooltip" data-en="Chat on WhatsApp" data-ar="تحدث عبر واتساب">Chat on WhatsApp</span>
-  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.553 4.105 1.522 5.83L.057 23.888a.5.5 0 00.605.63l6.202-1.625A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-4.997-1.369l-.358-.213-3.712.972.99-3.614-.234-.371A9.774 9.774 0 012.182 12C2.182 6.569 6.569 2.182 12 2.182S21.818 6.569 21.818 12 17.431 21.818 12 21.818z"/></svg>
-</a>
-
 <script>
-/* ── PRODUCT DATA ── */
-const products = {
-  handbags: [
-    { img:'Bag 4.jpeg',  en:'Luxury Leather Handbag',  ar:'حقيبة جلد فاخرة',      sub_en:'Elegant Premium Design',       sub_ar:'تصميم أنيق فاخر' },
-    { img:'Bag 5.jpeg',  en:'Vintage Leather Bag',      ar:'حقيبة جلد كلاسيكية',   sub_en:'Classic Handmade Collection',  sub_ar:'مجموعة يدوية كلاسيكية' },
-    { img:'Bag 6.jpeg',  en:'Modern Leather Tote',      ar:'حقيبة توت جلدية عصرية',sub_en:'Premium Cowhide Leather',      sub_ar:'جلد بقر فاخر' },
-    { img:'Bag 7.jpeg',  en:'Designer Leather Bag',     ar:'حقيبة جلد مصممة',      sub_en:'Luxury Fashion Collection',    sub_ar:'مجموعة أزياء فاخرة' },
-    { img:'Bag 8.jpeg',  en:"Classic Women's Bag",      ar:'حقيبة نسائية كلاسيكية',sub_en:'Elegant Leather Finish',       sub_ar:'تشطيب جلدي أنيق' },
-    { img:'Bag 9.jpeg',  en:'Premium Fashion Bag',      ar:'حقيبة أزياء فاخرة',    sub_en:'Original Genuine Leather',     sub_ar:'جلد طبيعي أصلي' },
-    { img:'Bag 10.jpeg', en:'Luxury Tote Collection',   ar:'مجموعة حقائب توت فاخرة',sub_en:'Handcrafted Leather Product', sub_ar:'منتج جلدي يدوي' },
-  ],
-  mens: [
-    { img:'Men 1.jpeg', en:"Classic Men's Jacket",   ar:'جاكيت رجالي كلاسيكي',  sub_en:'Premium Leather Collection',   sub_ar:'مجموعة جلد فاخرة' },
-    { img:'Men 2.jpeg', en:'Luxury Biker Jacket',    ar:'جاكيت بايكر فاخر',     sub_en:'Original Genuine Leather',     sub_ar:'جلد طبيعي أصلي' },
-    { img:'Men 3.jpeg', en:'Modern Leather Jacket',  ar:'جاكيت جلد عصري',       sub_en:'Professional Stylish Design',  sub_ar:'تصميم احترافي أنيق' },
-    { img:'Men 4.jpeg', en:'Executive Leather Jacket',ar:'جاكيت جلد تنفيذي',    sub_en:'Premium Quality Finish',       sub_ar:'تشطيب فاخر' },
-    { img:'Men 5.jpeg', en:'Luxury Winter Jacket',   ar:'جاكيت شتوي فاخر',      sub_en:'Elegant Leather Collection',   sub_ar:'مجموعة جلد أنيقة' },
-    { img:'Men 6.jpeg', en:'Premium Rider Jacket',   ar:'جاكيت راكب فاخر',      sub_en:'Handcrafted Genuine Leather',  sub_ar:'جلد طبيعي يدوي' },
-  ],
-  ladies: [
-    { img:'Women 1.jpeg', en:"Elegant Women's Jacket",  ar:'جاكيت نسائي أنيق',    sub_en:'Luxury Leather Design',        sub_ar:'تصميم جلد فاخر' },
-    { img:'Women 2.jpeg', en:'Premium Fashion Jacket',  ar:'جاكيت أزياء فاخر',    sub_en:'Modern Stylish Collection',    sub_ar:'مجموعة عصرية أنيقة' },
-    { img:'Women 3.jpeg', en:'Classic Leather Coat',    ar:'معطف جلد كلاسيكي',    sub_en:'Elegant Winter Fashion',       sub_ar:'أزياء شتوية أنيقة' },
-    { img:'Women 4.jpeg', en:"Luxury Women's Wear",     ar:'ملابس نسائية فاخرة',   sub_en:'Premium Leather Finish',       sub_ar:'تشطيب جلد فاخر' },
-    { img:'Women 5.jpeg', en:"Modern Women's Jacket",   ar:'جاكيت نسائي عصري',    sub_en:'Designer Leather Collection',  sub_ar:'مجموعة جلد مصممة' },
-    { img:'Women 6.jpeg', en:'Premium Ladies Collection',ar:'تشكيلة نسائية فاخرة', sub_en:'Original Genuine Leather',     sub_ar:'جلد طبيعي أصلي' },
-  ]
-};
-
-const WA_SVG = `<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.553 4.105 1.522 5.83L.057 23.888a.5.5 0 00.605.63l6.202-1.625A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-4.997-1.369l-.358-.213-3.712.972.99-3.614-.234-.371A9.774 9.774 0 012.182 12C2.182 6.569 6.569 2.182 12 2.182S21.818 6.569 21.818 12 17.431 21.818 12 21.818z"/></svg>`;
-
-let currentLang = 'en';
-
-function buildCards(containerId, items) {
-  const container = document.getElementById(containerId);
-  container.innerHTML = items.map(p => `
-    <div class="card fade-up">
-      <div class="card-img-wrap">
-        <img src="${p.img}" alt="${p.en}" onclick="openLightbox('${p.img}','${p.en}')">
-        <div class="card-overlay"><a href="javascript:void(0)" onclick="openLightbox('${p.img}','${p.en}')" data-en="View Full →" data-ar="← عرض كامل">View Full →</a></div>
-      </div>
-      <div class="card-body">
-        <h3 data-en="${p.en}" data-ar="${p.ar}">${currentLang==='ar'?p.ar:p.en}</h3>
-        <p data-en="${p.sub_en}" data-ar="${p.sub_ar}">${currentLang==='ar'?p.sub_ar:p.sub_en}</p>
-        <a class="card-order-btn" href="https://wa.me/966572236814?text=Hello%2C%20I%20want%20to%20order%20the%20${encodeURIComponent(p.en)}" target="_blank">
-          ${WA_SVG}
-          <span data-en="Order This Item" data-ar="اطلب هذا المنتج">${currentLang==='ar'?'اطلب هذا المنتج':'Order This Item'}</span>
-        </a>
-      </div>
-    </div>
-  `).join('');
-  container.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+function openMenu(){
+  document.getElementById("sidebar").style.width="270px";
+}
+function closeMenu(){
+  document.getElementById("sidebar").style.width="0";
 }
 
-buildCards('handbags-gallery', products.handbags);
-buildCards('mens-gallery', products.mens);
-buildCards('ladies-gallery', products.ladies);
-
-/* ── LANGUAGE ── */
-function setLang(lang) {
-  currentLang = lang;
-  document.body.classList.toggle('ar', lang === 'ar');
-  document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
-
-  document.querySelectorAll('[data-en]').forEach(el => {
-    const val = el.getAttribute('data-' + lang);
-    if (!val) return;
-    if (el.tagName === 'H1') { el.innerHTML = val; return; }
-    el.textContent = val;
-  });
-
-  document.querySelectorAll('.lang-btn').forEach(b => {
-    b.classList.toggle('active', b.textContent.trim() === (lang === 'en' ? 'EN' : 'عربي'));
-  });
-
-  // Rebuild dynamic cards in new language
-  buildCards('handbags-gallery', products.handbags);
-  buildCards('mens-gallery', products.mens);
-  buildCards('ladies-gallery', products.ladies);
-}
-
-/* ── LIGHTBOX ── */
-function openLightbox(src, caption) {
-  document.getElementById('lightbox-img').src = src;
-  document.getElementById('lightbox-caption').textContent = caption;
-  document.getElementById('lightbox').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeLightbox() {
-  document.getElementById('lightbox').classList.remove('open');
-  document.body.style.overflow = '';
-}
-document.addEventListener('keydown', e => { if(e.key === 'Escape') closeLightbox(); });
-
-/* ── SIDEBAR ── */
-function openMenu(){ document.getElementById("sidebar").style.width="270px"; }
-function closeMenu(){ document.getElementById("sidebar").style.width="0"; }
-
-/* ── SCROLL PROGRESS ── */
-window.addEventListener('scroll', () => {
-  const scrolled = window.scrollY;
-  const total = document.documentElement.scrollHeight - window.innerHeight;
-  document.getElementById('progress-bar').style.width = (scrolled / total * 100) + '%';
-});
-
-/* ── SCROLL FADE-UP ── */
+// Scroll fade-up animation
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry, i) => {
     if(entry.isIntersecting){
-      setTimeout(() => entry.target.classList.add('visible'), i * 55);
+      setTimeout(() => entry.target.classList.add('visible'), i * 60);
       observer.unobserve(entry.target);
     }
   });
-}, { threshold: 0.1 });
-document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+}, { threshold: 0.12 });
 
-/* ── LOADER ── */
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    document.getElementById('loader').classList.add('hidden');
-  }, 1300);
-});
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 </script>
 </body>
 </html>
