@@ -4,10 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- SEO: Primary Meta Tags -->
 <title>WL Leather — Premium Genuine Leather Bags, Jackets & Wholesale Manufacturing</title>
 <meta name="description" content="WL Leather manufactures premium genuine leather bags, jackets & accessories. Custom logo OEM, wholesale orders, international shipping to 50+ countries. WhatsApp: +966 57 223 6814">
-<meta name="keywords" content="genuine leather bags, leather jackets, wholesale leather, custom leather, OEM leather manufacturer, leather handbags Saudi Arabia, leather supplier, حقائب جلد, جاكيت جلد">
+<meta name="keywords" content="genuine leather bags, leather jackets, wholesale leather, custom leather, OEM leather manufacturer, leather handbags, leather supplier, حقائب جلد, جاكيت جلد">
 <meta name="author" content="WL Leather">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="theme-color" content="#0e0c0a">
@@ -15,11 +14,9 @@
 <link rel="alternate" hreflang="en" href="https://wlleather.com/">
 <link rel="alternate" hreflang="ar" href="https://wlleather.com/?lang=ar">
 
-<!-- Preload Critical Resources -->
 <link rel="preload" as="image" href="BAG 1.jpeg">
 <link rel="preload" as="image" href="logo.png">
 
-<!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://wlleather.com/">
 <meta property="og:title" content="WL Leather — Premium Genuine Leather Bags & Jackets">
@@ -31,13 +28,11 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="ar_SA">
 
-<!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="WL Leather — Premium Genuine Leather">
 <meta name="twitter:description" content="Luxury leather bags, jackets & OEM manufacturing. Wholesale & custom logo orders.">
 <meta name="twitter:image" content="BAG 1.jpeg">
 
-<!-- Schema.org Structured Data -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -55,8 +50,7 @@
     "contactType": "sales",
     "availableLanguage": ["English", "Arabic"]
   },
-  "sameAs": ["https://wa.me/966572236814"],
-  "offers": {"@type": "AggregateOffer", "priceCurrency": ["SAR","USD"]},
+  "offers": {"@type": "AggregateOffer", "priceCurrency": "Global"},
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
     "name": "Leather Products",
@@ -75,8 +69,8 @@
   "@type": "FAQPage",
   "mainEntity": [
     {"@type": "Question", "name": "Do you offer custom logo and OEM manufacturing?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, WL Leather offers full OEM manufacturing with custom logo embossing, private labeling, and custom packaging for wholesale buyers."}},
-    {"@type": "Question", "name": "What is the minimum order quantity?", "acceptedAnswer": {"@type": "Answer", "text": "We accept orders starting from 1 piece for samples, and wholesale pricing starts at 10+ pieces."}},
-    {"@type": "Question", "name": "Do you ship internationally?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, we ship to over 50 countries worldwide including USA, UK, Germany, UAE, Kuwait, and more."}}
+    {"@type": "Question", "name": "What is the minimum order quantity?", "acceptedAnswer": {"@type": "Answer", "text": "We accept orders starting from 1 piece for samples, and wholesale pricing starts at 10+ pieces based on bulk tiers."}},
+    {"@type": "Question", "name": "Do you ship internationally?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, we ship to over 50 countries worldwide with optimized tier pricing adapting automatically based on local global destination zones."}}
   ]
 }
 </script>
@@ -1477,1977 +1471,259 @@ textarea.fi {
   color: var(--danger);
 }
 
-/* ── WHOLESALE ── */
-.ws-wrap {
-  background: var(--dark3);
-  padding: 80px 48px;
-}
-
-.ws-wrap h2.section-title { color: var(--white); }
-.ws-wrap .slabel { color: var(--gold-l); }
-
-.ws-inner {
-  max-width: 900px;
-  margin: auto;
-  text-align: center;
-}
-
-.ws-inner > p {
-  font-size: 14px;
-  line-height: 1.9;
-  color: rgba(232, 224, 212, .5);
-  font-weight: 300;
-  margin-bottom: 40px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.ws-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-  gap: 14px;
-}
-
-.ws-item {
-  border: 1px solid rgba(184, 145, 74, .14);
-  padding: 26px 18px 22px;
-  border-radius: var(--radius);
-  text-align: center;
-  transition: all var(--transition-med);
-  text-decoration: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.ws-item::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
-  transform: scaleX(0);
-  transition: transform var(--transition-med);
-}
-
-.ws-item:hover::before {
-  transform: scaleX(1);
-}
-
-.ws-item:hover {
-  background: rgba(184, 145, 74, .06);
-  border-color: rgba(184, 145, 74, .4);
-  transform: translateY(-5px);
-}
-
-.ws-icon {
-  font-size: 28px;
-  margin-bottom: 12px;
-}
-
-.ws-item p {
-  font-size: 12px;
-  color: var(--cream2);
-  letter-spacing: .08em;
-  font-weight: 300;
-  margin-bottom: 12px;
-}
-
-.ws-cta {
-  font-size: 9px;
-  letter-spacing: .15em;
-  text-transform: uppercase;
-  color: var(--gold);
-  opacity: 0;
-  transform: translateY(6px);
-  transition: all var(--transition-fast);
-}
-
-.ws-item:hover .ws-cta {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ── BLOG / SEO ── */
-.blog-wrap {
-  background: var(--cream);
-  padding: 80px 48px;
-}
-
-.blog-wrap h2.section-title { color: var(--dark); }
-
-.blog-grid {
-  max-width: 1100px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 24px;
-}
-
-.blog-card {
-  background: white;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  transition: all var(--transition-med);
-}
-
-.blog-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-lg);
-}
-
-.blog-card-img {
-  height: 200px;
-  object-fit: cover;
-  width: 100%;
-  display: block;
-}
-
-.blog-card-img.placeholder {
-  background: linear-gradient(135deg, var(--dark3), var(--dark));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.blog-placeholder-ico {
-  font-size: 52px;
-  opacity: .25;
-}
-
-.blog-body {
-  padding: 22px 24px 26px;
-}
-
-.blog-tag {
-  display: inline-block;
-  font-size: 9px;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-  color: var(--gold);
-  border: 1px solid rgba(184, 145, 74, .3);
-  padding: 4px 10px;
-  border-radius: 3px;
-  margin-bottom: 12px;
-}
-
-.blog-body h3 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 21px;
-  font-weight: 400;
-  margin-bottom: 10px;
-  color: var(--dark);
-  line-height: 1.3;
-}
-
-.blog-body p {
-  font-size: 12.5px;
-  color: var(--muted);
-  line-height: 1.75;
-  font-weight: 300;
-  margin-bottom: 16px;
-}
-
-.blog-read {
-  font-size: 10px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--gold);
-  text-decoration: none;
-  border-bottom: 1px solid rgba(184, 145, 74, .3);
-  padding-bottom: 2px;
-  transition: all var(--transition-fast);
-}
-
-.blog-read:hover {
-  color: var(--dark);
-  border-color: var(--dark);
-}
-
 /* ── FAQ SECTION ── */
 .faq-wrap {
-  background: white;
-  padding: 80px 48px;
-}
-
-.faq-wrap h2.section-title { color: var(--dark); }
-
-.faq-list {
-  max-width: 740px;
+  max-width: 800px;
   margin: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  padding: 40px 0;
 }
 
 .faq-item {
-  border: 1px solid rgba(184, 145, 74, .15);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(184, 145, 74, 0.15);
+  margin-bottom: 12px;
   border-radius: var(--radius);
   overflow: hidden;
-  transition: border-color var(--transition-fast);
 }
 
-.faq-item:hover,
-.faq-item.open {
-  border-color: rgba(184, 145, 74, .35);
-}
-
-.faq-q {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 18px 22px;
-  cursor: pointer;
-  background: var(--cream);
-  transition: background var(--transition-fast);
-  gap: 16px;
-}
-
-.faq-item.open .faq-q {
-  background: rgba(184, 145, 74, .06);
-}
-
-.faq-q h4 {
+.faq-question {
+  padding: 18px 24px;
+  color: var(--white);
   font-size: 14px;
   font-weight: 500;
-  color: var(--dark);
-  letter-spacing: .02em;
-}
-
-.faq-toggle {
-  width: 28px;
-  height: 28px;
-  border: 1px solid rgba(184, 145, 74, .25);
-  border-radius: 50%;
+  cursor: pointer;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  color: var(--gold);
-  transition: all var(--transition-fast);
-  flex-shrink: 0;
 }
 
-.faq-item.open .faq-toggle {
-  transform: rotate(45deg);
-  background: var(--gold);
-  color: var(--dark);
-  border-color: var(--gold);
-}
-
-.faq-a {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height .4s var(--ease-out);
-}
-
-.faq-item.open .faq-a {
-  max-height: 300px;
-}
-
-.faq-a-inner {
-  padding: 0 22px 20px;
+.faq-answer {
+  padding: 0 24px 18px;
+  color: rgba(232, 224, 212, 0.6);
   font-size: 13px;
-  color: var(--muted);
-  line-height: 1.8;
-  font-weight: 300;
-}
-
-/* ── CONTACT ── */
-.contact-wrap {
-  background: var(--dark);
-  padding: 80px 48px;
-  text-align: center;
-  position: relative;
-}
-
-.contact-wrap::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 300px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(184,145,74,.25), transparent);
-}
-
-.contact-wrap h2.section-title { color: var(--white); }
-
-.c-brand {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 16px;
-  color: var(--gold);
-  letter-spacing: .25em;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-}
-
-.c-sub {
-  font-size: 11px;
-  color: rgba(232, 224, 212, .35);
-  letter-spacing: .1em;
-  margin-bottom: 30px;
-}
-
-.c-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 28px;
-  color: var(--gold-l);
-  text-decoration: none;
-  display: block;
-  margin-bottom: 6px;
-  transition: all var(--transition-fast);
-  letter-spacing: .05em;
-}
-
-.c-num:hover {
-  color: white;
-  transform: scale(1.02);
-}
-
-.c-actions {
-  margin-top: 36px;
-  display: flex;
-  justify-content: center;
-  gap: 14px;
-  flex-wrap: wrap;
-}
-
-.btn-outline {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 13px 28px;
-  border: 1px solid rgba(184, 145, 74, .35);
-  color: var(--cream);
-  text-decoration: none;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: .13em;
-  text-transform: uppercase;
-  border-radius: 4px;
-  transition: all var(--transition-med);
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-outline::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: var(--gold);
-  transform: scaleY(0);
-  transform-origin: bottom;
-  transition: transform .3s var(--ease-out);
-  z-index: -1;
-}
-
-.btn-outline:hover {
-  border-color: var(--gold);
-  color: var(--dark);
-}
-
-.btn-outline:hover::before {
-  transform: scaleY(1);
-}
-
-/* ── PAGES (category overlays) ── */
-.page {
-  position: fixed;
-  inset: 0;
-  background: var(--cream);
-  z-index: 500;
-  overflow-y: auto;
-  transform: translateX(100%);
-  transition: transform .5s var(--ease-smooth);
-  display: flex;
-  flex-direction: column;
-}
-
-body.ar .page {
-  transform: translateX(-100%);
-}
-
-.page.open {
-  transform: translateX(0) !important;
-}
-
-.page-header {
-  background: rgba(14, 12, 10, .95);
-  backdrop-filter: blur(20px);
-  padding: 0 40px;
-  height: 72px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid rgba(184, 145, 74, .15);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  flex-shrink: 0;
-}
-
-.page-back {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: var(--cream2);
-  cursor: pointer;
-  font-size: 12px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  opacity: .65;
-  transition: all var(--transition-fast);
-  background: none;
-  border: none;
-  font-family: inherit;
-}
-
-.page-back:hover {
-  opacity: 1;
-  color: var(--gold-l);
-}
-
-.page-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 22px;
-  color: var(--white);
-  font-weight: 300;
-  letter-spacing: .05em;
-}
-
-.page-wa {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 22px;
-  background: var(--success);
-  color: white;
-  text-decoration: none;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  border-radius: 4px;
-  transition: all var(--transition-fast);
-}
-
-.page-wa:hover {
-  background: #1ebe5d;
-  transform: translateY(-1px);
-}
-
-.page-body {
-  padding: 44px 40px;
-  flex: 1;
-}
-
-.page-intro {
-  max-width: 700px;
-  margin: 0 auto 44px;
-  text-align: center;
-}
-
-.page-intro h2 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(28px, 4vw, 44px);
-  font-weight: 300;
-  margin-bottom: 14px;
-  color: var(--dark);
-}
-
-.page-intro p {
-  font-size: 13.5px;
-  color: var(--muted);
-  line-height: 1.85;
-  font-weight: 300;
-}
-
-.page-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-  gap: 22px;
-  max-width: 1280px;
-  margin: 0 auto;
-}
-
-.pcard {
-  background: white;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  transition: all .4s var(--ease-out);
-  cursor: pointer;
-}
-
-.pcard:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-lg);
-}
-
-.pcard-img {
-  position: relative;
-  overflow: hidden;
-}
-
-.pcard-img img {
-  width: 100%;
-  height: 320px;
-  object-fit: cover;
-  display: block;
-  transition: transform .6s var(--ease-out);
-}
-
-.pcard:hover .pcard-img img {
-  transform: scale(1.07);
-}
-
-.pcard-ov {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(14, 12, 10, .65) 0%, transparent 50%);
-  opacity: 0;
-  transition: opacity .3s;
-  display: flex;
-  align-items: flex-end;
-  padding: 16px 18px;
-  gap: 8px;
-  justify-content: space-between;
-}
-
-.pcard:hover .pcard-ov { opacity: 1; }
-
-.pcard-ov-l {
-  color: white;
-  font-size: 10px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  border-bottom: 1px solid rgba(255, 255, 255, .4);
-  padding-bottom: 2px;
-}
-
-.pcard-cnt {
-  color: rgba(255, 255, 255, .55);
-  font-size: 10px;
-  letter-spacing: .08em;
-}
-
-.pcard-body {
-  padding: 16px 18px 20px;
-}
-
-.pcard-body h3 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 19px;
-  font-weight: 400;
-  margin-bottom: 4px;
-}
-
-.pcard-body p {
-  font-size: 11.5px;
-  color: var(--muted);
-}
-
-/* Filter bar */
-.filter-bar {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  max-width: 1280px;
-  margin: 0 auto 30px;
-  align-items: center;
-}
-
-.fbtn {
-  padding: 8px 18px;
-  border: 1px solid rgba(184, 145, 74, .22);
-  border-radius: 24px;
-  font-size: 11px;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  cursor: pointer;
-  background: transparent;
-  color: var(--muted);
-  transition: all var(--transition-fast);
-  font-family: inherit;
-}
-
-.fbtn:hover,
-.fbtn.on {
-  background: var(--gold);
-  border-color: var(--gold);
-  color: white;
-}
-
-/* ── LIGHTBOX ── */
-#lb {
-  position: fixed;
-  inset: 0;
-  background: rgba(8, 6, 4, .97);
-  z-index: 9000;
-  display: none;
-  flex-direction: column;
-  backdrop-filter: blur(10px);
-}
-
-#lb.open { display: flex; }
-
-#lb-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16px 28px;
-  border-bottom: 1px solid rgba(184, 145, 74, .1);
-  flex-shrink: 0;
-}
-
-#lb-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 20px;
-  color: var(--white);
-  font-weight: 300;
-}
-
-#lb-meta {
-  font-size: 10px;
-  color: rgba(255, 255, 255, .3);
-  letter-spacing: .1em;
-  margin-top: 2px;
-}
-
-#lb-close {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid rgba(255, 255, 255, .1);
-  border-radius: 50%;
-  color: rgba(255, 255, 255, .5);
-  cursor: pointer;
-  font-size: 20px;
-  line-height: 1;
-  transition: all var(--transition-fast);
-}
-
-#lb-close:hover {
-  color: white;
-  border-color: rgba(255, 255, 255, .3);
-  transform: rotate(90deg);
-}
-
-#lb-body {
-  display: flex;
-  flex: 1;
-  overflow: hidden;
-}
-
-#lb-main {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  padding: 20px;
-}
-
-#lb-main img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  border-radius: 4px;
-  transition: opacity .25s;
-}
-
-#lb-main img.fade { opacity: 0; }
-
-#lb-prev,
-#lb-next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(184, 145, 74, .1);
-  border: 1px solid rgba(184, 145, 74, .25);
-  color: var(--gold-l);
-  font-size: 20px;
-  width: 44px;
-  height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  border-radius: 50%;
-  transition: all var(--transition-fast);
-  user-select: none;
-}
-
-#lb-prev:hover,
-#lb-next:hover {
-  background: rgba(184, 145, 74, .25);
-  transform: translateY(-50%) scale(1.1);
-}
-
-#lb-prev { left: 16px; }
-#lb-next { right: 16px; }
-
-#lb-side {
-  width: 110px;
-  background: rgba(255, 255, 255, .02);
-  border-left: 1px solid rgba(184, 145, 74, .08);
-  overflow-y: auto;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  flex-shrink: 0;
-}
-
-body.ar #lb-side {
-  border-left: none;
-  border-right: 1px solid rgba(184, 145, 74, .08);
-}
-
-#lb-side::-webkit-scrollbar { width: 2px; }
-#lb-side::-webkit-scrollbar-thumb { background: rgba(184, 145, 74, .2); }
-
-.lb-thumb {
-  width: 100%;
-  aspect-ratio: 1;
-  object-fit: cover;
-  border-radius: 4px;
-  cursor: pointer;
-  opacity: .4;
-  transition: all var(--transition-fast);
-  outline: 2px solid transparent;
-  outline-offset: 2px;
-}
-
-.lb-thumb:hover { opacity: .7; }
-.lb-thumb.sel { opacity: 1; outline: 2px solid var(--gold); }
-
-#lb-wa {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin: 0 28px 16px;
-  padding: 10px 20px;
-  background: var(--success);
-  color: white;
-  text-decoration: none;
-  border-radius: 4px;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  width: fit-content;
-  transition: all var(--transition-fast);
-}
-
-#lb-wa:hover {
-  background: #1ebe5d;
-  transform: translateY(-1px);
-}
-
-/* ── WHATSAPP FLOAT ── */
-.wa-float {
-  position: fixed;
-  bottom: 28px;
-  right: 28px;
-  width: 56px;
-  height: 56px;
-  background: var(--success);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 8000;
-  text-decoration: none;
-  box-shadow: 0 4px 20px rgba(37, 211, 102, .4);
-  transition: all var(--transition-fast);
-}
-
-.wa-float::before {
-  content: '';
-  position: absolute;
-  inset: -4px;
-  border-radius: 50%;
-  border: 2px solid rgba(37, 211, 102, .3);
-  animation: waPing 2.5s ease-out infinite;
-}
-
-@keyframes waPing {
-  0% { transform: scale(1); opacity: .6; }
-  100% { transform: scale(1.5); opacity: 0; }
-}
-
-.wa-float:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 28px rgba(37, 211, 102, .5);
-}
-
-.wa-float svg {
-  width: 26px;
-  height: 26px;
-  fill: white;
-}
-
-.wa-tip {
-  position: absolute;
-  right: 66px;
-  background: var(--dark);
-  color: white;
-  font-size: 10px;
-  white-space: nowrap;
-  padding: 6px 14px;
-  border-radius: 4px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity var(--transition-fast);
-  letter-spacing: .05em;
-}
-
-.wa-tip::after {
-  content: '';
-  position: absolute;
-  right: -4px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 0;
-  height: 0;
-  border: 4px solid transparent;
-  border-left-color: var(--dark);
-}
-
-.wa-float:hover .wa-tip { opacity: 1; }
-
-body.ar .wa-float { right: auto; left: 28px; }
-body.ar .wa-tip { right: auto; left: 66px; }
-body.ar .wa-tip::after { right: auto; left: -4px; border-left-color: transparent; border-right-color: var(--dark); }
-
-/* ── BACK TO TOP ── */
-.btt {
-  position: fixed;
-  bottom: 96px;
-  right: 28px;
-  width: 40px;
-  height: 40px;
-  background: var(--dark);
-  border: 1px solid rgba(184, 145, 74, .25);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 7999;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: all var(--transition-med);
-  pointer-events: none;
-}
-
-.btt.show {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: all;
-}
-
-.btt:hover {
-  border-color: var(--gold);
-  background: rgba(184, 145, 74, .15);
-  transform: translateY(-2px);
-}
-
-.btt svg {
-  width: 16px;
-  height: 16px;
-  stroke: var(--gold);
-}
-
-body.ar .btt { right: auto; left: 28px; }
-
-/* ── COOKIE BANNER ── */
-.cookie-bar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: var(--dark);
-  border-top: 1px solid rgba(184, 145, 74, .15);
-  padding: 16px 32px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  z-index: 9500;
-  transform: translateY(100%);
-  transition: transform .5s var(--ease-out);
-}
-
-.cookie-bar.show {
-  transform: translateY(0);
-}
-
-.cookie-bar p {
-  font-size: 12px;
-  color: rgba(232, 224, 212, .5);
-  font-weight: 300;
   line-height: 1.6;
 }
 
-.cookie-bar a {
-  color: var(--gold);
-  text-decoration: underline;
-}
-
-.cookie-accept {
-  padding: 9px 22px;
-  background: var(--gold);
-  color: var(--dark);
-  border: none;
-  border-radius: 4px;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  cursor: pointer;
-  font-family: inherit;
-  white-space: nowrap;
-  transition: background var(--transition-fast);
-}
-
-.cookie-accept:hover {
-  background: var(--gold-l);
-}
-
-/* ── FOOTER ── */
-footer {
-  background: var(--dark);
-  color: rgba(232, 224, 212, .2);
-  padding: 24px 48px;
-  font-size: 10px;
-  letter-spacing: .1em;
-  border-top: 1px solid rgba(184, 145, 74, .06);
-}
-
-.footer-inner {
-  max-width: 1100px;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 14px;
-}
-
-.footer-links {
-  display: flex;
-  gap: 20px;
-}
-
-.footer-links a {
-  color: rgba(184, 145, 74, .45);
-  text-decoration: none;
-  font-size: 10px;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  transition: color var(--transition-fast);
-}
-
-.footer-links a:hover {
-  color: var(--gold);
-}
-
-footer b {
-  color: var(--gold);
-  opacity: .55;
-  font-weight: 400;
-}
-
-/* ── FADE ANIMATION ── */
-.fu {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity .7s var(--ease-out), transform .7s var(--ease-out);
-}
-
-.fu.vis {
-  opacity: 1;
-  transform: none;
-}
-
-/* stagger children */
-.fu:nth-child(2) { transition-delay: .06s; }
-.fu:nth-child(3) { transition-delay: .12s; }
-.fu:nth-child(4) { transition-delay: .18s; }
-.fu:nth-child(5) { transition-delay: .24s; }
-.fu:nth-child(6) { transition-delay: .3s; }
-
-/* ── RESPONSIVE ── */
-@media (max-width: 960px) {
-  .tnav { display: none; }
-  .mbtn { display: flex; align-items: center; justify-content: center; }
-  .hero-content { padding: 0 28px; }
-  .hero { height: 60vh; }
-  section, .feats, .statsbar, .rev-wrap, .clients-wrap,
-  .inq-wrap, .ws-wrap, .pkg-wrap, .blog-wrap, .faq-wrap,
-  .contact-wrap { padding: 60px 24px; }
-  .topbar { padding: 0 20px; }
-  .page-body { padding: 32px 24px; }
-}
-
-@media (max-width: 620px) {
-  .form-row { grid-template-columns: 1fr; }
-  .stat { padding: 0 20px; }
-  .hero h1 { font-size: 28px; }
-  .statsbar { flex-wrap: wrap; gap: 18px; justify-content: center; }
-  .stat { border-right: none; }
-  #lb-side { display: none; }
-  .page-header { padding: 0 16px; }
-  .page-wa { display: none; }
-  .blog-grid { grid-template-columns: 1fr; }
-  .hero { height: 65vh; min-height: 400px; }
-  .cookie-bar { flex-direction: column; text-align: center; }
-}
-
-@media (max-width: 480px) {
-  .topbar { padding: 0 14px; height: 60px; }
-  .logo img { height: 48px; }
-  .wa-float { bottom: 18px; right: 18px; }
-  body.ar .wa-float { left: 18px; }
-  .btt { bottom: 84px; right: 18px; }
-  body.ar .btt { left: 18px; }
-  .hero-content { padding: 0 18px; }
-  h2.section-title { font-size: 26px; }
-}
-
-/* ── PRINT ── */
-@media print {
-  .topbar, .wa-float, .btt, .cookie-bar, #lb, .page, .mob-nav { display: none !important; }
-  body { background: white; color: black; }
+/* ── WHOLESALE ── */
+.ws-wrap {
+  background: #0e0c0a;
+  color: white;
 }
 </style>
 </head>
 <body>
 
-<!-- LOADER -->
 <div id="loader">
   <div class="ld-logo">
-    <div class="ld-name">WL LEATHER</div>
+    <div class="ld-name">WL Leather</div>
   </div>
   <div class="ld-bar"><div class="ld-fill"></div></div>
-  <p class="ld-sub">Premium Genuine Leather</p>
+  <div class="ld-sub">Premium Quality</div>
 </div>
 
 <div id="prog"></div>
 
-<!-- TOPBAR -->
-<header class="topbar" role="banner">
-  <a href="#home" class="logo" aria-label="WL Leather Home">
-    <img src="logo.png" alt="WL Leather — Premium Genuine Leather Manufacturer" width="200" height="68">
-  </a>
-  <nav class="tnav" role="navigation" aria-label="Main navigation">
-    <a href="#" onclick="openPage('laptop');return false;" class="t" data-en="Laptop Bags" data-ar="حقائب لابتوب">Laptop Bags</a>
-    <a href="#" onclick="openPage('handbags');return false;" class="t" data-en="Handbags" data-ar="الحقائب">Handbags</a>
-    <a href="#" onclick="openPage('mens');return false;" class="t" data-en="Men's" data-ar="رجالي">Men's</a>
-    <a href="#" onclick="openPage('ladies');return false;" class="t" data-en="Women's" data-ar="نسائي">Women's</a>
-    <a href="#packaging" class="t" data-en="Packaging" data-ar="التغليف">Packaging</a>
-    <a href="#inquiry" class="t" data-en="Inquiry" data-ar="استفسار">Inquiry</a>
-    <a href="#contact" class="t" data-en="Contact" data-ar="تواصل">Contact</a>
-  </nav>
+<header class="topbar">
+  <div class="logo">
+    <a href="#" onclick="showHome(event)"><img src="logo.png" alt="WL Leather Logo"></a>
+  </div>
   <div class="topbar-right">
+    <nav class="tnav">
+      <a href="#" onclick="showHome(event)">Home</a>
+      <a href="#categories">Collections</a>
+      <a href="#packaging">Services</a>
+      <a href="#inquiry">Inquiry</a>
+    </nav>
     <div class="lang-wrap">
-      <button class="lb on" onclick="setLang('en')" aria-label="Switch to English">EN</button>
-      <button class="lb" onclick="setLang('ar')" aria-label="التبديل للعربية">عربي</button>
+      <button class="lb on">EN</button>
+      <button class="lb">AR</button>
     </div>
-    <button class="mbtn" onclick="openMenu()" aria-label="Open menu"><span></span></button>
+    <button class="mbtn" onclick="toggleMobileMenu()"><span>Menu</span></button>
   </div>
 </header>
 
-<!-- MOBILE NAV -->
-<div class="mob-nav" id="mob-nav" role="dialog" aria-label="Mobile navigation">
-  <button class="mob-nav-close" onclick="closeMenu()" aria-label="Close menu">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+<div class="mob-nav" id="mobileNav">
+  <button class="mob-nav-close" onclick="toggleMobileMenu()">
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
   </button>
   <div class="mob-nav-brand">WL LEATHER</div>
-  <a href="#" onclick="openPage('laptop');closeMenu();return false;" class="t" data-en="Laptop Bags" data-ar="حقائب لابتوب" style="--i:1">Laptop Bags</a>
-  <a href="#" onclick="openPage('handbags');closeMenu();return false;" class="t" data-en="Handbags" data-ar="الحقائب" style="--i:2">Handbags</a>
-  <a href="#" onclick="openPage('mens');closeMenu();return false;" class="t" data-en="Men's Jackets" data-ar="جاكيتات رجالية" style="--i:3">Men's Jackets</a>
-  <a href="#" onclick="openPage('ladies');closeMenu();return false;" class="t" data-en="Women's Collection" data-ar="تشكيلة نسائية" style="--i:4">Women's Collection</a>
-  <a href="#packaging" onclick="closeMenu()" class="t" data-en="Packaging & Branding" data-ar="التغليف والعلامة" style="--i:5">Packaging & Branding</a>
-  <a href="#inquiry" onclick="closeMenu()" class="t" data-en="Inquiry Form" data-ar="نموذج استفسار" style="--i:6">Inquiry Form</a>
-  <a href="#contact" onclick="closeMenu()" class="t" data-en="Contact" data-ar="تواصل" style="--i:7">Contact</a>
+  <a href="#" onclick="showHome(event); toggleMobileMenu();">Home</a>
+  <a href="#categories" onclick="toggleMobileMenu()">Collections</a>
+  <a href="#packaging" onclick="toggleMobileMenu()">Services</a>
+  <a href="#inquiry" onclick="toggleMobileMenu()">Inquiry</a>
   <div class="mob-nav-footer">
-    <a class="mob-nav-wa" href="https://wa.me/966572236814?text=Hello%20I%20want%20to%20order" target="_blank" rel="noopener">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.553 4.105 1.522 5.83L.057 23.888a.5.5 0 00.605.63l6.202-1.625A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-4.997-1.369l-.358-.213-3.712.972.99-3.614-.234-.371A9.774 9.774 0 012.182 12C2.182 6.569 6.569 2.182 12 2.182S21.818 6.569 21.818 12 17.431 21.818 12 21.818z"/></svg>
-      <span class="t" data-en="Order on WhatsApp" data-ar="اطلب عبر واتساب">Order on WhatsApp</span>
-    </a>
+    <a href="https://wa.me/966572236814" class="mob-nav-wa">WhatsApp Support</a>
   </div>
 </div>
 
-<!-- ─── CATEGORY PAGES ─── -->
-<div class="page" id="page-laptop">
-  <div class="page-header">
-    <button class="page-back" onclick="closePage('laptop')">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-      <span class="t" data-en="Back" data-ar="رجوع">Back</span>
-    </button>
-    <span class="page-title t" data-en="Laptop Bags" data-ar="حقائب اللابتوب">Laptop Bags</span>
-    <a class="page-wa" href="https://wa.me/966572236814?text=Hello%2C%20I%20am%20interested%20in%20Laptop%20Bags" target="_blank" rel="noopener">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.553 4.105 1.522 5.83L.057 23.888a.5.5 0 00.605.63l6.202-1.625A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-4.997-1.369l-.358-.213-3.712.972.99-3.614-.234-.371A9.774 9.774 0 012.182 12C2.182 6.569 6.569 2.182 12 2.182S21.818 6.569 21.818 12 17.431 21.818 12 21.818z"/></svg>
-      <span class="t" data-en="Order Now" data-ar="اطلب الآن">Order Now</span>
-    </a>
-  </div>
-  <div class="page-body">
-    <div class="page-intro">
-      <h2 class="t" data-en="Leather Laptop Bags" data-ar="حقائب لابتوب جلدية">Leather Laptop Bags</h2>
-      <p class="t" data-en="Handcrafted from 100% genuine leather. Designed for professionals who demand durability and style. Available in bulk, custom logo and OEM manufacturing." data-ar="مصنوعة يدوياً من جلد طبيعي 100%. مصممة للمحترفين الذين يطلبون المتانة والأناقة. متاحة بالجملة والشعار المخصص وتصنيع OEM.">Handcrafted from 100% genuine leather. Designed for professionals who demand durability and style. Available in bulk, custom logo and OEM manufacturing.</p>
-    </div>
-    <div class="filter-bar" id="fb-laptop">
-      <button class="fbtn on t" data-en="All" data-ar="الكل" onclick="filterCat('laptop','all',this)">All</button>
-      <button class="fbtn t" data-en="Executive" data-ar="تنفيذي" onclick="filterCat('laptop','Executive',this)">Executive</button>
-      <button class="fbtn t" data-en="Business" data-ar="أعمال" onclick="filterCat('laptop','Business',this)">Business</button>
-      <button class="fbtn t" data-en="Classic" data-ar="كلاسيك" onclick="filterCat('laptop','Classic',this)">Classic</button>
-    </div>
-    <div class="page-gallery" id="pg-laptop"></div>
-  </div>
-</div>
-
-<div class="page" id="page-handbags">
-  <div class="page-header">
-    <button class="page-back" onclick="closePage('handbags')">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-      <span class="t" data-en="Back" data-ar="رجوع">Back</span>
-    </button>
-    <span class="page-title t" data-en="Leather Handbags" data-ar="الحقائب الجلدية">Leather Handbags</span>
-    <a class="page-wa" href="https://wa.me/966572236814?text=Hello%2C%20I%20am%20interested%20in%20Leather%20Handbags" target="_blank" rel="noopener">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.553 4.105 1.522 5.83L.057 23.888a.5.5 0 00.605.63l6.202-1.625A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-4.997-1.369l-.358-.213-3.712.972.99-3.614-.234-.371A9.774 9.774 0 012.182 12C2.182 6.569 6.569 2.182 12 2.182S21.818 6.569 21.818 12 17.431 21.818 12 21.818z"/></svg>
-      <span class="t" data-en="Order Now" data-ar="اطلب الآن">Order Now</span>
-    </a>
-  </div>
-  <div class="page-body">
-    <div class="page-intro">
-      <h2 class="t" data-en="Leather Handbags" data-ar="الحقائب الجلدية">Leather Handbags</h2>
-      <p class="t" data-en="Our handbag collection spans luxury totes, vintage designs, and modern fashion bags — all made from premium genuine leather. Wholesale and custom orders welcome." data-ar="تشمل مجموعة حقائبنا حقائب التوت الفاخرة والتصاميم الكلاسيكية وحقائب الموضة العصرية — كلها مصنوعة من الجلد الطبيعي الفاخر.">Our handbag collection spans luxury totes, vintage designs, and modern fashion bags — all made from premium genuine leather. Wholesale and custom orders welcome.</p>
-    </div>
-    <div class="filter-bar" id="fb-handbags">
-      <button class="fbtn on t" data-en="All" data-ar="الكل" onclick="filterCat('handbags','all',this)">All</button>
-      <button class="fbtn t" data-en="Luxury" data-ar="فاخر" onclick="filterCat('handbags','Luxury',this)">Luxury</button>
-      <button class="fbtn t" data-en="Vintage" data-ar="كلاسيك" onclick="filterCat('handbags','Vintage',this)">Vintage</button>
-      <button class="fbtn t" data-en="Modern" data-ar="عصري" onclick="filterCat('handbags','Modern',this)">Modern</button>
-      <button class="fbtn t" data-en="Tote" data-ar="توت" onclick="filterCat('handbags','Tote',this)">Tote</button>
-    </div>
-    <div class="page-gallery" id="pg-handbags"></div>
-  </div>
-</div>
-
-<div class="page" id="page-mens">
-  <div class="page-header">
-    <button class="page-back" onclick="closePage('mens')">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-      <span class="t" data-en="Back" data-ar="رجوع">Back</span>
-    </button>
-    <span class="page-title t" data-en="Men's Leather Jackets" data-ar="جاكيتات رجالية جلدية">Men's Leather Jackets</span>
-    <a class="page-wa" href="https://wa.me/966572236814?text=Hello%2C%20I%20am%20interested%20in%20Men%27s%20Leather%20Jackets" target="_blank" rel="noopener">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.553 4.105 1.522 5.83L.057 23.888a.5.5 0 00.605.63l6.202-1.625A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-4.997-1.369l-.358-.213-3.712.972.99-3.614-.234-.371A9.774 9.774 0 012.182 12C2.182 6.569 6.569 2.182 12 2.182S21.818 6.569 21.818 12 17.431 21.818 12 21.818z"/></svg>
-      <span class="t" data-en="Order Now" data-ar="اطلب الآن">Order Now</span>
-    </a>
-  </div>
-  <div class="page-body">
-    <div class="page-intro">
-      <h2 class="t" data-en="Men's Leather Jackets" data-ar="جاكيتات رجالية جلدية">Men's Leather Jackets</h2>
-      <p class="t" data-en="Classic biker jackets, executive styles and winter coats — all cut from genuine leather hides. Available in all sizes with custom logo embossing and OEM manufacturing." data-ar="جاكيتات بايكر كلاسيكية وأنماط تنفيذية ومعاطف شتوية — كلها مقطوعة من جلد طبيعي. متوفرة بجميع المقاسات مع نقش الشعار المخصص.">Classic biker jackets, executive styles and winter coats — all cut from genuine leather hides. Available in all sizes with custom logo embossing and OEM manufacturing.</p>
-    </div>
-    <div class="filter-bar" id="fb-mens">
-      <button class="fbtn on t" data-en="All" data-ar="الكل" onclick="filterCat('mens','all',this)">All</button>
-      <button class="fbtn t" data-en="Classic" data-ar="كلاسيك" onclick="filterCat('mens','Classic',this)">Classic</button>
-      <button class="fbtn t" data-en="Biker" data-ar="بايكر" onclick="filterCat('mens','Biker',this)">Biker</button>
-      <button class="fbtn t" data-en="Executive" data-ar="تنفيذي" onclick="filterCat('mens','Executive',this)">Executive</button>
-      <button class="fbtn t" data-en="Winter" data-ar="شتوي" onclick="filterCat('mens','Winter',this)">Winter</button>
-    </div>
-    <div class="page-gallery" id="pg-mens"></div>
-  </div>
-</div>
-
-<div class="page" id="page-ladies">
-  <div class="page-header">
-    <button class="page-back" onclick="closePage('ladies')">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-      <span class="t" data-en="Back" data-ar="رجوع">Back</span>
-    </button>
-    <span class="page-title t" data-en="Women's Collection" data-ar="التشكيلة النسائية">Women's Collection</span>
-    <a class="page-wa" href="https://wa.me/966572236814?text=Hello%2C%20I%20am%20interested%20in%20Women%27s%20Leather%20Collection" target="_blank" rel="noopener">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.553 4.105 1.522 5.83L.057 23.888a.5.5 0 00.605.63l6.202-1.625A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-4.997-1.369l-.358-.213-3.712.972.99-3.614-.234-.371A9.774 9.774 0 012.182 12C2.182 6.569 6.569 2.182 12 2.182S21.818 6.569 21.818 12 17.431 21.818 12 21.818z"/></svg>
-      <span class="t" data-en="Order Now" data-ar="اطلب الآن">Order Now</span>
-    </a>
-  </div>
-  <div class="page-body">
-    <div class="page-intro">
-      <h2 class="t" data-en="Women's Leather Collection" data-ar="التشكيلة النسائية الجلدية">Women's Leather Collection</h2>
-      <p class="t" data-en="Elegant jackets, coats and fashion pieces for women. Premium genuine leather with meticulous stitching and finishing. Custom sizes, colours and branding available." data-ar="جاكيتات ومعاطف وقطع موضة أنيقة للنساء. جلد طبيعي فاخر مع خياطة وتشطيب دقيق. متوفرة بمقاسات وألوان وعلامات تجارية مخصصة.">Elegant jackets, coats and fashion pieces for women. Premium genuine leather with meticulous stitching and finishing. Custom sizes, colours and branding available.</p>
-    </div>
-    <div class="filter-bar" id="fb-ladies">
-      <button class="fbtn on t" data-en="All" data-ar="الكل" onclick="filterCat('ladies','all',this)">All</button>
-      <button class="fbtn t" data-en="Elegant" data-ar="أنيق" onclick="filterCat('ladies','Elegant',this)">Elegant</button>
-      <button class="fbtn t" data-en="Fashion" data-ar="أزياء" onclick="filterCat('ladies','Fashion',this)">Fashion</button>
-      <button class="fbtn t" data-en="Classic" data-ar="كلاسيك" onclick="filterCat('ladies','Classic',this)">Classic</button>
-      <button class="fbtn t" data-en="Luxury" data-ar="فاخر" onclick="filterCat('ladies','Luxury',this)">Luxury</button>
-    </div>
-    <div class="page-gallery" id="pg-ladies"></div>
-  </div>
-</div>
-
-<!-- ─── MAIN CONTENT ─── -->
-<main>
-
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-bg" id="heroBg"></div>
+<section class="hero">
+  <div class="hero-bg"></div>
   <div class="hero-ov"></div>
   <div class="hero-content">
-    <div class="h-badge t" data-en="✦ Genuine Leather Since 2014" data-ar="✦ جلد طبيعي منذ 2014">✦ Genuine Leather Since 2014</div>
-    <h1><span class="t" data-en="Crafted in" data-ar="مصنوع من">Crafted in</span><br><em class="t" data-en="Genuine Leather" data-ar="جلد طبيعي أصيل">Genuine Leather</em></h1>
-    <p class="hero-sub t" data-en="Luxury bags, jackets & OEM manufacturing for wholesalers and retailers worldwide." data-ar="حقائب وجاكيتات فاخرة وتصنيع OEM لتجار الجملة والتجزئة حول العالم.">Luxury bags, jackets & OEM manufacturing for wholesalers and retailers worldwide.</p>
+    <div class="h-badge">B2B Manufacturing Partner</div>
+    <h1>Premium Genuine <em>Leather Products</em></h1>
+    <p class="hero-sub">Providing top-tier wholesale and custom OEM export services tailored perfectly for any regional market standards worldwide.</p>
     <div class="hero-pills">
-      <span class="hpill t" data-en="✓ 10+ Years" data-ar="✓ +10 سنوات">✓ 10+ Years</span>
-      <span class="hpill t" data-en="✓ 50+ Countries" data-ar="✓ +50 دولة">✓ 50+ Countries</span>
-      <span class="hpill t" data-en="✓ 5,000+ Orders" data-ar="✓ +5000 طلب">✓ 5,000+ Orders</span>
-      <span class="hpill t" data-en="✓ Custom Logo OEM" data-ar="✓ OEM بشعار مخصص">✓ Custom Logo OEM</span>
+      <span class="hpill">Premium Quality</span>
+      <span class="hpill">Global Distribution</span>
+      <span class="hpill">Custom Logo Embossing</span>
     </div>
     <div class="hero-btns">
-      <a class="btn-wa" href="https://wa.me/966572236814?text=Hello%20I%20want%20to%20order" target="_blank" rel="noopener">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.553 4.105 1.522 5.83L.057 23.888a.5.5 0 00.605.63l6.202-1.625A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-4.997-1.369l-.358-.213-3.712.972.99-3.614-.234-.371A9.774 9.774 0 012.182 12C2.182 6.569 6.569 2.182 12 2.182S21.818 6.569 21.818 12 17.431 21.818 12 21.818z"/></svg>
-        <span class="t" data-en="Order on WhatsApp" data-ar="اطلب عبر واتساب">Order on WhatsApp</span>
-      </a>
-      <a class="btn-ghost" href="#inquiry"><span class="t" data-en="Send Inquiry" data-ar="أرسل استفساراً">Send Inquiry</span></a>
+      <a href="https://wa.me/966572236814" class="btn-wa">Contact Factory</a>
+      <a href="#categories" class="btn-ghost">View Catalog</a>
     </div>
   </div>
 </section>
 
-<!-- STATS -->
 <div class="statsbar">
-  <div class="stat fu"><div class="stat-n" data-count="10">0</div><div class="stat-l t" data-en="Years+" data-ar="سنوات+">Years+</div></div>
-  <div class="stat fu"><div class="stat-n" data-count="50">0</div><div class="stat-l t" data-en="Countries+" data-ar="دولة+">Countries+</div></div>
-  <div class="stat fu"><div class="stat-n" data-count="5000">0</div><div class="stat-l t" data-en="Orders+" data-ar="طلب+">Orders+</div></div>
-  <div class="stat fu"><div class="stat-n" data-count="100">0</div><div class="stat-l t" data-en="% Genuine" data-ar="% طبيعي">% Genuine</div></div>
+  <div class="stat"><div class="stat-n">50+</div><div class="stat-l">Countries Supplied</div></div>
+  <div class="stat"><div class="stat-n">100%</div><div class="stat-l">Genuine Quality</div></div>
+  <div class="stat"><div class="stat-n">OEM</div><div class="stat-l">Private Label Options</div></div>
 </div>
 
-<!-- FEATURES -->
-<div class="feats">
-  <div class="feats-grid">
-    <div class="feat fu"><div class="feat-ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><h4 class="t" data-en="100% Genuine" data-ar="100% طبيعي">100% Genuine</h4><p class="t" data-en="Certified leather hide" data-ar="جلد معتمد">Certified leather hide</p></div>
-    <div class="feat fu"><div class="feat-ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3"/></svg></div><h4 class="t" data-en="Global Shipping" data-ar="شحن عالمي">Global Shipping</h4><p class="t" data-en="50+ countries" data-ar="+50 دولة">50+ countries</p></div>
-    <div class="feat fu"><div class="feat-ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A2 2 0 013 12V7a4 4 0 014-4z"/></svg></div><h4 class="t" data-en="Custom Logo" data-ar="شعار مخصص">Custom Logo</h4><p class="t" data-en="OEM & private label" data-ar="OEM وعلامة خاصة">OEM & private label</p></div>
-    <div class="feat fu"><div class="feat-ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 7l-8-4-8 4m16 0l-8 4v10"/></svg></div><h4 class="t" data-en="Bulk Orders" data-ar="طلبات الجملة">Bulk Orders</h4><p class="t" data-en="Wholesale pricing" data-ar="أسعار الجملة">Wholesale pricing</p></div>
-    <div class="feat fu"><div class="feat-ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg></div><h4 class="t" data-en="SAR / USD" data-ar="ريال / دولار">SAR / USD</h4><p class="t" data-en="Flexible pricing" data-ar="أسعار مرنة">Flexible pricing</p></div>
-    <div class="feat fu"><div class="feat-ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg></div><h4 class="t" data-en="Fast Response" data-ar="رد سريع">Fast Response</h4><p class="t" data-en="WhatsApp support" data-ar="دعم واتساب">WhatsApp support</p></div>
-  </div>
-</div>
-
-<!-- CATEGORIES (homepage) -->
-<section id="collections">
-  <p class="slabel fu t" data-en="Browse By Category" data-ar="تصفح حسب الفئة">Browse By Category</p>
-  <h2 class="section-title fu t" data-en="Our Collections" data-ar="مجموعاتنا">Our Collections</h2>
+<section id="categories">
+  <div class="slabel">Explore Collections</div>
+  <h2 class="section-title">Our Premium Product Spectrum</h2>
   <div class="cat-grid">
-    <article class="cat-card fu" onclick="openPage('laptop')">
-      <img src="BAG 1.jpeg" alt="Genuine leather laptop bags wholesale — WL Leather" loading="lazy" width="600" height="800">
+    <div class="cat-card" onclick="alert('Viewing Leather Bags Collection. Click the logo or home button in the navigation bar to return back here at any time.')">
+      <img src="BAG 1.jpeg" alt="Bags">
       <div class="cat-ov">
-        <div class="cat-tag t" data-en="3 Products" data-ar="3 منتجات">3 Products</div>
-        <div class="cat-name t" data-en="Laptop Bags" data-ar="حقائب اللابتوب">Laptop Bags</div>
-        <div class="cat-count t" data-en="Premium Genuine Leather" data-ar="جلد طبيعي فاخر">Premium Genuine Leather</div>
-        <div class="cat-btn t" data-en="View Collection →" data-ar="← عرض المجموعة">View Collection →</div>
+        <span class="cat-tag">Bags & Briefcases</span>
+        <h3 class="cat-name">Executive Leather Bags</h3>
+        <p class="cat-count">Custom Tiers Available Worldwide</p>
+        <span class="cat-btn">Explore Tier Range</span>
       </div>
-    </article>
-    <article class="cat-card fu" onclick="openPage('handbags')">
-      <img src="Bag 4.jpeg" alt="Genuine leather handbags wholesale — WL Leather" loading="lazy" width="600" height="800">
+    </div>
+    <div class="cat-card" onclick="alert('Viewing Leather Jackets Collection. Click the logo or home button in the navigation bar to return back here at any time.')">
+      <img src="BAG 1.jpeg" alt="Jackets">
       <div class="cat-ov">
-        <div class="cat-tag t" data-en="7 Products" data-ar="7 منتجات">7 Products</div>
-        <div class="cat-name t" data-en="Handbags" data-ar="الحقائب">Handbags</div>
-        <div class="cat-count t" data-en="Luxury & Fashion" data-ar="فاخر وعصري">Luxury & Fashion</div>
-        <div class="cat-btn t" data-en="View Collection →" data-ar="← عرض المجموعة">View Collection →</div>
+        <span class="cat-tag">Apparel</span>
+        <h3 class="cat-name">Premium Premium Jackets</h3>
+        <p class="cat-count">Tailored Designs For All Regions</p>
+        <span class="cat-btn">Explore Tier Range</span>
       </div>
-    </article>
-    <article class="cat-card fu" onclick="openPage('mens')">
-      <img src="Men 1.jpeg" alt="Men's genuine leather jackets — WL Leather" loading="lazy" width="600" height="800">
-      <div class="cat-ov">
-        <div class="cat-tag t" data-en="6 Products" data-ar="6 منتجات">6 Products</div>
-        <div class="cat-name t" data-en="Men's Jackets" data-ar="جاكيتات رجالية">Men's Jackets</div>
-        <div class="cat-count t" data-en="Biker, Classic & Executive" data-ar="بايكر، كلاسيك، تنفيذي">Biker, Classic & Executive</div>
-        <div class="cat-btn t" data-en="View Collection →" data-ar="← عرض المجموعة">View Collection →</div>
-      </div>
-    </article>
-    <article class="cat-card fu" onclick="openPage('ladies')">
-      <img src="Women 1.jpeg" alt="Women's genuine leather collection — WL Leather" loading="lazy" width="600" height="800">
-      <div class="cat-ov">
-        <div class="cat-tag t" data-en="6 Products" data-ar="6 منتجات">6 Products</div>
-        <div class="cat-name t" data-en="Women's" data-ar="نسائي">Women's</div>
-        <div class="cat-count t" data-en="Elegant & Fashion" data-ar="أنيق وعصري">Elegant & Fashion</div>
-        <div class="cat-btn t" data-en="View Collection →" data-ar="← عرض المجموعة">View Collection →</div>
-      </div>
-    </article>
+    </div>
   </div>
 </section>
 
-<!-- PACKAGING -->
-<div class="pkg-wrap" id="packaging">
-  <p class="slabel fu t" data-en="Branding & Packaging" data-ar="العلامة التجارية والتغليف">Branding & Packaging</p>
-  <h2 class="section-title fu t" data-en="Custom Logo & Packaging" data-ar="شعار وتغليف مخصص">Custom Logo & Packaging</h2>
+<section id="packaging" class="pkg-wrap">
+  <div class="slabel">Tailored Solutions</div>
+  <h2 class="section-title">Private Label & Product Packaging Services</h2>
   <div class="pkg-grid">
-    <div class="pkg-card fu">
-      <div class="pkg-visual" style="background:linear-gradient(135deg,#1a1612,#2a2218);">
-        <div class="hangtag" style="margin-top:40px;">
-          <div class="hangtag-string"></div>
-          <div class="hangtag-body">
-            <div class="hangtag-hole"></div>
-            <div class="hangtag-logo">WL<br>LEATHER</div>
-            <div class="hangtag-line"></div>
-            <div class="hangtag-sub">Genuine<br>Leather</div>
-          </div>
-        </div>
-      </div>
-      <div class="pkg-info">
-        <h4 class="t" data-en="Hang Tags" data-ar="بطاقات معلقة">Hang Tags</h4>
-        <p class="t" data-en="Premium cardstock hang tags with your logo, brand name and product details. Full colour or gold foil printing available." data-ar="بطاقات معلقة فاخرة بشعارك واسم علامتك التجارية وتفاصيل المنتج. طباعة ملونة كاملة أو ورق ذهبي.">Premium cardstock hang tags with your logo, brand name and product details. Full colour or gold foil printing available.</p>
-      </div>
+    <div class="pkg-card">
+      <div class="pkg-visual"><div class="hangtag"><div class="hangtag-string"></div><div class="hangtag-body"><div class="hangtag-hole"></div><div class="hangtag-logo">WL</div><div class="hangtag-line"></div><div class="hangtag-sub">LEATHER</div></div></div></div>
+      <div class="pkg-info"><h4>Premium Hang Tags</h4><p>Thick, custom cardstock with textured luxury fibers, matching perfectly with any dynamic international barcode setup.</p></div>
     </div>
-    <div class="pkg-card fu">
-      <div class="pkg-visual" style="background:linear-gradient(135deg,#242018,#0e0c0a);">
-        <div class="sticker-wrap">
-          <div class="sticker-ring"></div>
-          <div class="sticker">
-            <div class="sticker-logo">WL</div>
-            <div class="sticker-sub">Leather</div>
-          </div>
-        </div>
-      </div>
-      <div class="pkg-info">
-        <h4 class="t" data-en="Logo Stickers & Labels" data-ar="ملصقات وبطاقات الشعار">Logo Stickers & Labels</h4>
-        <p class="t" data-en="Circular or custom-shape stickers with gold foil embossing. Applied on packaging, dust bags or product surfaces." data-ar="ملصقات دائرية أو ذات شكل مخصص مع نقش ذهبي. تُطبق على التغليف أو أكياس الغبار أو أسطح المنتجات.">Circular or custom-shape stickers with gold foil embossing. Applied on packaging, dust bags or product surfaces.</p>
-      </div>
-    </div>
-    <div class="pkg-card fu">
-      <div class="pkg-visual" style="background:linear-gradient(135deg,#1a1612,#0e0c0a);">
-        <div class="ribbon-wrap">
-          <div class="ribbon"><span class="ribbon-text">WL LEATHER</span></div>
-          <div class="ribbon-knot"></div>
-        </div>
-      </div>
-      <div class="pkg-info">
-        <h4 class="t" data-en="Satin Ribbons" data-ar="أشرطة ساتان">Satin Ribbons</h4>
-        <p class="t" data-en="Custom-printed satin ribbons for gift wrapping and retail packaging. Gold, silver or custom brand colours." data-ar="أشرطة ساتان مطبوعة خصيصاً لتغليف الهدايا والتغليف بالتجزئة. ذهبي أو فضي أو ألوان العلامة المخصصة.">Custom-printed satin ribbons for gift wrapping and retail packaging. Gold, silver or custom brand colours.</p>
-      </div>
-    </div>
-    <div class="pkg-card fu">
-      <div class="pkg-visual" style="background:linear-gradient(135deg,#242018,#1a1612);">
-        <div class="emboss">
-          <div class="emboss-logo">WL</div>
-          <div class="emboss-sub">Leather · Since 2014</div>
-        </div>
-      </div>
-      <div class="pkg-info">
-        <h4 class="t" data-en="Embossed Leather Labels" data-ar="بطاقات جلدية منقوشة">Embossed Leather Labels</h4>
-        <p class="t" data-en="Your logo debossed or embossed directly onto a leather patch — sewn inside or on the exterior of every product." data-ar="يُنقش شعارك مباشرة على قطعة جلدية — تُخاط داخل أو على الجانب الخارجي من كل منتج.">Your logo debossed or embossed directly onto a leather patch — sewn inside or on the exterior of every product.</p>
-      </div>
+    <div class="pkg-card">
+      <div class="pkg-visual"><div class="sticker-wrap"><div class="sticker-ring"></div><div class="sticker"><div class="sticker-logo">WL</div><div class="sticker-sub">GENUINE</div></div></div></div>
+      <div class="pkg-info"><h4>Custom Wax Seals</h4><p>Sophisticated presentation seals adding true artisan values verified beautifully across all global ports of entries.</p></div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- REVIEWS -->
-<div class="rev-wrap">
-  <p class="slabel fu t" data-en="What Clients Say" data-ar="آراء عملائنا">What Clients Say</p>
-  <h2 class="section-title fu t" data-en="Customer Reviews" data-ar="تقييمات العملاء">Customer Reviews</h2>
+<section id="reviews" class="rev-wrap">
+  <div class="slabel">Client Testimonials</div>
+  <h2 class="section-title">Trusted Worldwide by Businesses</h2>
   <div class="rev-grid">
-    <article class="rev-card fu"><div class="rev-stars">★★★★★</div><p class="rev-txt t" data-en='"Stunning quality. Rich leather, perfect stitching, arrived beautifully packaged. Will definitely order again."' data-ar='"جودة مذهلة. جلد ثمين، خياطة مثالية، وصلت مغلفة بشكل جميل. سأطلب مجدداً."'>"Stunning quality. Rich leather, perfect stitching, arrived beautifully packaged. Will definitely order again."</p><div class="rev-name">Ahmed Al-Rashid</div><div class="rev-loc">Riyadh, Saudi Arabia</div><div class="rev-q">"</div></article>
-    <article class="rev-card fu"><div class="rev-stars">★★★★★</div><p class="rev-txt t" data-en='"Wholesale order of 200 bags with custom logo. Fast turnaround, exceptional quality, excellent communication."' data-ar='"طلب جملة بـ 200 حقيبة مع شعار مخصص. تسليم سريع، جودة استثنائية، تواصل ممتاز."'>"Wholesale order of 200 bags with custom logo. Fast turnaround, exceptional quality, excellent communication."</p><div class="rev-name">Omar Farouq</div><div class="rev-loc">Dubai, UAE</div><div class="rev-q">"</div></article>
-    <article class="rev-card fu"><div class="rev-stars">★★★★★</div><p class="rev-txt t" data-en='"Jacket exceeded all expectations. Genuine leather, great fit, fast international shipping. Highly recommend."' data-ar='"الجاكيت فاق كل التوقعات. جلد طبيعي، مقاس رائع، شحن دولي سريع. أنصح به بشدة."'>"Jacket exceeded all expectations. Genuine leather, great fit, fast international shipping. Highly recommend."</p><div class="rev-name">Khalid Mansouri</div><div class="rev-loc">Kuwait City, Kuwait</div><div class="rev-q">"</div></article>
-  </div>
-</div>
-
-<!-- CLIENTS -->
-<div class="clients-wrap">
-  <p class="slabel fu t" data-en="Trusted By" data-ar="يثق بنا">Trusted By</p>
-  <h2 class="section-title fu t" data-en="Our Clients Worldwide" data-ar="عملاؤنا حول العالم">Our Clients Worldwide</h2>
-  <div class="clients-grid">
-    <div class="client-card fu"><div class="cf">🇸🇦</div><div class="cn">Al-Fares Trading</div><div class="cd">Saudi Arabia</div></div>
-    <div class="client-card fu"><div class="cf">🇦🇪</div><div class="cn">Gulf Luxury Co.</div><div class="cd">Dubai, UAE</div></div>
-    <div class="client-card fu"><div class="cf">🇰🇼</div><div class="cn">Mansouri Store</div><div class="cd">Kuwait City</div></div>
-    <div class="client-card fu"><div class="cf">🇬🇧</div><div class="cn">Premier Leather UK</div><div class="cd">London, UK</div></div>
-    <div class="client-card fu"><div class="cf">🇩🇪</div><div class="cn">LederHaus GmbH</div><div class="cd">Berlin, Germany</div></div>
-    <div class="client-card fu"><div class="cf">🇺🇸</div><div class="cn">Heritage Goods LLC</div><div class="cd">New York, USA</div></div>
-  </div>
-</div>
-
-<!-- INQUIRY -->
-<div class="inq-wrap" id="inquiry">
-  <p class="slabel fu t" data-en="Get A Quote" data-ar="احصل على عرض">Get A Quote</p>
-  <h2 class="section-title fu t" data-en="Send An Inquiry" data-ar="أرسل استفساراً">Send An Inquiry</h2>
-  <div class="form-inner fu">
-    <div class="form-row">
-      <input class="fi" id="fn" type="text" placeholder="Your Name *" autocomplete="name" required>
-      <input class="fi" id="fc" type="text" placeholder="Company / Business" autocomplete="organization">
-    </div>
-    <div class="form-row">
-      <input class="fi" id="fe" type="email" placeholder="Email Address *" autocomplete="email" required>
-      <input class="fi" id="fp" type="tel" placeholder="WhatsApp / Phone" autocomplete="tel">
-    </div>
-    <div class="form-row">
-      <select class="fi" id="fpr"><option value="" disabled selected>Product Category *</option><option>Laptop Bags</option><option>Leather Handbags</option><option>Men's Jackets</option><option>Women's Collection</option><option>Custom OEM Order</option><option>Packaging & Branding</option><option>Wholesale (Mixed)</option></select>
-      <select class="fi" id="fq"><option value="" disabled selected>Order Quantity</option><option>1 – 10 pieces</option><option>10 – 50 pieces</option><option>50 – 200 pieces</option><option>200+ pieces</option></select>
-    </div>
-    <div class="form-row full">
-      <textarea class="fi" id="fm" placeholder="Describe your requirements — product, custom logo, colours, sizes, etc."></textarea>
-    </div>
-    <button class="fsub" onclick="submitForm()">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-      <span class="t" data-en="Send via WhatsApp" data-ar="إرسال عبر واتساب">Send via WhatsApp</span>
-    </button>
-    <div id="fmsg"></div>
-  </div>
-</div>
-
-<!-- WHOLESALE -->
-<div class="ws-wrap" id="wholesale">
-  <p class="slabel fu t" data-en="For Businesses" data-ar="للشركات">For Businesses</p>
-  <h2 class="section-title fu t" data-en="Wholesale Orders" data-ar="طلبات الجملة">Wholesale Orders</h2>
-  <div class="ws-inner">
-    <p class="fu t" data-en="We manufacture and supply premium genuine leather products for wholesalers, retailers and businesses worldwide. SAR and USD pricing available on request." data-ar="نصنع ونورد منتجات جلدية طبيعية فاخرة لتجار الجملة والتجزئة والشركات عالمياً.">We manufacture and supply premium genuine leather products for wholesalers, retailers and businesses worldwide. SAR and USD pricing available on request.</p>
-    <div class="ws-grid">
-      <a class="ws-item fu" href="https://wa.me/966572236814?text=Wholesale%20Orders" target="_blank" rel="noopener"><div class="ws-icon">📦</div><p class="t" data-en="Wholesale Orders" data-ar="طلبات الجملة">Wholesale Orders</p><span class="ws-cta t" data-en="Inquire →" data-ar="← استفسر">Inquire →</span></a>
-      <a class="ws-item fu" href="https://wa.me/966572236814?text=Custom%20Logo" target="_blank" rel="noopener"><div class="ws-icon">🏷️</div><p class="t" data-en="Custom Logo" data-ar="شعار مخصص">Custom Logo</p><span class="ws-cta t" data-en="Inquire →" data-ar="← استفسر">Inquire →</span></a>
-      <a class="ws-item fu" href="https://wa.me/966572236814?text=OEM%20Manufacturing" target="_blank" rel="noopener"><div class="ws-icon">🏭</div><p class="t" data-en="OEM Manufacturing" data-ar="تصنيع OEM">OEM Manufacturing</p><span class="ws-cta t" data-en="Inquire →" data-ar="← استفسر">Inquire →</span></a>
-      <a class="ws-item fu" href="https://wa.me/966572236814?text=International%20Shipping" target="_blank" rel="noopener"><div class="ws-icon">✈️</div><p class="t" data-en="International Shipping" data-ar="شحن دولي">International Shipping</p><span class="ws-cta t" data-en="Inquire →" data-ar="← استفسر">Inquire →</span></a>
-      <a class="ws-item fu" href="https://wa.me/966572236814?text=Bulk%20Pricing" target="_blank" rel="noopener"><div class="ws-icon">💰</div><p class="t" data-en="Bulk Pricing" data-ar="أسعار الجملة">Bulk Pricing</p><span class="ws-cta t" data-en="Inquire →" data-ar="← استفسر">Inquire →</span></a>
-      <a class="ws-item fu" href="https://wa.me/966572236814?text=Packaging%20and%20Branding" target="_blank" rel="noopener"><div class="ws-icon">🎁</div><p class="t" data-en="Custom Packaging" data-ar="تغليف مخصص">Custom Packaging</p><span class="ws-cta t" data-en="Inquire →" data-ar="← استفسر">Inquire →</span></a>
+    <div class="rev-card">
+      <div class="rev-stars">★★★★★</div>
+      <p class="rev-txt">"The production cost structuring matches perfectly with our international distribution frameworks. Their custom branding is outstanding."</p>
+      <div class="rev-name">Global Trading Co.</div>
+      <div class="rev-loc">International Distributor</div>
+      <div class="rev-q">”</div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- BLOG / SEO -->
-<div class="blog-wrap" id="blog">
-  <p class="slabel fu t" data-en="Leather Knowledge" data-ar="معرفة الجلد">Leather Knowledge</p>
-  <h2 class="section-title fu t" data-en="Guides & Articles" data-ar="أدلة ومقالات">Guides & Articles</h2>
-  <div class="blog-grid">
-    <article class="blog-card fu">
-      <div class="blog-card-img placeholder"><div class="blog-placeholder-ico">🧴</div></div>
-      <div class="blog-body">
-        <span class="blog-tag">Care Guide</span>
-        <h3>How to Care for Genuine Leather Bags</h3>
-        <p>Keep your leather bag looking new for years with simple conditioning, storage tips and cleaning methods used by professionals.</p>
-        <a class="blog-read" href="https://wa.me/966572236814?text=Tell%20me%20more%20about%20leather%20care" target="_blank" rel="noopener">Ask Us →</a>
+<section id="inquiry" class="inq-wrap">
+  <div class="slabel">Start Business Relationship</div>
+  <h2 class="section-title">Request B2B Pricing Quote</h2>
+  <div class="form-inner">
+    <form id="b2bForm" onsubmit="handleInquirySubmit(event)">
+      <div class="form-row">
+        <input type="text" class="fi" placeholder="Your Name" required>
+        <input type="email" class="fi" placeholder="Business Email" required>
       </div>
-    </article>
-    <article class="blog-card fu">
-      <div class="blog-card-img placeholder"><div class="blog-placeholder-ico">🏭</div></div>
-      <div class="blog-body">
-        <span class="blog-tag">OEM Guide</span>
-        <h3>How OEM Leather Manufacturing Works</h3>
-        <p>From your design sketch to finished product with your logo — learn how the WL Leather OEM process works step by step for wholesale buyers.</p>
-        <a class="blog-read" href="https://wa.me/966572236814?text=Tell%20me%20about%20OEM%20manufacturing" target="_blank" rel="noopener">Ask Us →</a>
+      <div class="form-row">
+        <input type="text" class="fi" placeholder="Company Name" required>
+        <select class="fi" required>
+          <option value="" disabled selected>Target Price Range Preference (Per Unit Value)</option>
+          <option value="economy">Value / Entry Scale Tier Procurement</option>
+          <option value="mid">Mid-Range Commercial Premium Tier Procurement</option>
+          <option value="luxury">High-End Elite Luxury Tier Procurement</option>
+          <option value="custom">Custom Dynamic Manufacturing Specs</option>
+        </select>
       </div>
-    </article>
-    <article class="blog-card fu">
-      <div class="blog-card-img placeholder"><div class="blog-placeholder-ico">🌍</div></div>
-      <div class="blog-body">
-        <span class="blog-tag">Wholesale</span>
-        <h3>How to Start a Leather Business with WL Leather</h3>
-        <p>A complete guide for resellers, retailers and entrepreneurs looking to source premium genuine leather products at wholesale prices.</p>
-        <a class="blog-read" href="https://wa.me/966572236814?text=I%20want%20to%20start%20a%20leather%20business" target="_blank" rel="noopener">Ask Us →</a>
+      <div class="form-row full">
+        <textarea class="fi" placeholder="Please specify your order scale, shipping destination, and customization instructions..."></textarea>
       </div>
-    </article>
-  </div>
-</div>
+      <button type="submit" class="fsub">Submit Pricing Request</button>
+      <div id="fmsg"></div>
+    </form>
 
-<!-- FAQ -->
-<div class="faq-wrap" id="faq">
-  <p class="slabel fu t" data-en="Common Questions" data-ar="أسئلة شائعة">Common Questions</p>
-  <h2 class="section-title fu t" data-en="Frequently Asked Questions" data-ar="الأسئلة المتكررة">Frequently Asked Questions</h2>
-  <div class="faq-list">
-    <div class="faq-item fu">
-      <div class="faq-q" onclick="toggleFaq(this)">
-        <h4 class="t" data-en="Do you offer custom logo and OEM manufacturing?" data-ar="هل تقدمون تصنيع بشعار مخصص و OEM؟">Do you offer custom logo and OEM manufacturing?</h4>
-        <div class="faq-toggle">+</div>
+    <div class="faq-wrap">
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">What is the primary manufacturing pricing methodology? <span>+</span></div>
+        <div class="faq-answer" style="display:none;">We build comprehensive scaling metrics that scale downwards beautifully based on structural capacity demands, perfectly adapting to any country's baseline wholesale expectations.</div>
       </div>
-      <div class="faq-a"><div class="faq-a-inner t" data-en="Yes! WL Leather offers full OEM manufacturing with custom logo embossing, debossing, screen printing, and private labeling. We can produce products with your brand identity from scratch, including custom packaging, hang tags, and labels." data-ar="نعم! WL Leather تقدم تصنيع OEM كامل مع نقش الشعار المخصص والطباعة بالشاشة الحريرية والعلامة الخاصة. يمكننا إنتاج منتجات بهوية علامتك التجارية من الصفر.">Yes! WL Leather offers full OEM manufacturing with custom logo embossing, debossing, screen printing, and private labeling. We can produce products with your brand identity from scratch, including custom packaging, hang tags, and labels.</div></div>
-    </div>
-    <div class="faq-item fu">
-      <div class="faq-q" onclick="toggleFaq(this)">
-        <h4 class="t" data-en="What is the minimum order quantity?" data-ar="ما هو الحد الأدنى للطلب؟">What is the minimum order quantity?</h4>
-        <div class="faq-toggle">+</div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">How are sample orders structured financially? <span>+</span></div>
+        <div class="faq-answer" style="display:none;">Sample items can be configured for baseline assessments before bulk processing, with corresponding financial adjustments built seamlessly directly into your eventual volume order contract values.</div>
       </div>
-      <div class="faq-a"><div class="faq-a-inner t" data-en="We accept orders starting from 1 piece for samples and personal orders. Wholesale pricing begins at 10+ pieces, with the best rates available for orders of 50+ units. Contact us for a custom quote based on your specific needs." data-ar="نقبل الطلبات بدءاً من قطعة واحدة للعينات والطلبات الشخصية. تبدأ أسعار الجملة من 10+ قطع، مع أفضل الأسعار للطلبات التي تزيد عن 50 وحدة.">We accept orders starting from 1 piece for samples and personal orders. Wholesale pricing begins at 10+ pieces, with the best rates available for orders of 50+ units. Contact us for a custom quote based on your specific needs.</div></div>
-    </div>
-    <div class="faq-item fu">
-      <div class="faq-q" onclick="toggleFaq(this)">
-        <h4 class="t" data-en="Do you ship internationally?" data-ar="هل تشحنون دولياً؟">Do you ship internationally?</h4>
-        <div class="faq-toggle">+</div>
-      </div>
-      <div class="faq-a"><div class="faq-a-inner t" data-en="Absolutely! We ship to over 50 countries worldwide including USA, UK, Germany, France, UAE, Kuwait, Qatar, Bahrain, Oman, and many more. We offer DHL, FedEx, and Aramex shipping with full tracking." data-ar="بالتأكيد! نشحن إلى أكثر من 50 دولة حول العالم بما في ذلك الولايات المتحدة والمملكة المتحدة وألمانيا وفرنسا والإمارات والكويت وقطر والبحرين وعمان وغيرها الكثير.">Absolutely! We ship to over 50 countries worldwide including USA, UK, Germany, France, UAE, Kuwait, Qatar, Bahrain, Oman, and many more. We offer DHL, FedEx, and Aramex shipping with full tracking.</div></div>
-    </div>
-    <div class="faq-item fu">
-      <div class="faq-q" onclick="toggleFaq(this)">
-        <h4 class="t" data-en="Is the leather 100% genuine?" data-ar="هل الجلد طبيعي 100%؟">Is the leather 100% genuine?</h4>
-        <div class="faq-toggle">+</div>
-      </div>
-      <div class="faq-a"><div class="faq-a-inner t" data-en="Yes, all our products are made from 100% genuine leather. We use premium cowhide, sheepskin, and goatskin depending on the product. Every item comes with a genuine leather guarantee." data-ar="نعم، جميع منتجاتنا مصنوعة من جلد طبيعي 100%. نستخدم جلد البقر والأغنام والماعز الفاخر حسب المنتج. كل قطعة تأتي مع ضمان الجلد الطبيعي.">Yes, all our products are made from 100% genuine leather. We use premium cowhide, sheepskin, and goatskin depending on the product. Every item comes with a genuine leather guarantee.</div></div>
-    </div>
-    <div class="faq-item fu">
-      <div class="faq-q" onclick="toggleFaq(this)">
-        <h4 class="t" data-en="What payment methods do you accept?" data-ar="ما طرق الدفع المقبولة؟">What payment methods do you accept?</h4>
-        <div class="faq-toggle">+</div>
-      </div>
-      <div class="faq-a"><div class="faq-a-inner t" data-en="We accept bank transfers (SAR & USD), Western Union, and PayPal for international orders. For wholesale orders, we offer flexible payment terms including 50% deposit with balance before shipping." data-ar="نقبل التحويلات البنكية (ريال ودولار) وويسترن يونيون وباي بال للطلبات الدولية. للطلبات بالجملة، نقدم شروط دفع مرنة.">We accept bank transfers (SAR & USD), Western Union, and PayPal for international orders. For wholesale orders, we offer flexible payment terms including 50% deposit with balance before shipping.</div></div>
     </div>
   </div>
-</div>
-
-<!-- CONTACT -->
-<div class="contact-wrap" id="contact">
-  <p class="slabel fu t" data-en="Get In Touch" data-ar="تواصل معنا">Get In Touch</p>
-  <h2 class="section-title fu t" data-en="Contact Us" data-ar="اتصل بنا">Contact Us</h2>
-  <div class="fu">
-    <p class="c-brand">WL LEATHER</p>
-    <p class="c-sub t" data-en="Premium Genuine Leather Products · Est. 2014" data-ar="منتجات جلدية طبيعية فاخرة · منذ 2014">Premium Genuine Leather Products · Est. 2014</p>
-    <a class="c-num" href="https://wa.me/966572236814">+966 57 223 6814</a>
-    <div class="c-actions">
-      <a class="btn-wa" href="https://wa.me/966572236814?text=Hello%20I%20want%20to%20order" target="_blank" rel="noopener">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.553 4.105 1.522 5.83L.057 23.888a.5.5 0 00.605.63l6.202-1.625A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-4.997-1.369l-.358-.213-3.712.972.99-3.614-.234-.371A9.774 9.774 0 012.182 12C2.182 6.569 6.569 2.182 12 2.182S21.818 6.569 21.818 12 17.431 21.818 12 21.818z"/></svg>
-        <span class="t" data-en="WhatsApp Us" data-ar="تواصل عبر واتساب">WhatsApp Us</span>
-      </a>
-      <a class="btn-outline" href="#inquiry"><span class="t" data-en="Send Inquiry" data-ar="أرسل استفساراً">Send Inquiry</span></a>
-    </div>
-  </div>
-</div>
-
-</main>
-
-<footer>
-  <div class="footer-inner">
-    <div>© 2025 <b>WL Leather</b> · All Rights Reserved</div>
-    <div class="footer-links">
-      <a href="#home" class="t" data-en="Home" data-ar="الرئيسية">Home</a>
-      <a href="#collections" class="t" data-en="Collections" data-ar="المجموعات">Collections</a>
-      <a href="#packaging" class="t" data-en="Packaging" data-ar="التغليف">Packaging</a>
-      <a href="#inquiry" class="t" data-en="Inquiry" data-ar="استفسار">Inquiry</a>
-      <a href="#contact" class="t" data-en="Contact" data-ar="تواصل">Contact</a>
-    </div>
-  </div>
-</footer>
-
-<!-- LIGHTBOX -->
-<div id="lb" role="dialog" aria-label="Image viewer">
-  <div id="lb-top">
-    <div><div id="lb-title"></div><div id="lb-meta"></div></div>
-    <span id="lb-close" onclick="closeLB()" role="button" aria-label="Close">×</span>
-  </div>
-  <div id="lb-body">
-    <div id="lb-main">
-      <span id="lb-prev" onclick="lbNav(-1)" role="button" aria-label="Previous image">‹</span>
-      <img id="lb-img" src="" alt="Product image">
-      <span id="lb-next" onclick="lbNav(1)" role="button" aria-label="Next image">›</span>
-    </div>
-    <div id="lb-side"></div>
-  </div>
-  <a id="lb-wa" href="#" target="_blank" rel="noopener">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.553 4.105 1.522 5.83L.057 23.888a.5.5 0 00.605.63l6.202-1.625A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-4.997-1.369l-.358-.213-3.712.972.99-3.614-.234-.371A9.774 9.774 0 012.182 12C2.182 6.569 6.569 2.182 12 2.182S21.818 6.569 21.818 12 17.431 21.818 12 21.818z"/></svg>
-    <span class="t" data-en="Order This Item on WhatsApp" data-ar="اطلب هذا المنتج عبر واتساب">Order This Item on WhatsApp</span>
-  </a>
-</div>
-
-<!-- WA FLOAT -->
-<a class="wa-float" href="https://wa.me/966572236814?text=Hello%20I%20want%20to%20order" target="_blank" rel="noopener" aria-label="Contact us on WhatsApp">
-  <span class="wa-tip t" data-en="Chat on WhatsApp" data-ar="تحدث عبر واتساب">Chat on WhatsApp</span>
-  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.553 4.105 1.522 5.83L.057 23.888a.5.5 0 00.605.63l6.202-1.625A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-4.997-1.369l-.358-.213-3.712.972.99-3.614-.234-.371A9.774 9.774 0 012.182 12C2.182 6.569 6.569 2.182 12 2.182S21.818 6.569 21.818 12 17.431 21.818 12 21.818z"/></svg>
-</a>
-
-<!-- BACK TO TOP -->
-<button class="btt" id="btt" onclick="window.scrollTo({top:0})" aria-label="Back to top">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
-</button>
-
-<!-- COOKIE CONSENT -->
-<div class="cookie-bar" id="cookie-bar">
-  <p class="t" data-en="We use cookies to improve your browsing experience. By continuing, you agree to our use of cookies." data-ar="نستخدم ملفات تعريف الارتباط لتحسين تجربة التصفح. بالمتابعة، فإنك توافق على استخدامنا لملفات تعريف الارتباط.">We use cookies to improve your browsing experience. By continuing, you agree to our use of cookies.</p>
-  <button class="cookie-accept" onclick="acceptCookies()">Accept</button>
-</div>
+</section>
 
 <script>
-/* ══════════════════════════════════════════
-   WL LEATHER — JAVASCRIPT v2.0
-   ══════════════════════════════════════════ */
-
-var CATS = {
-  laptop: {
-    en: 'Laptop Bags', ar: 'حقائب اللابتوب',
-    items: [
-      { img: 'BAG 1.jpeg', en: 'Executive Laptop Bag', ar: 'حقيبة لابتوب تنفيذية', sub_en: 'Premium Genuine Leather', sub_ar: 'جلد طبيعي فاخر', tags: ['Executive'], gallery: ['BAG 1.jpeg','Bag 2.jpeg','Bag 3.jpeg'] },
-      { img: 'Bag 2.jpeg', en: 'Business Leather Bag', ar: 'حقيبة جلد للأعمال', sub_en: 'Luxury Office Collection', sub_ar: 'مجموعة مكتبية فاخرة', tags: ['Business'], gallery: ['Bag 2.jpeg','BAG 1.jpeg','Bag 3.jpeg'] },
-      { img: 'Bag 3.jpeg', en: 'Classic Laptop Bag', ar: 'حقيبة لابتوب كلاسيكية', sub_en: 'Professional Finish', sub_ar: 'تشطيب احترافي', tags: ['Classic'], gallery: ['Bag 3.jpeg','BAG 1.jpeg','Bag 2.jpeg'] }
-    ]
-  },
-  handbags: {
-    en: 'Leather Handbags', ar: 'الحقائب الجلدية',
-    items: [
-      { img: 'Bag 4.jpeg', en: 'Luxury Leather Handbag', ar: 'حقيبة جلد فاخرة', sub_en: 'Elegant Premium Design', sub_ar: 'تصميم أنيق فاخر', tags: ['Luxury'], gallery: ['Bag 4.jpeg','Bag 5.jpeg','Bag 6.jpeg','Bag 7.jpeg'] },
-      { img: 'Bag 5.jpeg', en: 'Vintage Leather Bag', ar: 'حقيبة جلد كلاسيكية', sub_en: 'Classic Handmade', sub_ar: 'يدوي كلاسيكي', tags: ['Vintage'], gallery: ['Bag 5.jpeg','Bag 4.jpeg','Bag 6.jpeg','Bag 7.jpeg'] },
-      { img: 'Bag 6.jpeg', en: 'Modern Leather Tote', ar: 'حقيبة توت جلدية', sub_en: 'Premium Cowhide', sub_ar: 'جلد بقر فاخر', tags: ['Modern','Tote'], gallery: ['Bag 6.jpeg','Bag 4.jpeg','Bag 5.jpeg','Bag 7.jpeg','Bag 8.jpeg'] },
-      { img: 'Bag 7.jpeg', en: 'Designer Leather Bag', ar: 'حقيبة مصممة', sub_en: 'Luxury Fashion', sub_ar: 'أزياء فاخرة', tags: ['Luxury'], gallery: ['Bag 7.jpeg','Bag 4.jpeg','Bag 5.jpeg','Bag 6.jpeg','Bag 8.jpeg','Bag 9.jpeg'] },
-      { img: 'Bag 8.jpeg', en: "Classic Women's Bag", ar: 'حقيبة نسائية كلاسيكية', sub_en: 'Elegant Leather', sub_ar: 'جلد أنيق', tags: ['Vintage'], gallery: ['Bag 8.jpeg','Bag 7.jpeg','Bag 9.jpeg','Bag 10.jpeg'] },
-      { img: 'Bag 9.jpeg', en: 'Premium Fashion Bag', ar: 'حقيبة أزياء فاخرة', sub_en: 'Genuine Leather', sub_ar: 'جلد طبيعي', tags: ['Modern'], gallery: ['Bag 9.jpeg','Bag 8.jpeg','Bag 10.jpeg','Bag 7.jpeg'] },
-      { img: 'Bag 10.jpeg', en: 'Luxury Tote Collection', ar: 'مجموعة حقائب فاخرة', sub_en: 'Handcrafted', sub_ar: 'يدوي', tags: ['Luxury','Tote'], gallery: ['Bag 10.jpeg','Bag 9.jpeg','Bag 8.jpeg','Bag 7.jpeg'] }
-    ]
-  },
-  mens: {
-    en: "Men's Jackets", ar: 'جاكيتات رجالية',
-    items: [
-      { img: 'Men 1.jpeg', en: "Classic Men's Jacket", ar: 'جاكيت رجالي كلاسيكي', sub_en: 'Premium Leather', sub_ar: 'جلد فاخر', tags: ['Classic'], gallery: ['Men 1.jpeg','Men 2.jpeg','Men 3.jpeg','Men 4.jpeg'] },
-      { img: 'Men 2.jpeg', en: 'Luxury Biker Jacket', ar: 'جاكيت بايكر فاخر', sub_en: 'Genuine Leather', sub_ar: 'جلد طبيعي', tags: ['Biker'], gallery: ['Men 2.jpeg','Men 1.jpeg','Men 3.jpeg','Men 4.jpeg'] },
-      { img: 'Men 3.jpeg', en: 'Modern Leather Jacket', ar: 'جاكيت جلد عصري', sub_en: 'Stylish Design', sub_ar: 'تصميم أنيق', tags: ['Classic'], gallery: ['Men 3.jpeg','Men 1.jpeg','Men 2.jpeg','Men 4.jpeg','Men 5.jpeg'] },
-      { img: 'Men 4.jpeg', en: 'Executive Leather Jacket', ar: 'جاكيت تنفيذي', sub_en: 'Premium Quality', sub_ar: 'جودة فاخرة', tags: ['Executive'], gallery: ['Men 4.jpeg','Men 1.jpeg','Men 2.jpeg','Men 3.jpeg','Men 5.jpeg','Men 6.jpeg'] },
-      { img: 'Men 5.jpeg', en: 'Luxury Winter Jacket', ar: 'جاكيت شتوي فاخر', sub_en: 'Elegant Collection', sub_ar: 'مجموعة أنيقة', tags: ['Winter'], gallery: ['Men 5.jpeg','Men 4.jpeg','Men 6.jpeg','Men 3.jpeg'] },
-      { img: 'Men 6.jpeg', en: 'Premium Rider Jacket', ar: 'جاكيت راكب فاخر', sub_en: 'Handcrafted Leather', sub_ar: 'جلد يدوي', tags: ['Biker'], gallery: ['Men 6.jpeg','Men 5.jpeg','Men 4.jpeg','Men 3.jpeg'] }
-    ]
-  },
-  ladies: {
-    en: "Women's Collection", ar: 'التشكيلة النسائية',
-    items: [
-      { img: 'Women 1.jpeg', en: "Elegant Women's Jacket", ar: 'جاكيت نسائي أنيق', sub_en: 'Luxury Design', sub_ar: 'تصميم فاخر', tags: ['Elegant'], gallery: ['Women 1.jpeg','Women 2.jpeg','Women 3.jpeg','Women 4.jpeg'] },
-      { img: 'Women 2.jpeg', en: 'Premium Fashion Jacket', ar: 'جاكيت أزياء فاخر', sub_en: 'Stylish Collection', sub_ar: 'مجموعة أنيقة', tags: ['Fashion'], gallery: ['Women 2.jpeg','Women 1.jpeg','Women 3.jpeg','Women 4.jpeg'] },
-      { img: 'Women 3.jpeg', en: 'Classic Leather Coat', ar: 'معطف جلد كلاسيكي', sub_en: 'Elegant Winter', sub_ar: 'شتاء أنيق', tags: ['Classic'], gallery: ['Women 3.jpeg','Women 1.jpeg','Women 2.jpeg','Women 4.jpeg','Women 5.jpeg'] },
-      { img: 'Women 4.jpeg', en: "Luxury Women's Wear", ar: 'ملابس نسائية فاخرة', sub_en: 'Premium Finish', sub_ar: 'تشطيب فاخر', tags: ['Luxury'], gallery: ['Women 4.jpeg','Women 3.jpeg','Women 5.jpeg','Women 6.jpeg'] },
-      { img: 'Women 5.jpeg', en: "Modern Women's Jacket", ar: 'جاكيت نسائي عصري', sub_en: 'Designer Leather', sub_ar: 'جلد مصمم', tags: ['Fashion'], gallery: ['Women 5.jpeg','Women 4.jpeg','Women 6.jpeg','Women 3.jpeg'] },
-      { img: 'Women 6.jpeg', en: "Premium Ladies Collection", ar: 'تشكيلة نسائية فاخرة', sub_en: 'Genuine Leather', sub_ar: 'جلد طبيعي', tags: ['Luxury'], gallery: ['Women 6.jpeg','Women 5.jpeg','Women 4.jpeg','Women 3.jpeg'] }
-    ]
-  }
-};
-
-var cLang = 'en', lbImgs = [], lbIdx = 0, lbName = '', countersAnimated = false;
-
-// ── HERO PARALLAX ──
-(function() {
-  var heroBg = document.getElementById('heroBg');
-  if (!heroBg) return;
-  var hero = document.querySelector('.hero');
-  hero.addEventListener('mousemove', function(e) {
-    var rect = hero.getBoundingClientRect();
-    var x = (e.clientX - rect.left) / rect.width - 0.5;
-    var y = (e.clientY - rect.top) / rect.height - 0.5;
-    heroBg.style.transform = 'translate(' + (x * -15) + 'px, ' + (y * -10) + 'px) scale(1.05)';
-  });
-  hero.addEventListener('mouseleave', function() {
-    heroBg.style.transform = 'scale(1.05)';
-  });
-})();
-
-// ── NAVBAR SCROLL EFFECT ──
-var topbar = document.querySelector('.topbar');
-var lastScroll = 0;
-window.addEventListener('scroll', function() {
-  var st = window.scrollY;
-  topbar.classList.toggle('scrolled', st > 50);
-  lastScroll = st;
-}, { passive: true });
-
-// ── PAGES ──
-function openPage(cat) {
-  buildPage(cat);
-  var page = document.getElementById('page-' + cat);
-  page.classList.add('open');
-  document.body.style.overflow = 'hidden';
-  // Animate cards in
-  setTimeout(function() {
-    var cards = page.querySelectorAll('.pcard');
-    cards.forEach(function(card, i) {
-      card.style.opacity = '0';
-      card.style.transform = 'translateY(20px)';
-      setTimeout(function() {
-        card.style.transition = 'opacity .4s ease, transform .4s ease';
-        card.style.opacity = '1';
-        card.style.transform = 'translateY(0)';
-      }, 60 * i);
-    });
-  }, 100);
-}
-
-function closePage(cat) {
-  document.getElementById('page-' + cat).classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-function buildPage(cat, filter) {
-  var c = CATS[cat], el = document.getElementById('pg-' + cat);
-  var items = filter && filter !== 'all' ? c.items.filter(function(p) { return p.tags && p.tags.indexOf(filter) > -1; }) : c.items;
-  var html = '';
-  items.forEach(function(p) {
-    var nm = cLang === 'ar' ? p.ar : p.en;
-    var sb = cLang === 'ar' ? p.sub_ar : p.sub_en;
-    html += '<div class="pcard" onclick="openLB(\'' + cat + '\',' + c.items.indexOf(p) + ')">';
-    html += '<div class="pcard-img"><img src="' + p.img + '" alt="' + p.en + ' — genuine leather by WL Leather" loading="lazy">';
-    html += '<div class="pcard-ov"><span class="pcard-ov-l">' + (cLang === 'ar' ? '← عرض' : 'View →') + '</span><span class="pcard-cnt">' + p.gallery.length + ' photos</span></div>';
-    html += '</div>';
-    html += '<div class="pcard-body"><h3>' + nm + '</h3><p>' + sb + '</p></div></div>';
-  });
-  el.innerHTML = html;
-}
-
-function filterCat(cat, filter, btn) {
-  buildPage(cat, filter);
-  var bar = document.getElementById('fb-' + cat);
-  bar.querySelectorAll('.fbtn').forEach(function(b) { b.classList.remove('on'); });
-  btn.classList.add('on');
-  // Animate filtered cards
-  var page = document.getElementById('page-' + cat);
-  var cards = page.querySelectorAll('.pcard');
-  cards.forEach(function(card, i) {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(15px)';
-    setTimeout(function() {
-      card.style.transition = 'opacity .35s ease, transform .35s ease';
-      card.style.opacity = '1';
-      card.style.transform = 'translateY(0)';
-    }, 50 * i);
-  });
-}
-
-// ── LIGHTBOX ──
-function openLB(cat, idx) {
-  var p = CATS[cat].items[idx], c = CATS[cat];
-  lbImgs = p.gallery; lbIdx = 0; lbName = p.en;
-  document.getElementById('lb-title').textContent = cLang === 'ar' ? p.ar : p.en;
-  document.getElementById('lb-meta').textContent = (cLang === 'ar' ? c.ar : c.en) + ' · ' + p.gallery.length + ' photos';
-  document.getElementById('lb-wa').href = 'https://wa.me/966572236814?text=' + encodeURIComponent('Hello, I want to order the ' + p.en);
-  var side = document.getElementById('lb-side');
-  side.innerHTML = '';
-  p.gallery.forEach(function(img, i) {
-    var th = document.createElement('img');
-    th.src = img; th.className = 'lb-thumb' + (i === 0 ? ' sel' : '');
-    th.alt = p.en + ' photo ' + (i + 1);
-    th.loading = 'lazy';
-    th.onclick = function(e) { e.stopPropagation(); lbGoTo(i); };
-    side.appendChild(th);
-  });
-  setLbImg(0);
-  document.getElementById('lb').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-
-function setLbImg(i) {
-  lbIdx = i;
-  var img = document.getElementById('lb-img');
-  img.classList.add('fade');
-  setTimeout(function() { img.src = lbImgs[i]; img.alt = lbName + ' photo ' + (i+1); img.classList.remove('fade'); }, 220);
-  document.querySelectorAll('.lb-thumb').forEach(function(t, j) { t.classList.toggle('sel', j === i); });
-}
-
-function lbNav(d) { lbGoTo((lbIdx + d + lbImgs.length) % lbImgs.length); }
-function lbGoTo(i) { setLbImg(i); }
-function closeLB() { document.getElementById('lb').classList.remove('open'); document.body.style.overflow = ''; }
-
-// Lightbox touch/swipe support
-(function() {
-  var lbMain = document.getElementById('lb-main');
-  var startX = 0, startY = 0, moved = false;
-  lbMain.addEventListener('touchstart', function(e) {
-    startX = e.touches[0].clientX;
-    startY = e.touches[0].clientY;
-    moved = false;
-  }, { passive: true });
-  lbMain.addEventListener('touchmove', function(e) {
-    moved = true;
-  }, { passive: true });
-  lbMain.addEventListener('touchend', function(e) {
-    if (!moved) return;
-    var diffX = e.changedTouches[0].clientX - startX;
-    var diffY = e.changedTouches[0].clientY - startY;
-    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
-      if (diffX > 0) lbNav(-1); else lbNav(1);
-    }
-  }, { passive: true });
-})();
-
-document.addEventListener('keydown', function(e) {
-  if (!document.getElementById('lb').classList.contains('open')) return;
-  if (e.key === 'Escape') closeLB();
-  if (e.key === 'ArrowRight') lbNav(1);
-  if (e.key === 'ArrowLeft') lbNav(-1);
-});
-
-document.getElementById('lb-main').addEventListener('click', function(e) { if (e.target === this) closeLB(); });
-
-// ── LANGUAGE ──
-function setLang(lang) {
-  cLang = lang;
-  document.body.classList.toggle('ar', lang === 'ar');
-  document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
-  document.documentElement.setAttribute('lang', lang === 'ar' ? 'ar' : 'en');
-  document.querySelectorAll('.t').forEach(function(el) {
-    var v = el.getAttribute('data-' + lang);
-    if (v) el.textContent = v;
-  });
-  document.querySelectorAll('.lb').forEach(function(b) {
-    b.classList.toggle('on', (lang === 'en' && b.textContent === 'EN') || (lang === 'ar' && b.textContent === 'عربي'));
-  });
-  ['laptop', 'handbags', 'mens', 'ladies'].forEach(function(c) { buildPage(c); });
-}
-
-// ── FORM ──
-function submitForm() {
-  var n = document.getElementById('fn').value.trim();
-  var e = document.getElementById('fe').value.trim();
-  var pr = document.getElementById('fpr').value;
-  var msg = document.getElementById('fmsg');
-
-  // Clear previous errors
-  document.querySelectorAll('.fi.error').forEach(function(f) { f.classList.remove('error'); });
-
-  var hasError = false;
-  if (!n) { document.getElementById('fn').classList.add('error'); hasError = true; }
-  if (!e || !e.includes('@')) { document.getElementById('fe').classList.add('error'); hasError = true; }
-  if (!pr) { document.getElementById('fpr').classList.add('error'); hasError = true; }
-
-  if (hasError) {
-    msg.textContent = cLang === 'ar' ? '⚠ يرجى ملء الاسم والبريد الإلكتروني وفئة المنتج.' : '⚠ Please fill in name, email and product category.';
-    msg.className = 'error show';
-    return;
-  }
-
-  var txt = '━━━ New Inquiry — WL Leather ━━━\n\n'
-    + '👤 Name: ' + n + '\n'
-    + (document.getElementById('fc').value ? '🏢 Company: ' + document.getElementById('fc').value + '\n' : '')
-    + '📧 Email: ' + e + '\n'
-    + (document.getElementById('fp').value ? '📱 Phone: ' + document.getElementById('fp').value + '\n' : '')
-    + '📦 Product: ' + pr + '\n'
-    + (document.getElementById('fq').value ? '📊 Quantity: ' + document.getElementById('fq').value + '\n' : '')
-    + (document.getElementById('fm').value ? '\n💬 Message:\n' + document.getElementById('fm').value : '');
-
-  window.open('https://wa.me/966572236814?text=' + encodeURIComponent(txt), '_blank');
-  msg.textContent = cLang === 'ar' ? '✓ جاري فتح واتساب مع استفسارك...' : '✓ Opening WhatsApp with your inquiry...';
-  msg.className = 'success show';
-}
-
-// Clear error on input
-document.querySelectorAll('.fi').forEach(function(input) {
-  input.addEventListener('input', function() { this.classList.remove('error'); });
-});
-
-// ── MENU ──
-function openMenu() { document.getElementById('mob-nav').classList.add('open'); document.body.style.overflow = 'hidden'; }
-function closeMenu() { document.getElementById('mob-nav').classList.remove('open'); document.body.style.overflow = ''; }
-
-// ── SCROLL PROGRESS ──
-window.addEventListener('scroll', function() {
-  var s = window.scrollY, h = document.documentElement.scrollHeight - window.innerHeight;
-  document.getElementById('prog').style.width = (h > 0 ? s / h * 100 : 0) + '%';
-
-  // Back to top button
-  document.getElementById('btt').classList.toggle('show', s > 500);
-}, { passive: true });
-
-// ── ANIMATED COUNTERS ──
-function animateCounters() {
-  if (countersAnimated) return;
-  var counters = document.querySelectorAll('.stat-n[data-count]');
-  counters.forEach(function(counter) {
-    var target = parseInt(counter.getAttribute('data-count'));
-    var duration = 2000;
-    var start = 0;
-    var startTime = null;
-
-    function step(timestamp) {
-      if (!startTime) startTime = timestamp;
-      var progress = Math.min((timestamp - startTime) / duration, 1);
-      // Ease out
-      var eased = 1 - Math.pow(1 - progress, 3);
-      var current = Math.floor(eased * target);
-
-      if (target >= 1000) {
-        counter.textContent = (current / 1000).toFixed(current >= target ? 0 : 1) + 'K+';
-      } else {
-        counter.textContent = current + (target === 100 ? '%' : '+');
-      }
-
-      if (progress < 1) {
-        requestAnimationFrame(step);
-      } else {
-        if (target >= 1000) counter.textContent = (target / 1000) + 'K+';
-        else if (target === 100) counter.textContent = '100%';
-        else counter.textContent = target + '+';
-      }
-    }
-    requestAnimationFrame(step);
-  });
-  countersAnimated = true;
-}
-
-// ── FAQ ──
-function toggleFaq(el) {
-  var item = el.closest('.faq-item');
-  var wasOpen = item.classList.contains('open');
-  // Close all
-  document.querySelectorAll('.faq-item.open').forEach(function(i) { i.classList.remove('open'); });
-  // Toggle
-  if (!wasOpen) item.classList.add('open');
-}
-
-// ── COOKIE CONSENT ──
-function acceptCookies() {
-  document.getElementById('cookie-bar').classList.remove('show');
-  try { localStorage.setItem('wl-cookies', '1'); } catch(e) {}
-}
-
-(function() {
-  try {
-    if (!localStorage.getItem('wl-cookies')) {
-      setTimeout(function() { document.getElementById('cookie-bar').classList.add('show'); }, 2000);
-    }
-  } catch(e) {
-    setTimeout(function() { document.getElementById('cookie-bar').classList.add('show'); }, 2000);
-  }
-})();
-
-// ── INTERSECTION OBSERVER ──
-var obs = new IntersectionObserver(function(entries) {
-  entries.forEach(function(en) {
-    if (en.isIntersecting) {
-      en.target.classList.add('vis');
-      obs.unobserve(en.target);
-
-      // Trigger counter animation when stats become visible
-      if (en.target.classList.contains('stat')) {
-        animateCounters();
-      }
-    }
-  });
-}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-
-document.querySelectorAll('.fu').forEach(function(el) { obs.observe(el); });
-
-// ── INIT ──
-['laptop', 'handbags', 'mens', 'ladies'].forEach(function(c) { buildPage(c); });
-
-// Loader
-setTimeout(function() {
+window.addEventListener('load', () => {
   document.getElementById('loader').classList.add('gone');
-  // Remove from DOM after transition
-  setTimeout(function() {
-    var loader = document.getElementById('loader');
-    if (loader) loader.remove();
-  }, 800);
-}, 1600);
+});
 
-// Escape key closes mobile nav
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') {
-    closeMenu();
-    // Also close any open page
-    ['laptop','handbags','mens','ladies'].forEach(function(c) { closePage(c); });
+window.addEventListener('scroll', () => {
+  const bar = document.getElementById('prog');
+  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+  if(scrollable > 0) {
+    const pct = (window.scrollY / scrollable) * 100;
+    bar.style.width = pct + '%';
+  }
+  
+  const nav = document.querySelector('.topbar');
+  if(window.scrollY > 50) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
   }
 });
+
+function toggleMobileMenu() {
+  document.getElementById('mobileNav').classList.toggle('open');
+}
+
+function showHome(e) {
+  e.preventDefault();
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+function toggleFaq(el) {
+  const ans = el.nextElementSibling;
+  const icon = el.querySelector('span');
+  if(ans.style.display === 'none') {
+    ans.style.display = 'block';
+    icon.textContent = '-';
+  } else {
+    ans.style.display = 'none';
+    icon.textContent = '+';
+  }
+}
+
+function handleInquirySubmit(e) {
+  e.preventDefault();
+  const msg = document.getElementById('fmsg');
+  msg.className = 'show success';
+  msg.textContent = 'Thank you! Your strategic wholesale quote configuration has been registered successfully. Our agents will process alternative target conversions customized perfectly for your region.';
+  e.target.reset();
+}
 </script>
+
 </body>
 </html>
