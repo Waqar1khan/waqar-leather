@@ -6,7 +6,7 @@
 
 <title>WL Leather — Premium Genuine Leather Bags, Jackets & Wholesale Manufacturing</title>
 <meta name="description" content="WL Leather manufactures premium genuine leather bags, jackets & accessories. Custom logo OEM, wholesale orders, international shipping to 50+ countries. WhatsApp: +966 57 223 6814">
-<meta name="keywords" content="genuine leather bags, leather jackets, wholesale leather, custom leather, OEM leather manufacturer, leather handbags, leather supplier, حقائب جلد, جاكيت جلد">
+<meta name="keywords" content="genuine leather bags, leather jackets, wholesale leather, custom leather, OEM leather manufacturer, leather handbags Saudi Arabia, leather supplier, حقائب جلد, جاكيت جلد">
 <meta name="author" content="WL Leather">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="theme-color" content="#0e0c0a">
@@ -50,7 +50,7 @@
     "contactType": "sales",
     "availableLanguage": ["English", "Arabic"]
   },
-  "offers": {"@type": "AggregateOffer", "priceCurrency": "Global"},
+  "offers": {"@type": "AggregateOffer", "priceCurrency": ["SAR","USD"]},
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
     "name": "Leather Products",
@@ -69,8 +69,8 @@
   "@type": "FAQPage",
   "mainEntity": [
     {"@type": "Question", "name": "Do you offer custom logo and OEM manufacturing?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, WL Leather offers full OEM manufacturing with custom logo embossing, private labeling, and custom packaging for wholesale buyers."}},
-    {"@type": "Question", "name": "What is the minimum order quantity?", "acceptedAnswer": {"@type": "Answer", "text": "We accept orders starting from 1 piece for samples, and wholesale pricing starts at 10+ pieces based on bulk tiers."}},
-    {"@type": "Question", "name": "Do you ship internationally?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, we ship to over 50 countries worldwide with optimized tier pricing adapting automatically based on local global destination zones."}}
+    {"@type": "Question", "name": "What is the minimum order quantity?", "acceptedAnswer": {"@type": "Answer", "text": "We accept orders starting from 1 piece for samples, and wholesale pricing starts at 10+ pieces."}},
+    {"@type": "Question", "name": "Do you ship internationally?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, we ship to over 50 countries worldwide including USA, UK, Germany, UAE, Kuwait, and more."}}
   ]
 }
 </script>
@@ -1471,43 +1471,9 @@ textarea.fi {
   color: var(--danger);
 }
 
-/* ── FAQ SECTION ── */
-.faq-wrap {
-  max-width: 800px;
-  margin: auto;
-  padding: 40px 0;
-}
-
-.faq-item {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(184, 145, 74, 0.15);
-  margin-bottom: 12px;
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-
-.faq-question {
-  padding: 18px 24px;
-  color: var(--white);
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.faq-answer {
-  padding: 0 24px 18px;
-  color: rgba(232, 224, 212, 0.6);
-  font-size: 13px;
-  line-height: 1.6;
-}
-
 /* ── WHOLESALE ── */
 .ws-wrap {
   background: #0e0c0a;
-  color: white;
 }
 </style>
 </head>
@@ -1525,11 +1491,11 @@ textarea.fi {
 
 <header class="topbar">
   <div class="logo">
-    <a href="#" onclick="showHome(event)"><img src="logo.png" alt="WL Leather Logo"></a>
+    <a href="#" onclick="goHome(event)"><img src="logo.png" alt="WL Leather Logo"></a>
   </div>
   <div class="topbar-right">
     <nav class="tnav">
-      <a href="#" onclick="showHome(event)">Home</a>
+      <a href="#" onclick="goHome(event)">Home</a>
       <a href="#categories">Collections</a>
       <a href="#packaging">Services</a>
       <a href="#inquiry">Inquiry</a>
@@ -1547,7 +1513,7 @@ textarea.fi {
     <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
   </button>
   <div class="mob-nav-brand">WL LEATHER</div>
-  <a href="#" onclick="showHome(event); toggleMobileMenu();">Home</a>
+  <a href="#" onclick="goHome(event); toggleMobileMenu();">Home</a>
   <a href="#categories" onclick="toggleMobileMenu()">Collections</a>
   <a href="#packaging" onclick="toggleMobileMenu()">Services</a>
   <a href="#inquiry" onclick="toggleMobileMenu()">Inquiry</a>
@@ -1646,13 +1612,7 @@ textarea.fi {
       </div>
       <div class="form-row">
         <input type="text" class="fi" placeholder="Company Name" required>
-        <select class="fi" required>
-          <option value="" disabled selected>Target Price Range Preference (Per Unit Value)</option>
-          <option value="economy">Value / Entry Scale Tier Procurement</option>
-          <option value="mid">Mid-Range Commercial Premium Tier Procurement</option>
-          <option value="luxury">High-End Elite Luxury Tier Procurement</option>
-          <option value="custom">Custom Dynamic Manufacturing Specs</option>
-        </select>
+        <input type="text" class="fi" placeholder="Expected Currency Preferred" required>
       </div>
       <div class="form-row full">
         <textarea class="fi" placeholder="Please specify your order scale, shipping destination, and customization instructions..."></textarea>
@@ -1660,17 +1620,6 @@ textarea.fi {
       <button type="submit" class="fsub">Submit Pricing Request</button>
       <div id="fmsg"></div>
     </form>
-
-    <div class="faq-wrap">
-      <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)">What is the primary manufacturing pricing methodology? <span>+</span></div>
-        <div class="faq-answer" style="display:none;">We build comprehensive scaling metrics that scale downwards beautifully based on structural capacity demands, perfectly adapting to any country's baseline wholesale expectations.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)">How are sample orders structured financially? <span>+</span></div>
-        <div class="faq-answer" style="display:none;">Sample items can be configured for baseline assessments before bulk processing, with corresponding financial adjustments built seamlessly directly into your eventual volume order contract values.</div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -1699,28 +1648,16 @@ function toggleMobileMenu() {
   document.getElementById('mobileNav').classList.toggle('open');
 }
 
-function showHome(e) {
+function goHome(e) {
   e.preventDefault();
   window.scrollTo({top: 0, behavior: 'smooth'});
-}
-
-function toggleFaq(el) {
-  const ans = el.nextElementSibling;
-  const icon = el.querySelector('span');
-  if(ans.style.display === 'none') {
-    ans.style.display = 'block';
-    icon.textContent = '-';
-  } else {
-    ans.style.display = 'none';
-    icon.textContent = '+';
-  }
 }
 
 function handleInquirySubmit(e) {
   e.preventDefault();
   const msg = document.getElementById('fmsg');
   msg.className = 'show success';
-  msg.textContent = 'Thank you! Your strategic wholesale quote configuration has been registered successfully. Our agents will process alternative target conversions customized perfectly for your region.';
+  msg.textContent = 'Thank you! Your strategic wholesale quote configuration has been registered successfully.';
   e.target.reset();
 }
 </script>
