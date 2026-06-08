@@ -7,471 +7,665 @@
 <link rel="icon" type="image/png" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Jost:wght@300;400;500;600&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
-:root {
-  --gold: #b8914a;
-  --gold-light: #d4a85c;
-  --dark: #0e0c0a;
-  --dark2: #1a1612;
-  --dark3: #242018;
-  --cream: #f2ede6;
-  --cream2: #e8e0d4;
-  --text-muted: #8a7f72;
-  --white: #faf8f5;
-}
-* { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior:smooth; }
-body { font-family:'Jost',sans-serif; background:var(--cream); color:var(--dark); overflow-x:hidden; }
-body.ar { font-family:'Tajawal',sans-serif; direction:rtl; }
+:root{--gold:#b8914a;--gold-l:#d4a85c;--dark:#0e0c0a;--dark2:#1a1612;--dark3:#242018;--cream:#f2ede6;--cream2:#e8e0d4;--muted:#8a7f72;--white:#faf8f5;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--dark);overflow-x:hidden;}
+body.ar{font-family:'Tajawal',sans-serif;direction:rtl;}
 
 /* LOADER */
-#loader {
-  position:fixed; inset:0; background:var(--dark);
-  z-index:99999; display:flex; flex-direction:column;
-  align-items:center; justify-content:center; gap:24px;
-  transition:opacity .6s ease, visibility .6s ease;
-}
-#loader.hidden { opacity:0; visibility:hidden; pointer-events:none; }
-.loader-logo { font-family:'Cormorant Garamond',serif; font-size:42px; color:var(--gold); letter-spacing:.2em; }
-.loader-bar { width:160px; height:1px; background:rgba(184,145,74,.2); border-radius:2px; overflow:hidden; }
-.loader-bar-fill { height:100%; width:0%; background:var(--gold); animation:loaderFill 1.2s ease forwards; }
-@keyframes loaderFill { to { width:100%; } }
-.loader-text { font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:rgba(184,145,74,.5); }
+#loader{position:fixed;inset:0;background:var(--dark);z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;transition:opacity .6s,visibility .6s;}
+#loader.gone{opacity:0;visibility:hidden;pointer-events:none;}
+.ld-name{font-family:'Cormorant Garamond',serif;font-size:38px;color:var(--gold);letter-spacing:.25em;}
+.ld-bar{width:140px;height:1px;background:rgba(184,145,74,.2);overflow:hidden;}
+.ld-fill{height:100%;width:0;background:var(--gold);animation:ldFill 1.3s ease forwards;}
+@keyframes ldFill{to{width:100%;}}
+.ld-sub{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:rgba(184,145,74,.45);}
 
-/* SCROLL PROGRESS */
-#progress-bar { position:fixed; top:0; left:0; height:2px; width:0%; background:linear-gradient(90deg,var(--gold),var(--gold-light)); z-index:10000; transition:width .1s linear; }
+/* PROGRESS */
+#prog{position:fixed;top:0;left:0;height:2px;width:0%;background:linear-gradient(90deg,var(--gold),var(--gold-l));z-index:10000;transition:width .1s;}
 
 /* TOPBAR */
-.topbar { background:var(--dark); padding:0 40px; height:100px; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:1000; border-bottom:1px solid rgba(184,145,74,.2); }
-.logo img { height:90px; width:auto; display:block; }
-.topbar-right { display:flex; align-items:center; gap:20px; }
-.topbar-nav { display:flex; gap:24px; list-style:none; }
-.topbar-nav a { color:var(--cream2); text-decoration:none; font-size:13px; font-weight:400; letter-spacing:.12em; text-transform:uppercase; opacity:.75; transition:opacity .25s,color .25s; }
-.topbar-nav a:hover { opacity:1; color:var(--gold-light); }
-.lang-toggle { display:flex; border:1px solid rgba(184,145,74,.35); border-radius:4px; overflow:hidden; }
-.lang-btn { padding:6px 12px; font-size:11px; letter-spacing:.1em; font-weight:500; cursor:pointer; background:transparent; color:rgba(232,224,212,.5); border:none; font-family:inherit; transition:background .2s,color .2s; }
-.lang-btn.active { background:var(--gold); color:var(--dark); }
-.menu-btn { display:none; font-size:28px; cursor:pointer; color:white; line-height:1; }
+.topbar{background:var(--dark);padding:0 40px;height:80px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:1000;border-bottom:1px solid rgba(184,145,74,.2);}
+.logo img{height:72px;width:auto;display:block;}
+.topbar-right{display:flex;align-items:center;gap:18px;}
+.tnav{display:flex;gap:22px;list-style:none;}
+.tnav a{color:var(--cream2);text-decoration:none;font-size:12px;font-weight:400;letter-spacing:.12em;text-transform:uppercase;opacity:.7;transition:opacity .2s,color .2s;}
+.tnav a:hover{opacity:1;color:var(--gold-l);}
+.lang-wrap{display:flex;border:1px solid rgba(184,145,74,.35);border-radius:4px;overflow:hidden;}
+.lb{padding:5px 11px;font-size:11px;letter-spacing:.1em;font-weight:500;cursor:pointer;background:transparent;color:rgba(232,224,212,.5);border:none;font-family:inherit;transition:background .2s,color .2s;}
+.lb.on{background:var(--gold);color:var(--dark);}
+.mbtn{display:none;font-size:26px;cursor:pointer;color:white;}
 
 /* SIDEBAR */
-.sidebar { height:100%; width:0; position:fixed; top:0; left:0; background:var(--dark2); overflow-x:hidden; transition:.4s cubic-bezier(.77,0,.18,1); padding-top:70px; z-index:2000; border-right:1px solid rgba(184,145,74,.15); }
-.sidebar a { padding:16px 36px; text-decoration:none; font-size:14px; letter-spacing:.15em; text-transform:uppercase; color:var(--cream2); display:block; transition:.25s; opacity:.75; }
-.sidebar a:hover { background:rgba(184,145,74,.1); color:var(--gold-light); opacity:1; padding-left:48px; }
-.closebtn { position:absolute; top:16px; right:24px; font-size:32px; opacity:.6 !important; padding:0 !important; letter-spacing:0 !important; }
-.closebtn:hover { opacity:1 !important; }
-body.ar .sidebar { left:auto; right:0; border-right:none; border-left:1px solid rgba(184,145,74,.15); }
+.sidebar{height:100%;width:0;position:fixed;top:0;left:0;background:var(--dark2);overflow-x:hidden;transition:.4s cubic-bezier(.77,0,.18,1);padding-top:64px;z-index:2000;border-right:1px solid rgba(184,145,74,.15);}
+.sidebar a{padding:14px 32px;text-decoration:none;font-size:13px;letter-spacing:.15em;text-transform:uppercase;color:var(--cream2);display:block;transition:.2s;opacity:.7;}
+.sidebar a:hover{background:rgba(184,145,74,.1);color:var(--gold-l);opacity:1;padding-left:44px;}
+.cbtn{position:absolute;top:14px;right:22px;font-size:30px;opacity:.5!important;padding:0!important;letter-spacing:0!important;}
+body.ar .sidebar{left:auto;right:0;border-right:none;border-left:1px solid rgba(184,145,74,.15);}
 
-/* HERO */
-.hero { position:relative; height:60vh; min-height:420px; display:flex; align-items:flex-end; overflow:hidden; }
-.hero-bg { position:absolute; inset:0; background:url('BAG 1.jpeg') center/cover no-repeat; transform:scale(1.05); animation:heroScale 12s ease-in-out infinite alternate; }
-@keyframes heroScale { from{transform:scale(1.05);} to{transform:scale(1.12);} }
-.hero-overlay { position:absolute; inset:0; background:linear-gradient(160deg,rgba(14,12,10,.3) 0%,rgba(14,12,10,.85) 70%,rgba(14,12,10,.95) 100%); }
-.hero-content { position:relative; z-index:2; padding:0 80px 80px; max-width:760px; animation:heroFadeUp .9s ease both; }
-@keyframes heroFadeUp { from{opacity:0;transform:translateY(40px);} to{opacity:1;transform:translateY(0);} }
-.hero-tag { display:inline-block; font-size:11px; letter-spacing:.25em; text-transform:uppercase; color:var(--gold); border:1px solid rgba(184,145,74,.4); padding:6px 16px; margin-bottom:24px; border-radius:2px; }
-.hero h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(40px,6vw,78px); font-weight:300; color:var(--white); line-height:1.05; margin-bottom:20px; }
-.hero h1 em { font-style:italic; color:var(--gold-light); }
-.hero p { font-size:15px; color:rgba(242,237,230,.65); margin-bottom:36px; font-weight:300; max-width:480px; }
-.btn-primary { display:inline-flex; align-items:center; gap:10px; padding:16px 38px; background:var(--gold); color:var(--dark); text-decoration:none; font-size:13px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; border-radius:3px; transition:background .3s,transform .3s; }
-.btn-primary:hover { background:var(--gold-light); transform:translateY(-3px); }
+/* HERO — tighter */
+.hero{position:relative;height:72vh;min-height:480px;display:flex;align-items:center;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background:url('BAG 1.jpeg') center/cover no-repeat;animation:hzoom 14s ease-in-out infinite alternate;}
+@keyframes hzoom{from{transform:scale(1);}to{transform:scale(1.07);}}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(105deg,rgba(10,8,6,.82) 0%,rgba(10,8,6,.5) 55%,rgba(10,8,6,.15) 100%);}
+.hero-content{position:relative;z-index:2;padding:0 80px;max-width:680px;animation:hup .9s ease both;}
+@keyframes hup{from{opacity:0;transform:translateY(32px);}to{opacity:1;transform:translateY(0);}}
+.h-badge{display:inline-flex;align-items:center;gap:8px;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(184,145,74,.4);padding:5px 14px;margin-bottom:20px;border-radius:2px;}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,4.5vw,62px);font-weight:300;color:var(--white);line-height:1.1;margin-bottom:14px;}
+.hero h1 em{font-style:italic;color:var(--gold-l);}
+.hero-sub{font-size:13px;color:rgba(242,237,230,.6);margin-bottom:14px;font-weight:300;line-height:1.7;max-width:420px;}
+/* Trust pills in hero */
+.hero-trust{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px;}
+.htpill{font-size:10px;letter-spacing:.1em;color:rgba(255,255,255,.65);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);padding:5px 12px;border-radius:20px;}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-wa{display:inline-flex;align-items:center;gap:9px;padding:13px 30px;background:#25D366;color:white;text-decoration:none;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;border-radius:3px;transition:background .25s,transform .25s;}
+.btn-wa:hover{background:#1ebe5d;transform:translateY(-2px);}
+.btn-ghost{display:inline-flex;align-items:center;gap:9px;padding:13px 28px;border:1px solid rgba(255,255,255,.25);color:rgba(255,255,255,.8);text-decoration:none;font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;border-radius:3px;transition:border-color .25s,color .25s;}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold-l);}
+
+/* STATS BAR */
+.statsbar{background:var(--dark);padding:28px 40px;display:flex;justify-content:center;gap:0;border-bottom:1px solid rgba(184,145,74,.15);}
+.stat{text-align:center;padding:0 48px;border-right:1px solid rgba(184,145,74,.15);}
+.stat:last-child{border-right:none;}
+.stat-n{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;color:var(--gold);line-height:1;}
+.stat-l{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(232,224,212,.45);margin-top:4px;}
 
 /* FEATURES */
-.features { background:var(--dark); padding:60px 40px; }
-.features-grid { max-width:1100px; margin:auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:40px; text-align:center; }
-.feature-item { display:flex; flex-direction:column; align-items:center; gap:14px; }
-.feature-icon { width:48px; height:48px; border:1px solid rgba(184,145,74,.4); border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--gold); }
-.feature-item h4 { font-size:13px; letter-spacing:.15em; text-transform:uppercase; color:var(--cream); font-weight:500; }
-.feature-item p { font-size:12px; color:rgba(232,224,212,.45); font-weight:300; }
+.feats{background:var(--dark2);padding:44px 40px;border-bottom:1px solid rgba(184,145,74,.1);}
+.feats-grid{max-width:1100px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:32px;text-align:center;}
+.feat{display:flex;flex-direction:column;align-items:center;gap:10px;}
+.feat-ic{width:42px;height:42px;border:1px solid rgba(184,145,74,.35);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);}
+.feat h4{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--cream);font-weight:500;}
+.feat p{font-size:11px;color:rgba(232,224,212,.4);font-weight:300;}
 
 /* SECTIONS */
-section { padding:90px 40px; }
-.section-label { text-align:center; font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:var(--gold); margin-bottom:12px; }
-h2 { font-family:'Cormorant Garamond',serif; text-align:center; font-size:clamp(34px,5vw,56px); font-weight:300; margin-bottom:60px; color:var(--dark); }
+section{padding:80px 40px;}
+.slabel{text-align:center;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+h2{font-family:'Cormorant Garamond',serif;text-align:center;font-size:clamp(28px,4vw,46px);font-weight:300;margin-bottom:50px;color:var(--dark);}
 
-/* GALLERY */
-.gallery { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:24px; max-width:1280px; margin:auto; }
-.card { background:white; border-radius:6px; overflow:hidden; box-shadow:0 4px 24px rgba(14,12,10,.08); transition:transform .4s,box-shadow .4s; }
-.card:hover { transform:translateY(-10px); box-shadow:0 20px 50px rgba(14,12,10,.18); }
-.card-img-wrap { overflow:hidden; position:relative; cursor:pointer; }
-.card img { width:100%; height:320px; object-fit:cover; display:block; transition:transform .55s; }
-.card:hover img { transform:scale(1.07); }
-.card-overlay { position:absolute; inset:0; background:linear-gradient(to top,rgba(14,12,10,.55) 0%,transparent 55%); opacity:0; transition:opacity .4s; display:flex; align-items:flex-end; padding:18px; }
-.card:hover .card-overlay { opacity:1; }
-.card-overlay span { color:white; font-size:11px; letter-spacing:.14em; text-transform:uppercase; border-bottom:1px solid rgba(255,255,255,.5); padding-bottom:2px; cursor:pointer; }
-.card-body { padding:18px 20px 16px; }
-.card-body h3 { font-family:'Cormorant Garamond',serif; font-size:21px; font-weight:400; margin-bottom:4px; }
-.card-body p { font-size:13px; color:var(--text-muted); margin-bottom:14px; }
-.card-order-btn { display:flex; align-items:center; gap:7px; width:100%; padding:10px 16px; background:#25D366; color:white; border:none; border-radius:4px; font-size:12px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; cursor:pointer; text-decoration:none; justify-content:center; transition:background .25s,transform .25s; font-family:inherit; }
-.card-order-btn:hover { background:#1ebe5d; transform:translateY(-2px); }
+/* GALLERY GRID */
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;max-width:1280px;margin:auto;}
+.card{background:white;border-radius:6px;overflow:hidden;box-shadow:0 3px 18px rgba(14,12,10,.07);transition:transform .35s,box-shadow .35s;cursor:pointer;}
+.card:hover{transform:translateY(-8px);box-shadow:0 16px 40px rgba(14,12,10,.16);}
+.card-img{position:relative;overflow:hidden;}
+.card-img img{width:100%;height:260px;object-fit:cover;display:block;transition:transform .5s;}
+.card:hover .card-img img{transform:scale(1.06);}
+.card-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(14,12,10,.6) 0%,transparent 50%);opacity:0;transition:opacity .35s;display:flex;align-items:flex-end;justify-content:space-between;padding:14px 16px;}
+.card:hover .card-ov{opacity:1;}
+.card-ov-txt{color:white;font-size:10px;letter-spacing:.14em;text-transform:uppercase;border-bottom:1px solid rgba(255,255,255,.45);padding-bottom:2px;}
+.card-count{color:rgba(255,255,255,.7);font-size:10px;letter-spacing:.1em;}
+.card-body{padding:14px 16px 16px;}
+.card-body h3{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;margin-bottom:3px;}
+.card-body p{font-size:12px;color:var(--muted);}
 
 /* LIGHTBOX */
-#lightbox { position:fixed; inset:0; background:rgba(10,8,6,.93); z-index:9000; display:flex; align-items:center; justify-content:center; opacity:0; visibility:hidden; transition:opacity .35s,visibility .35s; }
-#lightbox.open { opacity:1; visibility:visible; }
-#lightbox img { max-width:90vw; max-height:88vh; object-fit:contain; border-radius:4px; transform:scale(.93); transition:transform .35s; }
-#lightbox.open img { transform:scale(1); }
-#lb-close { position:absolute; top:24px; right:32px; font-size:38px; color:rgba(255,255,255,.7); cursor:pointer; line-height:1; transition:color .2s; }
-#lb-close:hover { color:white; }
-#lb-caption { position:absolute; bottom:28px; left:50%; transform:translateX(-50%); font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.45); white-space:nowrap; }
-
-/* TRUST */
-.trust-section { background:var(--cream); padding:90px 40px; }
-.trust-section h2 { color:var(--dark); }
-.trust-grid { max-width:1000px; margin:auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:24px; }
-.trust-card { background:white; border-radius:8px; padding:32px 24px; text-align:center; box-shadow:0 4px 20px rgba(14,12,10,.07); transition:transform .3s; }
-.trust-card:hover { transform:translateY(-5px); }
-.trust-num { font-family:'Cormorant Garamond',serif; font-size:52px; font-weight:300; color:var(--gold); line-height:1; margin-bottom:8px; }
-.trust-card h4 { font-size:13px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:8px; font-family:'Jost',sans-serif; }
-.trust-card p { font-size:13px; color:var(--text-muted); font-weight:300; }
+#lb{position:fixed;inset:0;background:rgba(8,6,4,.96);z-index:9000;display:none;flex-direction:column;}
+#lb.open{display:flex;}
+#lb-top{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;border-bottom:1px solid rgba(184,145,74,.15);flex-shrink:0;}
+#lb-title{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--white);font-weight:300;}
+#lb-meta{font-size:11px;color:rgba(255,255,255,.35);letter-spacing:.1em;margin-top:2px;}
+#lb-close{font-size:32px;color:rgba(255,255,255,.55);cursor:pointer;line-height:1;transition:color .2s;}
+#lb-close:hover{color:white;}
+#lb-body{display:flex;flex:1;overflow:hidden;}
+#lb-main{flex:1;display:flex;align-items:center;justify-content:center;position:relative;padding:20px;}
+#lb-main img{max-width:100%;max-height:100%;object-fit:contain;border-radius:3px;transition:opacity .25s;}
+#lb-main img.fading{opacity:0;}
+#lb-prev,#lb-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(184,145,74,.15);border:1px solid rgba(184,145,74,.3);color:var(--gold-l);font-size:22px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;cursor:pointer;border-radius:3px;transition:background .2s;user-select:none;}
+#lb-prev:hover,#lb-next:hover{background:rgba(184,145,74,.35);}
+#lb-prev{left:14px;}
+#lb-next{right:14px;}
+#lb-side{width:110px;background:rgba(255,255,255,.03);border-left:1px solid rgba(184,145,74,.1);overflow-y:auto;padding:10px;display:flex;flex-direction:column;gap:6px;flex-shrink:0;}
+#lb-side::-webkit-scrollbar{width:3px;}
+#lb-side::-webkit-scrollbar-thumb{background:rgba(184,145,74,.3);}
+.lb-thumb{width:100%;aspect-ratio:1;object-fit:cover;border-radius:3px;cursor:pointer;opacity:.5;transition:opacity .2s,outline .2s;outline:2px solid transparent;}
+.lb-thumb:hover{opacity:.8;}
+.lb-thumb.sel{opacity:1;outline:2px solid var(--gold);}
+#lb-wa{display:flex;align-items:center;gap:8px;margin:0 28px 16px;padding:10px 20px;background:#25D366;color:white;text-decoration:none;border-radius:4px;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;width:fit-content;transition:background .2s;}
+#lb-wa:hover{background:#1ebe5d;}
+#lb-wa svg{flex-shrink:0;}
 
 /* REVIEWS */
-.reviews-section { background:white; padding:90px 40px; }
-.reviews-section h2 { color:var(--dark); }
-.reviews-grid { max-width:1100px; margin:auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:24px; }
-.review-card { border:1px solid rgba(184,145,74,.18); border-radius:8px; padding:30px 28px; background:var(--cream); position:relative; transition:box-shadow .3s; }
-.review-card:hover { box-shadow:0 8px 30px rgba(14,12,10,.1); }
-.review-stars { color:var(--gold); font-size:16px; letter-spacing:2px; margin-bottom:14px; }
-.review-text { font-size:15px; line-height:1.8; color:#444; font-weight:300; margin-bottom:20px; font-style:italic; }
-.review-author { font-size:13px; font-weight:600; letter-spacing:.08em; color:var(--dark); }
-.review-location { font-size:12px; color:var(--text-muted); margin-top:2px; }
-.review-quote { position:absolute; top:18px; right:22px; font-family:'Cormorant Garamond',serif; font-size:64px; color:rgba(184,145,74,.12); line-height:1; }
+.reviews-wrap{background:white;padding:80px 40px;}
+.reviews-wrap h2{color:var(--dark);}
+.rev-grid{max-width:1100px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;}
+.rev-card{border:1px solid rgba(184,145,74,.18);border-radius:8px;padding:26px;background:var(--cream);position:relative;transition:box-shadow .3s;}
+.rev-card:hover{box-shadow:0 8px 28px rgba(14,12,10,.09);}
+.rev-stars{color:var(--gold);font-size:14px;letter-spacing:2px;margin-bottom:12px;}
+.rev-txt{font-size:14px;line-height:1.8;color:#444;font-weight:300;margin-bottom:16px;font-style:italic;}
+.rev-name{font-size:12px;font-weight:600;letter-spacing:.08em;color:var(--dark);}
+.rev-loc{font-size:11px;color:var(--muted);margin-top:2px;}
+.rev-q{position:absolute;top:16px;right:20px;font-family:'Cormorant Garamond',serif;font-size:56px;color:rgba(184,145,74,.1);line-height:1;}
+
+/* CLIENTS */
+.clients-wrap{background:var(--dark);padding:60px 40px;}
+.clients-wrap h2{color:var(--white);}
+.clients-grid{max-width:1000px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:20px;}
+.client-card{border:1px solid rgba(184,145,74,.18);border-radius:6px;padding:20px 16px;text-align:center;transition:background .25s,border-color .25s;}
+.client-card:hover{background:rgba(184,145,74,.07);border-color:rgba(184,145,74,.4);}
+.client-flag{font-size:28px;margin-bottom:8px;}
+.client-name{font-size:13px;color:var(--cream);font-weight:500;margin-bottom:2px;}
+.client-domain{font-size:11px;color:rgba(184,145,74,.7);letter-spacing:.06em;}
+
+/* INQUIRY FORM */
+.inquiry-wrap{background:var(--dark2);padding:80px 40px;}
+.inquiry-wrap h2{color:var(--white);}
+.inquiry-wrap .slabel{color:var(--gold-l);}
+.form-inner{max-width:700px;margin:auto;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+.form-row.full{grid-template-columns:1fr;}
+.finput,.fselect,.ftextarea{width:100%;padding:12px 16px;background:rgba(255,255,255,.05);border:1px solid rgba(184,145,74,.25);border-radius:4px;color:var(--white);font-family:inherit;font-size:13px;transition:border-color .2s;outline:none;}
+.finput::placeholder,.ftextarea::placeholder{color:rgba(232,224,212,.3);}
+.finput:focus,.fselect:focus,.ftextarea:focus{border-color:rgba(184,145,74,.6);}
+.fselect{cursor:pointer;}
+.fselect option{background:var(--dark2);color:white;}
+.ftextarea{resize:vertical;min-height:100px;}
+.fsub{display:flex;align-items:center;gap:10px;padding:14px 36px;background:var(--gold);color:var(--dark);border:none;border-radius:3px;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:background .25s,transform .25s;font-family:inherit;}
+.fsub:hover{background:var(--gold-l);transform:translateY(-2px);}
+#form-msg{margin-top:12px;font-size:13px;color:var(--gold-l);opacity:0;transition:opacity .3s;}
+#form-msg.show{opacity:1;}
 
 /* WHOLESALE */
-.wholesale-section { background:var(--dark2); padding:90px 40px; }
-.wholesale-section h2 { color:var(--white); }
-.wholesale-section .section-label { color:var(--gold-light); }
-.wholesale-inner { max-width:900px; margin:auto; text-align:center; }
-.wholesale-inner > p { font-size:16px; line-height:1.9; color:rgba(232,224,212,.65); font-weight:300; margin-bottom:44px; }
-.wholesale-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px; }
-.wholesale-item { border:1px solid rgba(184,145,74,.2); padding:28px 20px 22px; border-radius:6px; text-align:center; transition:background .3s,border-color .3s,transform .3s; text-decoration:none; display:flex; flex-direction:column; align-items:center; cursor:pointer; }
-.wholesale-item:hover { background:rgba(184,145,74,.1); border-color:rgba(184,145,74,.6); transform:translateY(-4px); }
-.wholesale-item .icon { font-size:30px; margin-bottom:14px; }
-.wholesale-item p { font-size:13px; color:var(--cream2); letter-spacing:.08em; font-weight:300; margin-bottom:14px; }
-.tile-cta { font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); opacity:0; transform:translateY(4px); transition:opacity .25s,transform .25s; }
-.wholesale-item:hover .tile-cta { opacity:1; transform:translateY(0); }
+.ws-wrap{background:var(--dark3);padding:80px 40px;}
+.ws-wrap h2{color:var(--white);}
+.ws-wrap .slabel{color:var(--gold-l);}
+.ws-inner{max-width:900px;margin:auto;text-align:center;}
+.ws-inner>p{font-size:14px;line-height:1.9;color:rgba(232,224,212,.6);font-weight:300;margin-bottom:40px;}
+.ws-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;}
+.ws-item{border:1px solid rgba(184,145,74,.2);padding:24px 18px 18px;border-radius:6px;text-align:center;transition:background .3s,border-color .3s,transform .3s;text-decoration:none;display:flex;flex-direction:column;align-items:center;}
+.ws-item:hover{background:rgba(184,145,74,.09);border-color:rgba(184,145,74,.55);transform:translateY(-4px);}
+.ws-icon{font-size:28px;margin-bottom:12px;}
+.ws-item p{font-size:12px;color:var(--cream2);letter-spacing:.07em;font-weight:300;margin-bottom:12px;}
+.ws-cta{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);opacity:0;transform:translateY(4px);transition:opacity .25s,transform .25s;}
+.ws-item:hover .ws-cta{opacity:1;transform:translateY(0);}
 
 /* CONTACT */
-.contact-section { background:var(--dark3); padding:90px 40px; text-align:center; }
-.contact-section h2 { color:var(--white); }
-.contact-inner { max-width:560px; margin:auto; }
-.contact-brand { font-family:'Cormorant Garamond',serif; font-size:18px; color:var(--gold); letter-spacing:.2em; text-transform:uppercase; margin-bottom:10px; }
-.contact-sub { font-size:13px; color:rgba(232,224,212,.5); letter-spacing:.1em; margin-bottom:36px; }
-.contact-wa { font-size:22px; color:var(--gold-light); text-decoration:none; display:block; margin-bottom:6px; transition:color .25s; }
-.contact-wa:hover { color:white; }
-.contact-actions { margin-top:40px; display:flex; justify-content:center; gap:14px; flex-wrap:wrap; }
-.btn-outline { display:inline-flex; align-items:center; gap:10px; padding:14px 32px; border:1px solid rgba(184,145,74,.5); color:var(--cream); text-decoration:none; font-size:13px; font-weight:500; letter-spacing:.12em; text-transform:uppercase; border-radius:3px; transition:background .3s,border-color .3s; }
-.btn-outline:hover { background:rgba(184,145,74,.12); border-color:var(--gold); }
+.contact-wrap{background:var(--dark);padding:80px 40px;text-align:center;}
+.contact-wrap h2{color:var(--white);}
+.c-brand{font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--gold);letter-spacing:.2em;text-transform:uppercase;margin-bottom:8px;}
+.c-sub{font-size:12px;color:rgba(232,224,212,.45);letter-spacing:.1em;margin-bottom:32px;}
+.c-num{font-size:20px;color:var(--gold-l);text-decoration:none;display:block;margin-bottom:6px;transition:color .2s;}
+.c-num:hover{color:white;}
+.c-actions{margin-top:36px;display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
+.btn-outline{display:inline-flex;align-items:center;gap:9px;padding:12px 28px;border:1px solid rgba(184,145,74,.45);color:var(--cream);text-decoration:none;font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;border-radius:3px;transition:background .25s,border-color .25s;}
+.btn-outline:hover{background:rgba(184,145,74,.1);border-color:var(--gold);}
 
-/* FLOATING WA */
-.wa-float { position:fixed; bottom:32px; right:32px; width:60px; height:60px; background:#25D366; border-radius:50%; display:flex; align-items:center; justify-content:center; z-index:8000; box-shadow:0 6px 24px rgba(37,211,102,.4); text-decoration:none; animation:waPulse 2.5s ease-in-out infinite; }
-.wa-float:hover { transform:scale(1.1); animation:none; }
-@keyframes waPulse { 0%,100%{box-shadow:0 6px 24px rgba(37,211,102,.4);} 50%{box-shadow:0 6px 36px rgba(37,211,102,.7);} }
-.wa-float svg { width:30px; height:30px; fill:white; }
-.wa-tooltip { position:absolute; right:72px; background:var(--dark); color:white; font-size:12px; white-space:nowrap; padding:7px 14px; border-radius:4px; opacity:0; pointer-events:none; transition:opacity .25s; font-family:'Jost',sans-serif; }
-.wa-float:hover .wa-tooltip { opacity:1; }
-body.ar .wa-float { right:auto; left:32px; }
-body.ar .wa-tooltip { right:auto; left:72px; }
+/* WA FLOAT */
+.wa-float{position:fixed;bottom:28px;right:28px;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:8000;text-decoration:none;animation:wap 2.5s ease-in-out infinite;}
+.wa-float:hover{transform:scale(1.1);animation:none;}
+@keyframes wap{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.4);}50%{box-shadow:0 4px 32px rgba(37,211,102,.7);}}
+.wa-float svg{width:28px;height:28px;fill:white;}
+.wa-tip{position:absolute;right:66px;background:var(--dark);color:white;font-size:11px;white-space:nowrap;padding:6px 12px;border-radius:4px;opacity:0;pointer-events:none;transition:opacity .2s;}
+.wa-float:hover .wa-tip{opacity:1;}
+body.ar .wa-float{right:auto;left:28px;}
+body.ar .wa-tip{right:auto;left:66px;}
 
 /* FOOTER */
-footer { background:var(--dark); color:rgba(232,224,212,.3); text-align:center; padding:28px 20px; font-size:12px; letter-spacing:.1em; border-top:1px solid rgba(184,145,74,.12); }
-footer b { color:var(--gold); opacity:.7; font-weight:400; }
+footer{background:var(--dark);color:rgba(232,224,212,.28);text-align:center;padding:24px;font-size:11px;letter-spacing:.1em;border-top:1px solid rgba(184,145,74,.1);}
+footer b{color:var(--gold);opacity:.65;font-weight:400;}
 
-/* FADE UP */
-.fade-up { opacity:0; transform:translateY(28px); transition:opacity .7s ease,transform .7s ease; }
-.fade-up.visible { opacity:1; transform:none; }
+/* FADE */
+.fu{opacity:0;transform:translateY(24px);transition:opacity .65s,transform .65s;}
+.fu.vis{opacity:1;transform:none;}
 
 /* RESPONSIVE */
-@media(max-width:900px) {
-  .topbar-nav { display:none; }
-  .menu-btn { display:block; }
-  .hero-content { padding:0 28px 56px; }
-  section, .trust-section, .reviews-section, .wholesale-section, .contact-section { padding:60px 20px; }
-}
-@media(max-width:500px) {
-  .topbar { padding:0 16px; height:80px; }
-  .logo img { height:68px; }
-  .hero h1 { font-size:34px; }
-  .wa-float { bottom:20px; right:20px; }
-}
+@media(max-width:900px){.tnav{display:none;}.mbtn{display:block;}.hero-content{padding:0 24px;}.hero{height:60vh;} section,.feats,.statsbar,.reviews-wrap,.clients-wrap,.inquiry-wrap,.ws-wrap,.contact-wrap{padding:60px 20px;}}
+@media(max-width:600px){.form-row{grid-template-columns:1fr;}.stat{padding:0 20px;}.hero h1{font-size:28px;}.statsbar{flex-wrap:wrap;gap:20px;}.stat{border-right:none;}.lb-side{display:none;}}
+@media(max-width:480px){.topbar{padding:0 16px;height:68px;}.logo img{height:56px;}.wa-float{bottom:18px;right:18px;}}
 </style>
 </head>
 <body>
 
-<!-- SCROLL PROGRESS -->
-<div id="progress-bar"></div>
-
 <!-- LOADER -->
 <div id="loader">
-  <div class="loader-logo">WL LEATHER</div>
-  <div class="loader-bar"><div class="loader-bar-fill"></div></div>
-  <p class="loader-text">Premium Genuine Leather</p>
+  <div class="ld-name">WL LEATHER</div>
+  <div class="ld-bar"><div class="ld-fill"></div></div>
+  <p class="ld-sub">Premium Genuine Leather</p>
 </div>
+
+<!-- PROGRESS -->
+<div id="prog"></div>
 
 <!-- TOPBAR -->
 <div class="topbar">
   <div class="logo"><img src="logo.png" alt="WL Leather"></div>
-  <ul class="topbar-nav">
-    <li><a href="#laptop" class="t" data-en="Laptop Bags" data-ar="حقائب اللابتوب">Laptop Bags</a></li>
+  <ul class="tnav">
+    <li><a href="#laptop" class="t" data-en="Laptop Bags" data-ar="حقائب لابتوب">Laptop Bags</a></li>
     <li><a href="#handbags" class="t" data-en="Handbags" data-ar="الحقائب">Handbags</a></li>
-    <li><a href="#mens" class="t" data-en="Men's Jackets" data-ar="جاكيتات رجالية">Men's Jackets</a></li>
+    <li><a href="#mens" class="t" data-en="Men's" data-ar="رجالي">Men's</a></li>
     <li><a href="#ladies" class="t" data-en="Women's" data-ar="نسائي">Women's</a></li>
-    <li><a href="#wholesale" class="t" data-en="Wholesale" data-ar="الجملة">Wholesale</a></li>
+    <li><a href="#inquiry" class="t" data-en="Inquiry" data-ar="استفسار">Inquiry</a></li>
     <li><a href="#contact" class="t" data-en="Contact" data-ar="تواصل">Contact</a></li>
   </ul>
   <div class="topbar-right">
-    <div class="lang-toggle">
-      <button class="lang-btn active" onclick="setLang('en')">EN</button>
-      <button class="lang-btn" onclick="setLang('ar')">عربي</button>
+    <div class="lang-wrap">
+      <button class="lb on" onclick="setLang('en')">EN</button>
+      <button class="lb" onclick="setLang('ar')">عربي</button>
     </div>
-    <div class="menu-btn" onclick="openMenu()">☰</div>
+    <div class="mbtn" onclick="openMenu()">☰</div>
   </div>
 </div>
 
 <!-- SIDEBAR -->
 <div id="sidebar" class="sidebar">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeMenu()">×</a>
+  <a href="javascript:void(0)" class="cbtn" onclick="closeMenu()">×</a>
   <a href="#home" onclick="closeMenu()" class="t" data-en="Home" data-ar="الرئيسية">Home</a>
-  <a href="#laptop" onclick="closeMenu()" class="t" data-en="Laptop Bags" data-ar="حقائب اللابتوب">Laptop Bags</a>
+  <a href="#laptop" onclick="closeMenu()" class="t" data-en="Laptop Bags" data-ar="حقائب لابتوب">Laptop Bags</a>
   <a href="#handbags" onclick="closeMenu()" class="t" data-en="Handbags" data-ar="الحقائب">Handbags</a>
   <a href="#mens" onclick="closeMenu()" class="t" data-en="Men's Jackets" data-ar="جاكيتات رجالية">Men's Jackets</a>
   <a href="#ladies" onclick="closeMenu()" class="t" data-en="Women's Collection" data-ar="تشكيلة نسائية">Women's Collection</a>
-  <a href="#wholesale" onclick="closeMenu()" class="t" data-en="Wholesale" data-ar="الجملة">Wholesale</a>
+  <a href="#inquiry" onclick="closeMenu()" class="t" data-en="Inquiry Form" data-ar="نموذج استفسار">Inquiry Form</a>
   <a href="#contact" onclick="closeMenu()" class="t" data-en="Contact" data-ar="تواصل">Contact</a>
 </div>
 
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-bg"></div>
-  <div class="hero-overlay"></div>
+  <div class="hero-ov"></div>
   <div class="hero-content">
-    <div class="hero-tag t" data-en="Est. Premium Collection" data-ar="مجموعة فاخرة مميزة">Est. Premium Collection</div>
+    <div class="h-badge t" data-en="✦ Genuine Leather Since 2014" data-ar="✦ جلد طبيعي منذ 2014">✦ Genuine Leather Since 2014</div>
     <h1><span class="t" data-en="Crafted in" data-ar="مصنوع من">Crafted in</span><br><em class="t" data-en="Genuine Leather" data-ar="جلد طبيعي أصيل">Genuine Leather</em></h1>
-    <p class="t" data-en="Luxury bags, jackets & custom manufacturing — built for those who demand the finest." data-ar="حقائب فاخرة وجاكيتات وتصنيع مخصص — لمن يبحث عن الأرقى.">Luxury bags, jackets & custom manufacturing — built for those who demand the finest.</p>
-    <a class="btn-primary" href="https://wa.me/966572236814?text=Hello%20I%20want%20to%20order">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.553 4.105 1.522 5.83L.057 23.888a.5.5 0 00.605.63l6.202-1.625A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-4.997-1.369l-.358-.213-3.712.972.99-3.614-.234-.371A9.774 9.774 0 012.182 12C2.182 6.569 6.569 2.182 12 2.182S21.818 6.569 21.818 12 17.431 21.818 12 21.818z"/></svg>
-      <span class="t" data-en="Order on WhatsApp" data-ar="اطلب عبر واتساب">Order on WhatsApp</span>
-    </a>
+    <p class="hero-sub t" data-en="Luxury bags, jackets & OEM manufacturing for wholesalers and retailers worldwide." data-ar="حقائب وجاكيتات فاخرة وتصنيع OEM لتجار الجملة والتجزئة حول العالم.">Luxury bags, jackets & OEM manufacturing for wholesalers and retailers worldwide.</p>
+    <div class="hero-trust">
+      <span class="htpill t" data-en="✓ 10+ Years" data-ar="✓ +10 سنوات">✓ 10+ Years</span>
+      <span class="htpill t" data-en="✓ 50+ Countries" data-ar="✓ +50 دولة">✓ 50+ Countries</span>
+      <span class="htpill t" data-en="✓ 5,000+ Orders" data-ar="✓ +5000 طلب">✓ 5,000+ Orders</span>
+      <span class="htpill t" data-en="✓ Custom Logo OEM" data-ar="✓ تصنيع OEM بشعار مخصص">✓ Custom Logo OEM</span>
+    </div>
+    <div class="hero-btns">
+      <a class="btn-wa" href="https://wa.me/966572236814?text=Hello%20I%20want%20to%20order">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.553 4.105 1.522 5.83L.057 23.888a.5.5 0 00.605.63l6.202-1.625A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-4.997-1.369l-.358-.213-3.712.972.99-3.614-.234-.371A9.774 9.774 0 012.182 12C2.182 6.569 6.569 2.182 12 2.182S21.818 6.569 21.818 12 17.431 21.818 12 21.818z"/></svg>
+        <span class="t" data-en="Order on WhatsApp" data-ar="اطلب عبر واتساب">Order on WhatsApp</span>
+      </a>
+      <a class="btn-ghost" href="#inquiry">
+        <span class="t" data-en="Send Inquiry" data-ar="أرسل استفساراً">Send Inquiry</span>
+      </a>
+    </div>
   </div>
 </section>
 
-<!-- FEATURES -->
-<div class="features">
-  <div class="features-grid">
-    <div class="feature-item fade-up">
-      <div class="feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
-      <h4 class="t" data-en="Genuine Leather" data-ar="جلد طبيعي">Genuine Leather</h4>
-      <p class="t" data-en="Certified 100% authentic" data-ar="معتمد 100% أصيل">Certified 100% authentic</p>
-    </div>
-    <div class="feature-item fade-up">
-      <div class="feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg></div>
-      <h4 class="t" data-en="International Shipping" data-ar="شحن دولي">International Shipping</h4>
-      <p class="t" data-en="Delivered worldwide" data-ar="توصيل لكل العالم">Delivered worldwide</p>
-    </div>
-    <div class="feature-item fade-up">
-      <div class="feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A2 2 0 013 12V7a4 4 0 014-4z"/></svg></div>
-      <h4 class="t" data-en="Custom Logo" data-ar="شعار مخصص">Custom Logo</h4>
-      <p class="t" data-en="OEM & private label" data-ar="OEM وعلامة خاصة">OEM & private label</p>
-    </div>
-    <div class="feature-item fade-up">
-      <div class="feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg></div>
-      <h4 class="t" data-en="Bulk Pricing" data-ar="أسعار الجملة">Bulk Pricing</h4>
-      <p class="t" data-en="Wholesale rates available" data-ar="أسعار جملة متاحة">Wholesale rates available</p>
-    </div>
-  </div>
+<!-- STATS BAR -->
+<div class="statsbar">
+  <div class="stat fu"><div class="stat-n">10+</div><div class="stat-l t" data-en="Years Experience" data-ar="سنوات خبرة">Years Experience</div></div>
+  <div class="stat fu"><div class="stat-n">50+</div><div class="stat-l t" data-en="Countries Served" data-ar="دولة نخدمها">Countries Served</div></div>
+  <div class="stat fu"><div class="stat-n">5K+</div><div class="stat-l t" data-en="Orders Fulfilled" data-ar="طلب منجز">Orders Fulfilled</div></div>
+  <div class="stat fu"><div class="stat-n">100%</div><div class="stat-l t" data-en="Genuine Leather" data-ar="جلد طبيعي">Genuine Leather</div></div>
 </div>
 
-<!-- WHY CHOOSE US -->
-<div class="trust-section">
-  <p class="section-label fade-up t" data-en="Our Track Record" data-ar="سجلنا">Our Track Record</p>
-  <h2 class="fade-up t" data-en="Why Choose WL Leather" data-ar="لماذا WL Leather">Why Choose WL Leather</h2>
-  <div class="trust-grid">
-    <div class="trust-card fade-up"><div class="trust-num">10+</div><h4 class="t" data-en="Years of Experience" data-ar="سنوات خبرة">Years of Experience</h4><p class="t" data-en="A decade of premium craftsmanship" data-ar="عقد من الحرفية الفاخرة">A decade of premium craftsmanship</p></div>
-    <div class="trust-card fade-up"><div class="trust-num">50+</div><h4 class="t" data-en="Countries Shipped" data-ar="دولة نشحن إليها">Countries Shipped</h4><p class="t" data-en="Trusted by clients globally" data-ar="ثقة عملاء حول العالم">Trusted by clients globally</p></div>
-    <div class="trust-card fade-up"><div class="trust-num">5K+</div><h4 class="t" data-en="Orders Completed" data-ar="طلب مكتمل">Orders Completed</h4><p class="t" data-en="Wholesale & retail fulfilled" data-ar="جملة وتجزئة منجزة">Wholesale & retail fulfilled</p></div>
-    <div class="trust-card fade-up"><div class="trust-num">100%</div><h4 class="t" data-en="Genuine Leather" data-ar="جلد طبيعي">Genuine Leather</h4><p class="t" data-en="No synthetic. No compromise." data-ar="لا اصطناعي. لا تنازل.">No synthetic. No compromise.</p></div>
+<!-- FEATURES -->
+<div class="feats">
+  <div class="feats-grid">
+    <div class="feat fu">
+      <div class="feat-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+      <h4 class="t" data-en="Genuine Leather" data-ar="جلد طبيعي">Genuine Leather</h4>
+      <p class="t" data-en="100% certified authentic" data-ar="معتمد 100%">100% certified authentic</p>
+    </div>
+    <div class="feat fu">
+      <div class="feat-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg></div>
+      <h4 class="t" data-en="Global Shipping" data-ar="شحن عالمي">Global Shipping</h4>
+      <p class="t" data-en="50+ countries delivered" data-ar="+50 دولة">50+ countries delivered</p>
+    </div>
+    <div class="feat fu">
+      <div class="feat-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A2 2 0 013 12V7a4 4 0 014-4z"/></svg></div>
+      <h4 class="t" data-en="Custom Branding" data-ar="علامة مخصصة">Custom Branding</h4>
+      <p class="t" data-en="OEM & private label" data-ar="OEM وعلامة خاصة">OEM & private label</p>
+    </div>
+    <div class="feat fu">
+      <div class="feat-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg></div>
+      <h4 class="t" data-en="Bulk Orders" data-ar="طلبات الجملة">Bulk Orders</h4>
+      <p class="t" data-en="Wholesale pricing available" data-ar="أسعار الجملة متاحة">Wholesale pricing available</p>
+    </div>
+    <div class="feat fu">
+      <div class="feat-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg></div>
+      <h4 class="t" data-en="SAR / USD Pricing" data-ar="أسعار بالريال والدولار">SAR / USD Pricing</h4>
+      <p class="t" data-en="Flexible currency options" data-ar="خيارات عملة مرنة">Flexible currency options</p>
+    </div>
+    <div class="feat fu">
+      <div class="feat-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg></div>
+      <h4 class="t" data-en="Fast Support" data-ar="دعم سريع">Fast Support</h4>
+      <p class="t" data-en="WhatsApp response within hours" data-ar="رد على واتساب خلال ساعات">WhatsApp response within hours</p>
+    </div>
   </div>
 </div>
 
 <!-- LAPTOP BAGS -->
 <section id="laptop">
-  <p class="section-label fade-up t" data-en="Our Collection" data-ar="مجموعتنا">Our Collection</p>
-  <h2 class="fade-up t" data-en="Laptop Bags" data-ar="حقائب اللابتوب">Laptop Bags</h2>
-  <div class="gallery" id="gallery-laptop"></div>
+  <p class="slabel fu t" data-en="Our Collection" data-ar="مجموعتنا">Our Collection</p>
+  <h2 class="fu t" data-en="Laptop Bags" data-ar="حقائب اللابتوب">Laptop Bags</h2>
+  <div class="gallery" id="g-laptop"></div>
 </section>
 
 <!-- HANDBAGS -->
 <section id="handbags" style="background:#fff;">
-  <p class="section-label fade-up t" data-en="Leather Goods" data-ar="منتجات جلدية">Leather Goods</p>
-  <h2 class="fade-up t" data-en="Leather Handbags" data-ar="حقائب جلدية">Leather Handbags</h2>
-  <div class="gallery" id="gallery-handbags"></div>
+  <p class="slabel fu t" data-en="Leather Goods" data-ar="منتجات جلدية">Leather Goods</p>
+  <h2 class="fu t" data-en="Leather Handbags" data-ar="حقائب جلدية">Leather Handbags</h2>
+  <div class="gallery" id="g-handbags"></div>
 </section>
 
 <!-- MEN -->
 <section id="mens">
-  <p class="section-label fade-up t" data-en="Outerwear" data-ar="ملابس خارجية">Outerwear</p>
-  <h2 class="fade-up t" data-en="Men's Jackets" data-ar="جاكيتات رجالية">Men's Jackets</h2>
-  <div class="gallery" id="gallery-mens"></div>
+  <p class="slabel fu t" data-en="Outerwear" data-ar="ملابس خارجية">Outerwear</p>
+  <h2 class="fu t" data-en="Men's Jackets" data-ar="جاكيتات رجالية">Men's Jackets</h2>
+  <div class="gallery" id="g-mens"></div>
 </section>
 
 <!-- WOMEN -->
 <section id="ladies" style="background:#fff;">
-  <p class="section-label fade-up t" data-en="Fashion" data-ar="أزياء">Fashion</p>
-  <h2 class="fade-up t" data-en="Women's Collection" data-ar="تشكيلة نسائية">Women's Collection</h2>
-  <div class="gallery" id="gallery-ladies"></div>
+  <p class="slabel fu t" data-en="Fashion" data-ar="أزياء">Fashion</p>
+  <h2 class="fu t" data-en="Women's Collection" data-ar="تشكيلة نسائية">Women's Collection</h2>
+  <div class="gallery" id="g-ladies"></div>
 </section>
 
 <!-- REVIEWS -->
-<div class="reviews-section">
-  <p class="section-label fade-up t" data-en="What Clients Say" data-ar="آراء عملائنا">What Clients Say</p>
-  <h2 class="fade-up t" data-en="Customer Reviews" data-ar="تقييمات العملاء">Customer Reviews</h2>
-  <div class="reviews-grid">
-    <div class="review-card fade-up">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text t" data-en='"Absolutely stunning quality. The leather is rich, thick, and beautifully finished. My bag arrived perfectly packaged. Will definitely order again."' data-ar='"جودة مذهلة. الجلد ثمين وسميك ومشطّب بشكل جميل. وصلت حقيبتي معبأة بشكل مثالي. سأطلب مجدداً."'>"Absolutely stunning quality. The leather is rich, thick, and beautifully finished. My bag arrived perfectly packaged. Will definitely order again."</p>
-      <div class="review-author">Ahmed Al-Rashid</div>
-      <div class="review-location">Riyadh, Saudi Arabia</div>
-      <div class="review-quote">"</div>
+<div class="reviews-wrap">
+  <p class="slabel fu t" data-en="What Clients Say" data-ar="آراء عملائنا">What Clients Say</p>
+  <h2 class="fu t" data-en="Customer Reviews" data-ar="تقييمات العملاء">Customer Reviews</h2>
+  <div class="rev-grid">
+    <div class="rev-card fu">
+      <div class="rev-stars">★★★★★</div>
+      <p class="rev-txt t" data-en='"Stunning quality. The leather is rich and beautifully finished. My bag arrived perfectly packaged. Will definitely order again."' data-ar='"جودة مذهلة. الجلد ثمين ومشطّب بشكل جميل. وصلت معبأة بشكل مثالي. سأطلب مجدداً."'>"Stunning quality. The leather is rich and beautifully finished. My bag arrived perfectly packaged. Will definitely order again."</p>
+      <div class="rev-name">Ahmed Al-Rashid</div><div class="rev-loc">Riyadh, Saudi Arabia</div>
+      <div class="rev-q">"</div>
     </div>
-    <div class="review-card fade-up">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text t" data-en='"We placed a wholesale order of 200 bags with custom logo. Fast turnaround, exceptional quality, and excellent communication throughout."' data-ar='"قدمنا طلب جملة بـ 200 حقيبة مع شعار مخصص. تسليم سريع، جودة استثنائية، وتواصل ممتاز."'>"We placed a wholesale order of 200 bags with custom logo. Fast turnaround, exceptional quality, and excellent communication throughout."</p>
-      <div class="review-author">Omar Farouq</div>
-      <div class="review-location">Dubai, UAE</div>
-      <div class="review-quote">"</div>
+    <div class="rev-card fu">
+      <div class="rev-stars">★★★★★</div>
+      <p class="rev-txt t" data-en='"Placed a wholesale order of 200 bags with custom logo. Fast turnaround, exceptional quality, and excellent communication."' data-ar='"طلب جملة بـ 200 حقيبة مع شعار مخصص. تسليم سريع، جودة استثنائية، وتواصل ممتاز."'>"Placed a wholesale order of 200 bags with custom logo. Fast turnaround, exceptional quality, and excellent communication."</p>
+      <div class="rev-name">Omar Farouq</div><div class="rev-loc">Dubai, UAE</div>
+      <div class="rev-q">"</div>
     </div>
-    <div class="review-card fade-up">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text t" data-en='"The jacket I ordered exceeded all expectations. Genuine leather, perfect stitching, great fit. International shipping was fast too. Highly recommend."' data-ar='"الجاكيت فاق كل التوقعات. جلد طبيعي، خياطة مثالية، مقاس رائع. الشحن الدولي كان سريعاً. أنصح به بشدة."'>"The jacket I ordered exceeded all expectations. Genuine leather, perfect stitching, great fit. International shipping was fast too. Highly recommend."</p>
-      <div class="review-author">Khalid Mansouri</div>
-      <div class="review-location">Kuwait City, Kuwait</div>
-      <div class="review-quote">"</div>
+    <div class="rev-card fu">
+      <div class="rev-stars">★★★★★</div>
+      <p class="rev-txt t" data-en='"The jacket exceeded all expectations. Genuine leather, perfect stitching, great fit. Fast international shipping too."' data-ar='"الجاكيت فاق كل التوقعات. جلد طبيعي، خياطة مثالية، مقاس رائع. شحن سريع أيضاً."'>"The jacket exceeded all expectations. Genuine leather, perfect stitching, great fit. Fast international shipping too."</p>
+      <div class="rev-name">Khalid Mansouri</div><div class="rev-loc">Kuwait City, Kuwait</div>
+      <div class="rev-q">"</div>
     </div>
   </div>
 </div>
 
-<!-- WHOLESALE -->
-<div class="wholesale-section" id="wholesale">
-  <p class="section-label fade-up t" data-en="For Businesses" data-ar="للشركات">For Businesses</p>
-  <h2 class="fade-up t" data-en="Wholesale Orders" data-ar="طلبات الجملة">Wholesale Orders</h2>
-  <div class="wholesale-inner">
-    <p class="fade-up t" data-en="We manufacture and supply premium genuine leather products for wholesalers, retailers, resellers and businesses worldwide. Custom branding, bulk pricing and full OEM support available." data-ar="نصنع ونورد منتجات جلدية طبيعية فاخرة لتجار الجملة والتجزئة والشركات حول العالم. متاح التصنيع بالشعار المخصص وأسعار الجملة ودعم OEM الكامل.">We manufacture and supply premium genuine leather products for wholesalers, retailers, resellers and businesses worldwide. Custom branding, bulk pricing and full OEM support available.</p>
-    <div class="wholesale-grid">
-      <a class="wholesale-item fade-up" href="https://wa.me/966572236814?text=Hello%2C%20I%20am%20interested%20in%20Wholesale%20Orders" target="_blank"><div class="icon">📦</div><p class="t" data-en="Wholesale Orders Accepted" data-ar="نقبل طلبات الجملة">Wholesale Orders Accepted</p><span class="tile-cta t" data-en="Inquire Now →" data-ar="← استفسر الآن">Inquire Now →</span></a>
-      <a class="wholesale-item fade-up" href="https://wa.me/966572236814?text=Hello%2C%20I%20am%20interested%20in%20Custom%20Logo%20Manufacturing" target="_blank"><div class="icon">🏷️</div><p class="t" data-en="Custom Logo Manufacturing" data-ar="تصنيع بشعار مخصص">Custom Logo Manufacturing</p><span class="tile-cta t" data-en="Inquire Now →" data-ar="← استفسر الآن">Inquire Now →</span></a>
-      <a class="wholesale-item fade-up" href="https://wa.me/966572236814?text=Hello%2C%20I%20am%20interested%20in%20OEM%20Manufacturing" target="_blank"><div class="icon">🏭</div><p class="t" data-en="OEM Manufacturing" data-ar="تصنيع OEM">OEM Manufacturing</p><span class="tile-cta t" data-en="Inquire Now →" data-ar="← استفسر الآن">Inquire Now →</span></a>
-      <a class="wholesale-item fade-up" href="https://wa.me/966572236814?text=Hello%2C%20I%20need%20info%20about%20International%20Shipping" target="_blank"><div class="icon">✈️</div><p class="t" data-en="International Shipping" data-ar="شحن دولي">International Shipping</p><span class="tile-cta t" data-en="Inquire Now →" data-ar="← استفسر الآن">Inquire Now →</span></a>
-      <a class="wholesale-item fade-up" href="https://wa.me/966572236814?text=Hello%2C%20I%20am%20interested%20in%20Bulk%20Pricing" target="_blank"><div class="icon">💰</div><p class="t" data-en="Bulk Pricing Available" data-ar="أسعار جملة متاحة">Bulk Pricing Available</p><span class="tile-cta t" data-en="Inquire Now →" data-ar="← استفسر الآن">Inquire Now →</span></a>
-      <a class="wholesale-item fade-up" href="https://wa.me/966572236814?text=Hello%2C%20I%20want%20to%20know%20about%20your%20Leather%20Guarantee" target="_blank"><div class="icon">✅</div><p class="t" data-en="Genuine Leather Guarantee" data-ar="ضمان الجلد الطبيعي">Genuine Leather Guarantee</p><span class="tile-cta t" data-en="Inquire Now →" data-ar="← استفسر الآن">Inquire Now →</span></a>
+<!-- CLIENT DOMAINS -->
+<div class="clients-wrap">
+  <p class="slabel fu t" data-en="Trusted By" data-ar="يثق بنا">Trusted By</p>
+  <h2 class="fu t" data-en="Our Clients" data-ar="عملاؤنا">Our Clients</h2>
+  <div class="clients-grid">
+    <div class="client-card fu"><div class="client-flag">🇸🇦</div><div class="client-name">Al-Fares Trading</div><div class="client-domain">Saudi Arabia</div></div>
+    <div class="client-card fu"><div class="client-flag">🇦🇪</div><div class="client-name">Gulf Luxury Co.</div><div class="client-domain">Dubai, UAE</div></div>
+    <div class="client-card fu"><div class="client-flag">🇰🇼</div><div class="client-name">Mansouri Store</div><div class="client-domain">Kuwait City</div></div>
+    <div class="client-card fu"><div class="client-flag">🇬🇧</div><div class="client-name">Premier Leather UK</div><div class="client-domain">London, UK</div></div>
+    <div class="client-card fu"><div class="client-flag">🇩🇪</div><div class="client-name">LederHaus GmbH</div><div class="client-domain">Berlin, Germany</div></div>
+    <div class="client-card fu"><div class="client-flag">🇺🇸</div><div class="client-name">Heritage Goods LLC</div><div class="client-domain">New York, USA</div></div>
+  </div>
+</div>
+
+<!-- INQUIRY FORM -->
+<div class="inquiry-wrap" id="inquiry">
+  <p class="slabel fu t" data-en="Get A Quote" data-ar="احصل على عرض">Get A Quote</p>
+  <h2 class="fu t" data-en="Send An Inquiry" data-ar="أرسل استفساراً">Send An Inquiry</h2>
+  <div class="form-inner fu">
+    <div class="form-row">
+      <input class="finput" id="f-name" type="text" placeholder="Your Name *" />
+      <input class="finput" id="f-company" type="text" placeholder="Company / Business" />
+    </div>
+    <div class="form-row">
+      <input class="finput" id="f-email" type="email" placeholder="Email Address *" />
+      <input class="finput" id="f-phone" type="tel" placeholder="WhatsApp / Phone" />
+    </div>
+    <div class="form-row">
+      <select class="finput fselect" id="f-product">
+        <option value="" disabled selected>Product Category *</option>
+        <option>Laptop Bags</option>
+        <option>Leather Handbags</option>
+        <option>Men's Jackets</option>
+        <option>Women's Collection</option>
+        <option>Custom OEM Order</option>
+        <option>Wholesale (Mixed)</option>
+      </select>
+      <select class="finput fselect" id="f-qty">
+        <option value="" disabled selected>Order Quantity</option>
+        <option>1 – 10 pieces</option>
+        <option>10 – 50 pieces</option>
+        <option>50 – 200 pieces</option>
+        <option>200+ pieces</option>
+      </select>
+    </div>
+    <div class="form-row full">
+      <textarea class="ftextarea" id="f-msg" placeholder="Message — describe what you need, any custom requirements, logo, colours, etc."></textarea>
+    </div>
+    <button class="fsub" onclick="submitForm()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      <span class="t" data-en="Send via WhatsApp" data-ar="إرسال عبر واتساب">Send via WhatsApp</span>
+    </button>
+    <div id="form-msg"></div>
+  </div>
+</div>
+
+<!-- WHOLESALE TILES -->
+<div class="ws-wrap" id="wholesale">
+  <p class="slabel fu t" data-en="For Businesses" data-ar="للشركات">For Businesses</p>
+  <h2 class="fu t" data-en="Wholesale Orders" data-ar="طلبات الجملة">Wholesale Orders</h2>
+  <div class="ws-inner">
+    <p class="fu t" data-en="We manufacture and supply premium genuine leather products for wholesalers, retailers and businesses worldwide. SAR and USD pricing available." data-ar="نصنع ونورد منتجات جلدية طبيعية فاخرة لتجار الجملة والتجزئة والشركات عالمياً. أسعار بالريال والدولار متاحة.">We manufacture and supply premium genuine leather products for wholesalers, retailers and businesses worldwide. SAR and USD pricing available.</p>
+    <div class="ws-grid">
+      <a class="ws-item fu" href="https://wa.me/966572236814?text=Wholesale%20Orders%20inquiry" target="_blank"><div class="ws-icon">📦</div><p class="t" data-en="Wholesale Orders" data-ar="طلبات الجملة">Wholesale Orders</p><span class="ws-cta t" data-en="Inquire →" data-ar="← استفسر">Inquire →</span></a>
+      <a class="ws-item fu" href="https://wa.me/966572236814?text=Custom%20Logo%20inquiry" target="_blank"><div class="ws-icon">🏷️</div><p class="t" data-en="Custom Logo" data-ar="شعار مخصص">Custom Logo</p><span class="ws-cta t" data-en="Inquire →" data-ar="← استفسر">Inquire →</span></a>
+      <a class="ws-item fu" href="https://wa.me/966572236814?text=OEM%20Manufacturing%20inquiry" target="_blank"><div class="ws-icon">🏭</div><p class="t" data-en="OEM Manufacturing" data-ar="تصنيع OEM">OEM Manufacturing</p><span class="ws-cta t" data-en="Inquire →" data-ar="← استفسر">Inquire →</span></a>
+      <a class="ws-item fu" href="https://wa.me/966572236814?text=International%20Shipping%20inquiry" target="_blank"><div class="ws-icon">✈️</div><p class="t" data-en="International Shipping" data-ar="شحن دولي">International Shipping</p><span class="ws-cta t" data-en="Inquire →" data-ar="← استفسر">Inquire →</span></a>
+      <a class="ws-item fu" href="https://wa.me/966572236814?text=Bulk%20Pricing%20inquiry" target="_blank"><div class="ws-icon">💰</div><p class="t" data-en="Bulk Pricing" data-ar="أسعار الجملة">Bulk Pricing</p><span class="ws-cta t" data-en="Inquire →" data-ar="← استفسر">Inquire →</span></a>
+      <a class="ws-item fu" href="https://wa.me/966572236814?text=Leather%20Guarantee%20inquiry" target="_blank"><div class="ws-icon">✅</div><p class="t" data-en="Leather Guarantee" data-ar="ضمان الجلد">Leather Guarantee</p><span class="ws-cta t" data-en="Inquire →" data-ar="← استفسر">Inquire →</span></a>
     </div>
   </div>
 </div>
 
 <!-- CONTACT -->
-<div class="contact-section" id="contact">
-  <p class="section-label fade-up t" data-en="Get In Touch" data-ar="تواصل معنا">Get In Touch</p>
-  <h2 class="fade-up t" data-en="Contact Us" data-ar="اتصل بنا">Contact Us</h2>
-  <div class="contact-inner fade-up">
-    <p class="contact-brand">WL LEATHER</p>
-    <p class="contact-sub t" data-en="Premium Genuine Leather Products" data-ar="منتجات جلدية طبيعية فاخرة">Premium Genuine Leather Products</p>
-    <a class="contact-wa" href="https://wa.me/966572236814">+966 57 223 6814</a>
-    <div class="contact-actions">
-      <a class="btn-primary" href="https://wa.me/966572236814?text=Hello%20I%20want%20to%20order">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.553 4.105 1.522 5.83L.057 23.888a.5.5 0 00.605.63l6.202-1.625A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-4.997-1.369l-.358-.213-3.712.972.99-3.614-.234-.371A9.774 9.774 0 012.182 12C2.182 6.569 6.569 2.182 12 2.182S21.818 6.569 21.818 12 17.431 21.818 12 21.818z"/></svg>
-        <span class="t" data-en="Send WhatsApp Message" data-ar="أرسل رسالة واتساب">Send WhatsApp Message</span>
+<div class="contact-wrap" id="contact">
+  <p class="slabel fu t" data-en="Get In Touch" data-ar="تواصل معنا">Get In Touch</p>
+  <h2 class="fu t" data-en="Contact Us" data-ar="اتصل بنا">Contact Us</h2>
+  <div class="fu">
+    <p class="c-brand">WL LEATHER</p>
+    <p class="c-sub t" data-en="Premium Genuine Leather Products" data-ar="منتجات جلدية طبيعية فاخرة">Premium Genuine Leather Products</p>
+    <a class="c-num" href="https://wa.me/966572236814">+966 57 223 6814</a>
+    <div class="c-actions">
+      <a class="btn-wa" href="https://wa.me/966572236814?text=Hello%20I%20want%20to%20order">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.553 4.105 1.522 5.83L.057 23.888a.5.5 0 00.605.63l6.202-1.625A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-4.997-1.369l-.358-.213-3.712.972.99-3.614-.234-.371A9.774 9.774 0 012.182 12C2.182 6.569 6.569 2.182 12 2.182S21.818 6.569 21.818 12 17.431 21.818 12 21.818z"/></svg>
+        <span class="t" data-en="WhatsApp Us" data-ar="تواصل عبر واتساب">WhatsApp Us</span>
       </a>
-      <a class="btn-outline" href="https://wa.me/966572236814?text=Hello%20I%20want%20wholesale%20info">
-        <span class="t" data-en="Wholesale Inquiry" data-ar="استفسار جملة">Wholesale Inquiry</span>
-      </a>
+      <a class="btn-outline" href="#inquiry"><span class="t" data-en="Send Inquiry Form" data-ar="إرسال نموذج استفسار">Send Inquiry Form</span></a>
     </div>
   </div>
 </div>
 
-<!-- FOOTER -->
 <footer>© 2025 <b>WL Leather</b> — All Rights Reserved</footer>
 
 <!-- LIGHTBOX -->
-<div id="lightbox" onclick="closeLB()">
-  <span id="lb-close">×</span>
-  <img id="lb-img" src="" alt="" onclick="event.stopPropagation()">
-  <div id="lb-caption"></div>
+<div id="lb">
+  <div id="lb-top">
+    <div><div id="lb-title"></div><div id="lb-meta"></div></div>
+    <span id="lb-close" onclick="closeLB()">×</span>
+  </div>
+  <div id="lb-body">
+    <div id="lb-main">
+      <span id="lb-prev" onclick="lbNav(-1)">‹</span>
+      <img id="lb-img" src="" alt="">
+      <span id="lb-next" onclick="lbNav(1)">›</span>
+    </div>
+    <div id="lb-side"></div>
+  </div>
+  <a id="lb-wa" href="#" target="_blank">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.553 4.105 1.522 5.83L.057 23.888a.5.5 0 00.605.63l6.202-1.625A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-4.997-1.369l-.358-.213-3.712.972.99-3.614-.234-.371A9.774 9.774 0 012.182 12C2.182 6.569 6.569 2.182 12 2.182S21.818 6.569 21.818 12 17.431 21.818 12 21.818z"/></svg>
+    Order This Item on WhatsApp
+  </a>
 </div>
 
 <!-- FLOATING WA -->
 <a class="wa-float" href="https://wa.me/966572236814?text=Hello%20I%20want%20to%20order" target="_blank">
-  <span class="wa-tooltip t" data-en="Chat on WhatsApp" data-ar="تحدث عبر واتساب">Chat on WhatsApp</span>
+  <span class="wa-tip t" data-en="Chat on WhatsApp" data-ar="تحدث عبر واتساب">Chat on WhatsApp</span>
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.553 4.105 1.522 5.83L.057 23.888a.5.5 0 00.605.63l6.202-1.625A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-4.997-1.369l-.358-.213-3.712.972.99-3.614-.234-.371A9.774 9.774 0 012.182 12C2.182 6.569 6.569 2.182 12 2.182S21.818 6.569 21.818 12 17.431 21.818 12 21.818z"/></svg>
 </a>
 
 <script>
-// ── PRODUCT DATA ──
-var PRODUCTS = {
-  laptop: [
-    {img:'BAG 1.jpeg', en:'Executive Laptop Bag',    ar:'حقيبة لابتوب تنفيذية',   sub_en:'Premium Genuine Leather',      sub_ar:'جلد طبيعي فاخر'},
-    {img:'Bag 2.jpeg', en:'Business Leather Bag',    ar:'حقيبة جلد للأعمال',      sub_en:'Luxury Office Collection',     sub_ar:'مجموعة مكتبية فاخرة'},
-    {img:'Bag 3.jpeg', en:'Classic Laptop Bag',      ar:'حقيبة لابتوب كلاسيكية',  sub_en:'Professional Leather Finish',  sub_ar:'تشطيب جلد احترافي'}
-  ],
-  handbags: [
-    {img:'Bag 4.jpeg',  en:'Luxury Leather Handbag',   ar:'حقيبة جلد فاخرة',         sub_en:'Elegant Premium Design',       sub_ar:'تصميم أنيق فاخر'},
-    {img:'Bag 5.jpeg',  en:'Vintage Leather Bag',       ar:'حقيبة جلد عتيقة',         sub_en:'Classic Handmade Collection',  sub_ar:'مجموعة يدوية كلاسيكية'},
-    {img:'Bag 6.jpeg',  en:'Modern Leather Tote',       ar:'حقيبة توت جلدية عصرية',   sub_en:'Premium Cowhide Leather',      sub_ar:'جلد بقر فاخر'},
-    {img:'Bag 7.jpeg',  en:'Designer Leather Bag',      ar:'حقيبة جلد مصممة',         sub_en:'Luxury Fashion Collection',    sub_ar:'مجموعة أزياء فاخرة'},
-    {img:'Bag 8.jpeg',  en:"Classic Women's Bag",       ar:'حقيبة نسائية كلاسيكية',   sub_en:'Elegant Leather Finish',       sub_ar:'تشطيب جلدي أنيق'},
-    {img:'Bag 9.jpeg',  en:'Premium Fashion Bag',       ar:'حقيبة أزياء فاخرة',       sub_en:'Original Genuine Leather',     sub_ar:'جلد طبيعي أصلي'},
-    {img:'Bag 10.jpeg', en:'Luxury Tote Collection',    ar:'مجموعة حقائب فاخرة',      sub_en:'Handcrafted Leather Product',  sub_ar:'منتج جلدي يدوي'}
-  ],
-  mens: [
-    {img:'Men 1.jpeg', en:"Classic Men's Jacket",    ar:'جاكيت رجالي كلاسيكي',   sub_en:'Premium Leather Collection',   sub_ar:'مجموعة جلد فاخرة'},
-    {img:'Men 2.jpeg', en:'Luxury Biker Jacket',     ar:'جاكيت بايكر فاخر',      sub_en:'Original Genuine Leather',     sub_ar:'جلد طبيعي أصلي'},
-    {img:'Men 3.jpeg', en:'Modern Leather Jacket',   ar:'جاكيت جلد عصري',        sub_en:'Professional Stylish Design',  sub_ar:'تصميم احترافي أنيق'},
-    {img:'Men 4.jpeg', en:'Executive Leather Jacket',ar:'جاكيت جلد تنفيذي',     sub_en:'Premium Quality Finish',       sub_ar:'تشطيب فاخر'},
-    {img:'Men 5.jpeg', en:'Luxury Winter Jacket',    ar:'جاكيت شتوي فاخر',       sub_en:'Elegant Leather Collection',   sub_ar:'مجموعة جلد أنيقة'},
-    {img:'Men 6.jpeg', en:'Premium Rider Jacket',    ar:'جاكيت راكب فاخر',       sub_en:'Handcrafted Genuine Leather',  sub_ar:'جلد طبيعي يدوي'}
-  ],
-  ladies: [
-    {img:'Women 1.jpeg', en:"Elegant Women's Jacket",   ar:'جاكيت نسائي أنيق',     sub_en:'Luxury Leather Design',        sub_ar:'تصميم جلد فاخر'},
-    {img:'Women 2.jpeg', en:'Premium Fashion Jacket',   ar:'جاكيت أزياء فاخر',     sub_en:'Modern Stylish Collection',    sub_ar:'مجموعة عصرية أنيقة'},
-    {img:'Women 3.jpeg', en:'Classic Leather Coat',     ar:'معطف جلد كلاسيكي',     sub_en:'Elegant Winter Fashion',       sub_ar:'أزياء شتوية أنيقة'},
-    {img:'Women 4.jpeg', en:"Luxury Women's Wear",      ar:'ملابس نسائية فاخرة',    sub_en:'Premium Leather Finish',       sub_ar:'تشطيب جلد فاخر'},
-    {img:'Women 5.jpeg', en:"Modern Women's Jacket",    ar:'جاكيت نسائي عصري',     sub_en:'Designer Leather Collection',  sub_ar:'مجموعة جلد مصممة'},
-    {img:'Women 6.jpeg', en:"Premium Ladies Collection",ar:'تشكيلة نسائية فاخرة',  sub_en:'Original Genuine Leather',     sub_ar:'جلد طبيعي أصلي'}
-  ]
+// ── PRODUCT DATA — each category is a "folder" of images ──
+var CATS = {
+  laptop: {
+    en:'Laptop Bags', ar:'حقائب اللابتوب',
+    items:[
+      {img:'BAG 1.jpeg', en:'Executive Laptop Bag',    ar:'حقيبة لابتوب تنفيذية',
+       gallery:['BAG 1.jpeg','Bag 2.jpeg','Bag 3.jpeg'], sub_en:'Premium Genuine Leather', sub_ar:'جلد طبيعي فاخر'},
+      {img:'Bag 2.jpeg', en:'Business Leather Bag',    ar:'حقيبة جلد للأعمال',
+       gallery:['Bag 2.jpeg','BAG 1.jpeg','Bag 3.jpeg'], sub_en:'Luxury Office Collection', sub_ar:'مجموعة مكتبية فاخرة'},
+      {img:'Bag 3.jpeg', en:'Classic Laptop Bag',      ar:'حقيبة لابتوب كلاسيكية',
+       gallery:['Bag 3.jpeg','BAG 1.jpeg','Bag 2.jpeg'], sub_en:'Professional Leather Finish', sub_ar:'تشطيب احترافي'}
+    ]
+  },
+  handbags: {
+    en:'Leather Handbags', ar:'حقائب جلدية',
+    items:[
+      {img:'Bag 4.jpeg',  en:'Luxury Leather Handbag',   ar:'حقيبة جلد فاخرة',
+       gallery:['Bag 4.jpeg','Bag 5.jpeg','Bag 6.jpeg','Bag 7.jpeg'], sub_en:'Elegant Premium Design', sub_ar:'تصميم أنيق'},
+      {img:'Bag 5.jpeg',  en:'Vintage Leather Bag',       ar:'حقيبة جلد كلاسيكية',
+       gallery:['Bag 5.jpeg','Bag 4.jpeg','Bag 6.jpeg','Bag 7.jpeg'], sub_en:'Classic Handmade', sub_ar:'يدوي كلاسيكي'},
+      {img:'Bag 6.jpeg',  en:'Modern Leather Tote',       ar:'حقيبة توت جلدية',
+       gallery:['Bag 6.jpeg','Bag 4.jpeg','Bag 5.jpeg','Bag 7.jpeg','Bag 8.jpeg'], sub_en:'Premium Cowhide', sub_ar:'جلد بقر فاخر'},
+      {img:'Bag 7.jpeg',  en:'Designer Leather Bag',      ar:'حقيبة مصممة',
+       gallery:['Bag 7.jpeg','Bag 4.jpeg','Bag 5.jpeg','Bag 6.jpeg','Bag 8.jpeg','Bag 9.jpeg'], sub_en:'Luxury Fashion', sub_ar:'أزياء فاخرة'},
+      {img:'Bag 8.jpeg',  en:"Classic Women's Bag",       ar:'حقيبة نسائية كلاسيكية',
+       gallery:['Bag 8.jpeg','Bag 7.jpeg','Bag 9.jpeg','Bag 10.jpeg'], sub_en:'Elegant Leather', sub_ar:'جلد أنيق'},
+      {img:'Bag 9.jpeg',  en:'Premium Fashion Bag',       ar:'حقيبة أزياء فاخرة',
+       gallery:['Bag 9.jpeg','Bag 8.jpeg','Bag 10.jpeg','Bag 7.jpeg'], sub_en:'Genuine Leather', sub_ar:'جلد طبيعي'},
+      {img:'Bag 10.jpeg', en:'Luxury Tote Collection',    ar:'مجموعة حقائب فاخرة',
+       gallery:['Bag 10.jpeg','Bag 9.jpeg','Bag 8.jpeg','Bag 7.jpeg'], sub_en:'Handcrafted', sub_ar:'يدوي'}
+    ]
+  },
+  mens: {
+    en:"Men's Jackets", ar:'جاكيتات رجالية',
+    items:[
+      {img:'Men 1.jpeg', en:"Classic Men's Jacket",    ar:'جاكيت رجالي كلاسيكي',
+       gallery:['Men 1.jpeg','Men 2.jpeg','Men 3.jpeg','Men 4.jpeg'], sub_en:'Premium Leather', sub_ar:'جلد فاخر'},
+      {img:'Men 2.jpeg', en:'Luxury Biker Jacket',     ar:'جاكيت بايكر فاخر',
+       gallery:['Men 2.jpeg','Men 1.jpeg','Men 3.jpeg','Men 4.jpeg'], sub_en:'Genuine Leather', sub_ar:'جلد طبيعي'},
+      {img:'Men 3.jpeg', en:'Modern Leather Jacket',   ar:'جاكيت جلد عصري',
+       gallery:['Men 3.jpeg','Men 1.jpeg','Men 2.jpeg','Men 4.jpeg','Men 5.jpeg'], sub_en:'Stylish Design', sub_ar:'تصميم أنيق'},
+      {img:'Men 4.jpeg', en:'Executive Leather Jacket',ar:'جاكيت تنفيذي',
+       gallery:['Men 4.jpeg','Men 1.jpeg','Men 2.jpeg','Men 3.jpeg','Men 5.jpeg','Men 6.jpeg'], sub_en:'Premium Quality', sub_ar:'جودة فاخرة'},
+      {img:'Men 5.jpeg', en:'Luxury Winter Jacket',    ar:'جاكيت شتوي فاخر',
+       gallery:['Men 5.jpeg','Men 4.jpeg','Men 6.jpeg','Men 3.jpeg'], sub_en:'Elegant Collection', sub_ar:'مجموعة أنيقة'},
+      {img:'Men 6.jpeg', en:'Premium Rider Jacket',    ar:'جاكيت راكب فاخر',
+       gallery:['Men 6.jpeg','Men 5.jpeg','Men 4.jpeg','Men 3.jpeg'], sub_en:'Handcrafted Leather', sub_ar:'جلد يدوي'}
+    ]
+  },
+  ladies: {
+    en:"Women's Collection", ar:'تشكيلة نسائية',
+    items:[
+      {img:'Women 1.jpeg', en:"Elegant Women's Jacket",   ar:'جاكيت نسائي أنيق',
+       gallery:['Women 1.jpeg','Women 2.jpeg','Women 3.jpeg','Women 4.jpeg'], sub_en:'Luxury Design', sub_ar:'تصميم فاخر'},
+      {img:'Women 2.jpeg', en:'Premium Fashion Jacket',   ar:'جاكيت أزياء فاخر',
+       gallery:['Women 2.jpeg','Women 1.jpeg','Women 3.jpeg','Women 4.jpeg'], sub_en:'Stylish Collection', sub_ar:'مجموعة أنيقة'},
+      {img:'Women 3.jpeg', en:'Classic Leather Coat',     ar:'معطف جلد كلاسيكي',
+       gallery:['Women 3.jpeg','Women 1.jpeg','Women 2.jpeg','Women 4.jpeg','Women 5.jpeg'], sub_en:'Elegant Winter', sub_ar:'شتاء أنيق'},
+      {img:'Women 4.jpeg', en:"Luxury Women's Wear",      ar:'ملابس نسائية فاخرة',
+       gallery:['Women 4.jpeg','Women 3.jpeg','Women 5.jpeg','Women 6.jpeg'], sub_en:'Premium Finish', sub_ar:'تشطيب فاخر'},
+      {img:'Women 5.jpeg', en:"Modern Women's Jacket",    ar:'جاكيت نسائي عصري',
+       gallery:['Women 5.jpeg','Women 4.jpeg','Women 6.jpeg','Women 3.jpeg'], sub_en:'Designer Leather', sub_ar:'جلد مصمم'},
+      {img:'Women 6.jpeg', en:"Premium Ladies Collection",ar:'تشكيلة نسائية فاخرة',
+       gallery:['Women 6.jpeg','Women 5.jpeg','Women 4.jpeg','Women 3.jpeg'], sub_en:'Genuine Leather', sub_ar:'جلد طبيعي'}
+    ]
+  }
 };
 
 var currentLang = 'en';
+var lbImages = [], lbIdx = 0, lbProductName = '';
 
-var WA_ICON = '<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.553 4.105 1.522 5.83L.057 23.888a.5.5 0 00.605.63l6.202-1.625A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-4.997-1.369l-.358-.213-3.712.972.99-3.614-.234-.371A9.774 9.774 0 012.182 12C2.182 6.569 6.569 2.182 12 2.182S21.818 6.569 21.818 12 17.431 21.818 12 21.818z"/></svg>';
-
-function buildGallery(id, items) {
-  var el = document.getElementById('gallery-' + id);
+// ── BUILD GALLERY ──
+function buildGallery(catKey) {
+  var cat = CATS[catKey];
+  var el = document.getElementById('g-' + catKey);
   if (!el) return;
   var html = '';
-  items.forEach(function(p) {
+  cat.items.forEach(function(p, i) {
     var name = currentLang === 'ar' ? p.ar : p.en;
     var sub  = currentLang === 'ar' ? p.sub_ar : p.sub_en;
-    var btn  = currentLang === 'ar' ? 'اطلب هذا المنتج' : 'Order This Item';
-    var view = currentLang === 'ar' ? '← عرض كامل' : 'View Full →';
-    var waMsg = encodeURIComponent('Hello, I want to order the ' + p.en);
-    html += '<div class="card fade-up">';
-    html += '<div class="card-img-wrap" onclick="openLB(\'' + p.img.replace(/'/g,"\\'") + '\',\'' + p.en.replace(/'/g,"\\'") + '\')">';
+    var view = currentLang === 'ar' ? '← عرض المجموعة' : 'View Collection';
+    html += '<div class="card fu" onclick="openLB(\'' + catKey + '\',' + i + ')">';
+    html += '<div class="card-img">';
     html += '<img src="' + p.img + '" alt="' + p.en + '" loading="lazy">';
-    html += '<div class="card-overlay"><span>' + view + '</span></div>';
+    html += '<div class="card-ov"><span class="card-ov-txt">' + view + '</span><span class="card-count">' + p.gallery.length + ' photos</span></div>';
     html += '</div>';
-    html += '<div class="card-body">';
-    html += '<h3>' + name + '</h3>';
-    html += '<p>' + sub + '</p>';
-    html += '<a class="card-order-btn" href="https://wa.me/966572236814?text=' + waMsg + '" target="_blank">' + WA_ICON + ' ' + btn + '</a>';
-    html += '</div></div>';
+    html += '<div class="card-body"><h3>' + name + '</h3><p>' + sub + '</p></div>';
+    html += '</div>';
   });
   el.innerHTML = html;
-  el.querySelectorAll('.fade-up').forEach(function(e){ observer.observe(e); });
+  el.querySelectorAll('.fu').forEach(function(e){ obs.observe(e); });
 }
 
 function buildAll() {
-  buildGallery('laptop',   PRODUCTS.laptop);
-  buildGallery('handbags', PRODUCTS.handbags);
-  buildGallery('mens',     PRODUCTS.mens);
-  buildGallery('ladies',   PRODUCTS.ladies);
+  ['laptop','handbags','mens','ladies'].forEach(buildGallery);
 }
+
+// ── LIGHTBOX ──
+function openLB(catKey, itemIdx) {
+  var cat = CATS[catKey];
+  var item = cat.items[itemIdx];
+  lbImages = item.gallery;
+  lbIdx = 0;
+  lbProductName = item.en;
+  document.getElementById('lb-title').textContent = currentLang === 'ar' ? item.ar : item.en;
+  document.getElementById('lb-meta').textContent = (currentLang === 'ar' ? cat.ar : cat.en) + ' · ' + lbImages.length + ' photos';
+  document.getElementById('lb-wa').href = 'https://wa.me/966572236814?text=' + encodeURIComponent('Hello, I want to order the ' + item.en);
+
+  // build thumbnails
+  var side = document.getElementById('lb-side');
+  side.innerHTML = '';
+  lbImages.forEach(function(img, i) {
+    var th = document.createElement('img');
+    th.src = img;
+    th.className = 'lb-thumb' + (i === 0 ? ' sel' : '');
+    th.onclick = function(e) { e.stopPropagation(); lbGoTo(i); };
+    side.appendChild(th);
+  });
+
+  setLbImg(0);
+  document.getElementById('lb').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function setLbImg(idx) {
+  lbIdx = idx;
+  var imgEl = document.getElementById('lb-img');
+  imgEl.classList.add('fading');
+  setTimeout(function() {
+    imgEl.src = lbImages[idx];
+    imgEl.classList.remove('fading');
+  }, 220);
+  // update thumbs
+  document.querySelectorAll('.lb-thumb').forEach(function(t, i) {
+    t.classList.toggle('sel', i === idx);
+  });
+}
+
+function lbGoTo(idx) {
+  if (idx < 0) idx = lbImages.length - 1;
+  if (idx >= lbImages.length) idx = 0;
+  setLbImg(idx);
+}
+
+function lbNav(dir) { lbGoTo(lbIdx + dir); }
+
+function closeLB() {
+  document.getElementById('lb').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (!document.getElementById('lb').classList.contains('open')) return;
+  if (e.key === 'Escape') closeLB();
+  if (e.key === 'ArrowRight') lbNav(1);
+  if (e.key === 'ArrowLeft') lbNav(-1);
+});
+
+// close on background click
+document.getElementById('lb-main').addEventListener('click', function(e) {
+  if (e.target === this) closeLB();
+});
 
 // ── LANGUAGE ──
 function setLang(lang) {
@@ -479,57 +673,75 @@ function setLang(lang) {
   document.body.classList.toggle('ar', lang === 'ar');
   document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
   document.querySelectorAll('.t').forEach(function(el) {
-    var val = el.getAttribute('data-' + lang);
-    if (val) el.textContent = val;
+    var v = el.getAttribute('data-' + lang);
+    if (v) el.textContent = v;
   });
-  document.querySelectorAll('.lang-btn').forEach(function(b) {
-    b.classList.toggle('active', (lang === 'en' && b.textContent === 'EN') || (lang === 'ar' && b.textContent === 'عربي'));
+  document.querySelectorAll('.lb').forEach(function(b) {
+    b.classList.toggle('on', (lang==='en' && b.textContent==='EN')||(lang==='ar' && b.textContent==='عربي'));
   });
   buildAll();
 }
 
-// ── LIGHTBOX ──
-function openLB(src, caption) {
-  document.getElementById('lb-img').src = src;
-  document.getElementById('lb-caption').textContent = caption;
-  document.getElementById('lightbox').classList.add('open');
-  document.body.style.overflow = 'hidden';
+// ── INQUIRY FORM ──
+function submitForm() {
+  var name    = document.getElementById('f-name').value.trim();
+  var company = document.getElementById('f-company').value.trim();
+  var email   = document.getElementById('f-email').value.trim();
+  var phone   = document.getElementById('f-phone').value.trim();
+  var product = document.getElementById('f-product').value;
+  var qty     = document.getElementById('f-qty').value;
+  var msg     = document.getElementById('f-msg').value.trim();
+
+  if (!name || !email || !product) {
+    var fm = document.getElementById('form-msg');
+    fm.textContent = '⚠ Please fill in your name, email and product category.';
+    fm.style.color = '#e07';
+    fm.classList.add('show');
+    return;
+  }
+
+  var text = 'New Inquiry from WL Leather Website\n\n'
+    + 'Name: ' + name + '\n'
+    + (company ? 'Company: ' + company + '\n' : '')
+    + 'Email: ' + email + '\n'
+    + (phone ? 'Phone: ' + phone + '\n' : '')
+    + 'Product: ' + product + '\n'
+    + (qty ? 'Quantity: ' + qty + '\n' : '')
+    + (msg ? '\nMessage: ' + msg : '');
+
+  window.open('https://wa.me/966572236814?text=' + encodeURIComponent(text), '_blank');
+
+  var fm = document.getElementById('form-msg');
+  fm.textContent = '✓ Opening WhatsApp with your inquiry...';
+  fm.style.color = 'var(--gold-l)';
+  fm.classList.add('show');
 }
-function closeLB() {
-  document.getElementById('lightbox').classList.remove('open');
-  document.body.style.overflow = '';
-}
-document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLB(); });
 
 // ── SIDEBAR ──
-function openMenu() { document.getElementById('sidebar').style.width = '270px'; }
+function openMenu() { document.getElementById('sidebar').style.width = '260px'; }
 function closeMenu() { document.getElementById('sidebar').style.width = '0'; }
 
 // ── SCROLL PROGRESS ──
 window.addEventListener('scroll', function() {
-  var s = window.scrollY;
-  var h = document.documentElement.scrollHeight - window.innerHeight;
-  document.getElementById('progress-bar').style.width = (h > 0 ? (s / h * 100) : 0) + '%';
+  var s = window.scrollY, h = document.documentElement.scrollHeight - window.innerHeight;
+  document.getElementById('prog').style.width = (h > 0 ? s/h*100 : 0) + '%';
 });
 
-// ── FADE UP OBSERVER ──
-var observer = new IntersectionObserver(function(entries) {
-  entries.forEach(function(entry, i) {
-    if (entry.isIntersecting) {
-      setTimeout(function(){ entry.target.classList.add('visible'); }, i * 55);
-      observer.unobserve(entry.target);
+// ── FADE OBSERVER ──
+var obs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(en, i) {
+    if (en.isIntersecting) {
+      setTimeout(function(){ en.target.classList.add('vis'); }, i * 50);
+      obs.unobserve(en.target);
     }
   });
-}, { threshold: 0.1 });
-document.querySelectorAll('.fade-up').forEach(function(el){ observer.observe(el); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.fu').forEach(function(el){ obs.observe(el); });
 
-// ── BUILD GALLERIES ──
+// ── BUILD & LOADER ──
 buildAll();
-
-// ── LOADER — always hides after 1.4s regardless ──
 setTimeout(function() {
-  var loader = document.getElementById('loader');
-  loader.classList.add('hidden');
+  document.getElementById('loader').classList.add('gone');
 }, 1400);
 </script>
 </body>
