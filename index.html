@@ -29,10 +29,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+<!-- EmailJS for real email sending -->
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <style>
 /* ══════════════════════════════════════════
-   DARK / LIGHT MODE VARIABLES 
+   DARK / LIGHT MODE VARIABLES  ← NEW
 ══════════════════════════════════════════ */
 :root{
   --gold:#b8914a;--gold-l:#d4a85c;--gold-xl:#e6c177;
@@ -72,41 +73,42 @@
   --fi-bg:rgba(255,255,255,.03);
   --mob-nav-bg:rgba(14,12,10,.98);
 }
-/* LIGHT MODE */
+/* LIGHT MODE ← NEW */
 [data-theme="light"]{
-  --dark:#f7f3eb;
-  --dark2:#ffffff;
-  --dark3:#f1ece3;
-  --dark4:#e7dfd2;
+ --dark:#f7f3eb;
+--dark2:#ffffff;
+--dark3:#f1ece3;
+--dark4:#e7dfd2;
 
-  --cream:#111111;
-  --cream2:#333333;
-  --muted:#666666;
-  --white:#111111;
+--cream:#111111;
+--cream2:#333333;
+--muted:#666666;
+--white:#111111;
 
-  --bg-body:#f7f3eb;
-  --topbar-bg:rgba(255,255,255,.96);
+--bg-body:#f7f3eb;
+--topbar-bg:rgba(255,255,255,.96);
 
-  --hero-ov1:rgba(255,255,255,.72);
-  --hero-ov2:rgba(255,255,255,.55);
-  --hero-ov3:rgba(255,255,255,.20);
-  --hero-ov4:rgba(255,255,255,.08);
+--hero-ov1:rgba(255,255,255,.72);
+--hero-ov2:rgba(255,255,255,.55);
+--hero-ov3:rgba(255,255,255,.20);
+--hero-ov4:rgba(255,255,255,.08);
 
-  --statsbar-bg:#efe7d8;
-  --feats-bg:#ffffff;
-  --section-bg:#f7f3eb;
-  --pkg-bg:#ffffff;
+--statsbar-bg:#efe7d8;
+--feats-bg:#ffffff;
+--section-bg:#f7f3eb;
+--pkg-bg:#ffffff;
 
-  --rev-bg:#ffffff;
-  --rev-card-bg:#f9f5ee;
-  --rev-text:#222;
+--rev-bg:#ffffff;
+--rev-card-bg:#f9f5ee;
+--rev-text:#222;
 
-  --mob-nav-bg:rgba(255,255,255,.98);
+--mob-nav-bg:rgba(255,255,255,.98);
 
-  --shadow-sm:0 2px 8px rgba(0,0,0,.06);
-  --shadow-md:0 8px 30px rgba(0,0,0,.10);
-  --shadow-lg:0 20px 50px rgba(0,0,0,.12);
-  --shadow-xl:0 30px 70px rgba(0,0,0,.16);
+--shadow-sm:0 2px 8px rgba(0,0,0,.06);
+--shadow-md:0 8px 30px rgba(0,0,0,.10);
+--shadow-lg:0 20px 50px rgba(0,0,0,.12);
+--shadow-xl:0 30px 70px rgba(0,0,0,.16);
+
 }
 
 /* ── APPLY VARIABLES TO ORIGINAL SELECTORS ── */
@@ -171,7 +173,7 @@ nav.tnav{display:flex;gap:4px;list-style:none;}
 body.ar .user-dropdown{right:auto;left:0;}
 body.ar .user-dd-item{text-align:right;}
 
-/* ═══ DARK/LIGHT TOGGLE BUTTON ═══ */
+/* ═══ DARK/LIGHT TOGGLE BUTTON ← NEW ═══ */
 .theme-toggle{position:fixed;bottom:92px;left:26px;z-index:7998;display:flex;align-items:center;gap:8px;padding:8px 14px;background:var(--dark2);border:1px solid rgba(184,145,74,.3);border-radius:50px;cursor:pointer;font-size:11px;font-weight:500;letter-spacing:.08em;color:var(--gold);font-family:'Jost',sans-serif;transition:all .3s;box-shadow:0 4px 16px rgba(0,0,0,.2);}
 .theme-toggle:hover{border-color:var(--gold);background:rgba(184,145,74,.1);transform:translateY(-2px);}
 .theme-toggle .tt-icon{font-size:15px;line-height:1;}
@@ -309,10 +311,8 @@ body.ar .mob-nav a:hover{transform:translateX(-6px);}
 .hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4.2vw,58px);font-weight:300;color:var(--white);line-height:1.08;margin-bottom:14px;}
 .hero h1 em{font-style:italic;color:var(--gold-l);display:block;}
 .hero-sub{font-size:13px;color:var(--cream2);margin-bottom:13px;font-weight:300;line-height:1.8;max-width:400px;opacity: 0.7;}
-[data-theme="light"] .hero-sub { color: #222222; }
 .hero-pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px;}
 .hpill{font-size:10px;letter-spacing:.08em;color:var(--cream2);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);padding:4px 12px;border-radius:20px;transition:all .2s;}
-[data-theme="light"] .hpill { background: rgba(0,0,0,.04); border-color: rgba(0,0,0,.08); color: #333; }
 .hpill:hover{border-color:rgba(184,145,74,.3);color:var(--gold-l);}
 .hero-btns{display:flex;gap:10px;flex-wrap:wrap;}
 .btn-wa{display:inline-flex;align-items:center;gap:9px;padding:13px 28px;background:var(--success);color:white;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;border-radius:4px;position:relative;overflow:hidden;transition:all .3s;}
@@ -377,6 +377,7 @@ h2.st{font-family:'Cormorant Garamond',serif;text-align:center;font-size:clamp(2
 </head>
 <body>
 
+<!-- loader — untouched -->
 <div id="loader">
   <div class="ld-name">WL LEATHER</div>
   <div class="ld-bar"><div class="ld-fill"></div></div>
@@ -385,6 +386,7 @@ h2.st{font-family:'Cormorant Garamond',serif;text-align:center;font-size:clamp(2
 
 <div id="prog"></div>
 
+<!-- TOPBAR -->
 <header class="topbar">
   <div class="logo">
     <img src="logo.png" alt="WL Leather Logo">
@@ -402,6 +404,7 @@ h2.st{font-family:'Cormorant Garamond',serif;text-align:center;font-size:clamp(2
   </div>
 </header>
 
+<!-- HERO SECTION -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-ov"></div>
@@ -418,9 +421,17 @@ h2.st{font-family:'Cormorant Garamond',serif;text-align:center;font-size:clamp(2
       <a href="#" class="btn-wa">Contact WhatsApp</a>
       <a href="#" class="btn-ghost">View Collection</a>
     </div>
+    <button class="theme-toggle" id="pageThemeBtn">
+      <span class="tt-icon">🌓</span>
+      <span class="tt-text">Mode</span>
+      <div class="tt-track">
+        <div class="tt-thumb"></div>
+      </div>
+    </button>
   </div>
 </section>
 
+<!-- STATS BAR -->
 <div class="statsbar">
   <div class="stat">
     <div class="stat-n">50+</div>
@@ -436,6 +447,7 @@ h2.st{font-family:'Cormorant Garamond',serif;text-align:center;font-size:clamp(2
   </div>
 </div>
 
+<!-- FEATURES SECTION -->
 <div class="feats">
   <div class="feats-grid">
     <div class="feat">
@@ -451,6 +463,7 @@ h2.st{font-family:'Cormorant Garamond',serif;text-align:center;font-size:clamp(2
   </div>
 </div>
 
+<!-- CATEGORIES SECTION -->
 <section>
   <div class="slabel">Our Specialties</div>
   <h2 class="st">Product Categories</h2>
@@ -467,38 +480,30 @@ h2.st{font-family:'Cormorant Garamond',serif;text-align:center;font-size:clamp(2
   </div>
 </section>
 
-<button class="theme-toggle" id="themeBtn">
-  <span class="tt-icon">🌓</span>
-  <span class="tt-text">Mode</span>
-  <div class="tt-track">
-    <div class="tt-thumb"></div>
-  </div>
-</button>
-
+<!-- TOGGLE FUNCTIONALITY SCRIPT -->
 <script>
-// Wait for DOM to load
 document.addEventListener("DOMContentLoaded", function() {
-  // Hide loader smoothly
+  // Loader handling
   setTimeout(() => {
     const loader = document.getElementById('loader');
     if(loader) loader.classList.add('gone');
-  }, 1000);
+  }, 800);
 
-  // Theme Toggle Logic
-  const themeBtn = document.getElementById('themeBtn');
-  const htmlEl = document.documentElement;
+  // Selection target elements
+  const themeToggleBtn = document.getElementById('pageThemeBtn');
+  const rootNode = document.documentElement;
 
-  // Read saved theme preference or default to dark
-  const currentTheme = localStorage.getItem('theme') || 'dark';
-  htmlEl.setAttribute('data-theme', currentTheme);
+  // Load active setup status or fallback default
+  const initialTheme = localStorage.getItem('site-theme') || 'dark';
+  rootNode.setAttribute('data-theme', initialTheme);
 
-  if(themeBtn) {
-    themeBtn.addEventListener('click', function() {
-      let activeTheme = htmlEl.getAttribute('data-theme');
-      let newTheme = (activeTheme === 'dark') ? 'light' : 'dark';
+  if(themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', function() {
+      const currentTheme = rootNode.getAttribute('data-theme');
+      const targetsTheme = (currentTheme === 'dark') ? 'light' : 'dark';
       
-      htmlEl.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
+      rootNode.setAttribute('data-theme', targetsTheme);
+      localStorage.setItem('site-theme', targetsTheme);
     });
   }
 });
