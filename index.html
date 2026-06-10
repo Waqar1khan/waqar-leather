@@ -686,6 +686,22 @@ textarea.fb-input{resize:vertical;min-height:90px;}
   /* Home button always visible on mobile */
   .page-home{display:flex!important;}
   .page-wa{padding:8px 14px;font-size:10px;}
+.tnav{
+overflow-x:auto;
+white-space:nowrap;
+display:flex !important;
+gap:14px;
+padding-bottom:6px;
+scrollbar-width:none;
+}
+
+.tnav::-webkit-scrollbar{
+display:none;
+}
+
+.tnav a{
+flex-shrink:0;
+font-size:11px;
 }
 @media(max-width:620px){
   .form-row{grid-template-columns:1fr;}
