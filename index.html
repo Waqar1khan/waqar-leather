@@ -3029,6 +3029,12 @@ fbUpdateStats();fbRenderList();
 <script type="module">
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDHk-ctZ_r9U5-sQC5eKlyzhHmhIy17ZP4",
@@ -3040,8 +3046,35 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 
 console.log("Firebase Connected");
+
+window.doSignUp = async function () {
+
+  const email = document.getElementById('suEmail').value;
+  const password = document.getElementById('suPw').value;
+
+  try {
+    await createUserWithEmailAndPassword(auth, email, password);
+    alert("Account created successfully");
+  } catch (error) {
+    alert(error.message);
+  }
+}
+
+window.doSignIn = async function () {
+
+  const email = document.getElementById('siEmail').value;
+  const password = document.getElementById('siPw').value;
+
+  try {
+    await signInWithEmailAndPassword(auth, email, password);
+    alert("Login successful");
+  } catch (error) {
+    alert(error.message);
+  }
+}
 
 </script>
 </body>
