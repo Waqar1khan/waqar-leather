@@ -3022,3 +3022,21 @@ fbUpdateStats();fbRenderList();
         <button class="auth-submit" onclick="doSignIn()">Sign In</button>
         <div class="auth-modal-msg" id="siMsg"></div>
         <div class="auth-or"><span
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDHk-ctZ_r9U5-sQC5eKlyzhHmhIy17ZP4",
+  authDomain: "wl-leather.firebaseapp.com",
+  projectId: "wl-leather",
+  storageBucket: "wl-leather.appspot.com",
+  messagingSenderId: "987598069350",
+  appId: "1:987598069350:web:76ab0714fc6fb2c04a97a7"
+};
+
+const app = initializeApp(firebaseConfig);
+
+console.log("Firebase Connected");
+
+</script>
