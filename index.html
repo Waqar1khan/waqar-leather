@@ -3026,6 +3026,31 @@ fbUpdateStats();fbRenderList();
         <button class="auth-submit" onclick="doSignIn()">Sign In</button>
         <div class="auth-modal-msg" id="siMsg"></div>
         <div class="auth-or"><span
+
+<div class="auth-panel" data-panel="signup">
+  <div id="signupForm">
+
+    <div class="auth-field">
+      <label>Email Address</label>
+      <input class="auth-input" id="suEmail" type="email" placeholder="you@example.com">
+    </div>
+
+    <div class="auth-field">
+      <label>Password</label>
+      <div class="auth-pw-wrap">
+        <input class="auth-input" id="suPw" type="password" placeholder="Create password">
+      </div>
+    </div>
+
+    <button class="auth-submit" onclick="doSignUp()">
+      Create Account
+    </button>
+
+    <div class="auth-modal-msg" id="suMsg"></div>
+
+  </div>
+</div>                                
+                                
 <script type="module">
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
