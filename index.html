@@ -1323,8 +1323,12 @@ function renderOrderHistory(){var orders=authLoad('wl_orders_'+(currentUser?curr
 var _origSubmit=submitForm;submitForm=function(){_origSubmit();if(currentUser){var pr=document.getElementById('fpr').value;var fq=document.getElementById('fq').value;if(pr){var orders=authLoad('wl_orders_'+currentUser.email)||[];orders.unshift({product:pr,qty:fq||'—',date:new Date().toISOString()});authStore('wl_orders_'+currentUser.email,orders);}}};
 var _origBuild=buildPage;buildPage=function(cat,filter){_origBuild(cat,filter);var el=document.getElementById('pg-'+cat);if(!el)return;var c=CATS[cat];var items=filter&&filter!=='all'?c.items.filter(function(p){return p.tags&&p.tags.indexOf(filter)>-1;}):c.items;el.querySelectorAll('.pcard').forEach(function(card,i){var p=items[i];if(!p)return;var imgWrap=card.querySelector('.pcard-img');if(!imgWrap||imgWrap.querySelector('.pcard-wish'))return;var btn=document.createElement('button');btn.className='pcard-wish'+(isWishlisted(p.en)?' saved':'');btn.dataset.name=p.en;btn.title='Save to Wishlist';btn.innerHTML='<svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>';btn.onclick=function(e){e.stopPropagation();addToWishlist(p.img,p.en);};imgWrap.style.position='relative';imgWrap.appendChild(btn);});};
 function deleteAccount(){if(!currentUser)return;var users=getUsers();delete users[currentUser.email];saveUsers(users);authStore('wl_session',null);authStore('wl_wish_'+currentUser.email,null);authStore('wl_orders_'+currentUser.email,null);updateUILoggedOut();closeProfile();showNotif('Your account has been deleted.','err');}
-document.getElementById('authOverlay').addEventListener('click',function(e){if(e.target===this)closeAuth();});
-document.getElementById('profileOverlay').addEventListener('click',function(e){if(e.target===this)closeProfile();});
+const profileOverlay = document.getElementById('profileOverlay');
+if (profileOverlay) {
+  profileOverlay.addEventListener('click', function(e){
+    if(e.target===this) closeProfile();
+  });
+}
 document.addEventListener('keydown',function(e){if(e.key==='Enter'){var ao=document.getElementById('authOverlay');if(ao.classList.contains('open')){var activePanel=document.querySelector('.auth-panel.on');if(activePanel&&activePanel.dataset.panel==='signin')doSignIn();if(activePanel&&activePanel.dataset.panel==='signup')doSignUp();}}});
 
 // ══════════════════════════════════════
